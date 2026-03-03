@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Send, Plus, Bot, User, Loader2, RefreshCw } from "lucide-react";
@@ -74,7 +74,7 @@ export function ChatPanel() {
       }
       setError(null);
     } catch (err) {
-      setError("Failed to load chat history");
+      setError("加载聊天记录失败");
       console.error(err);
     } finally {
       setLoading(false);
@@ -120,12 +120,12 @@ export function ChatPanel() {
       if (data.reply) {
         setMessages((prev) => [...prev, data.reply]);
       } else if (data.timeout) {
-        setError("Agent is still processing. Refresh to check for updates.");
+        setError("代理仍在处理中，刷新查看最新状态。");
       }
 
       await fetchHistory();
     } catch (err) {
-      setError("Failed to send message");
+      setError("发送消息失败");
       console.error(err);
     } finally {
       setSending(false);
@@ -170,9 +170,9 @@ export function ChatPanel() {
             <Bot className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold tracking-tight">Agent Chat</h2>
+            <h2 className="text-lg font-semibold tracking-tight">代理聊天</h2>
             <p className="text-xs text-muted-foreground">
-              Direct conversation with your AI agent
+              与 AI 代理直接对话
             </p>
           </div>
         </div>
@@ -180,7 +180,7 @@ export function ChatPanel() {
           <button
             onClick={fetchHistory}
             className="p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all"
-            title="Refresh"
+            title="刷新"
           >
             <RefreshCw className="w-4 h-4" />
           </button>
@@ -189,7 +189,7 @@ export function ChatPanel() {
             className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-primary hover:bg-primary/5 border border-border transition-all"
           >
             <Plus className="w-4 h-4" />
-            New Session
+            新会话
           </button>
         </div>
       </div>
@@ -203,7 +203,7 @@ export function ChatPanel() {
         {loading && messages.length === 0 && (
           <div className="flex items-center justify-center h-full text-muted-foreground">
             <Loader2 className="w-5 h-5 animate-spin mr-2" />
-            Loading conversation…
+            加载会话中…
           </div>
         )}
 
@@ -213,11 +213,11 @@ export function ChatPanel() {
               <Bot className="w-8 h-8 text-primary/60" />
             </div>
             <h3 className="text-lg font-medium text-foreground mb-1">
-              Start a conversation
+              开始对话
             </h3>
             <p className="text-sm text-muted-foreground max-w-md">
               Chat directly with your agent. Ask questions, give instructions, or
-              just say hello.
+              打个招呼也行。
             </p>
           </div>
         )}
@@ -262,7 +262,7 @@ export function ChatPanel() {
                 <div className="text-sm whitespace-pre-wrap break-words leading-relaxed">
                   {text || (
                     <span className="text-muted-foreground italic">
-                      (empty response)
+                      （空回复）
                     </span>
                   )}
                 </div>
@@ -291,7 +291,7 @@ export function ChatPanel() {
             <div className="bg-card border border-border rounded-2xl rounded-tl-md px-4 py-3">
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                Agent is thinking…
+                代理思考中…
               </div>
             </div>
           </div>
@@ -315,7 +315,7 @@ export function ChatPanel() {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
-            placeholder="Type a message…"
+            placeholder="输入消息…"
             rows={1}
             disabled={sending}
             className="flex-1 bg-transparent text-sm text-foreground placeholder:text-muted-foreground resize-none outline-none max-h-32 py-1.5 disabled:opacity-50"
@@ -330,9 +330,11 @@ export function ChatPanel() {
           </button>
         </div>
         <p className="text-[10px] text-muted-foreground mt-1.5 text-center">
-          Press Enter to send · Shift+Enter for new line
+          回车发送 · Shift+回车换行
         </p>
       </div>
     </div>
   );
 }
+
+
