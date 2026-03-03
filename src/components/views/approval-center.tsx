@@ -124,9 +124,9 @@ export function ApprovalCenter() {
               <Shield className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h2 className="text-xl font-bold">Command Approvals</h2>
+              <h2 className="text-xl font-bold">命令审批</h2>
               <p className="text-sm text-muted-foreground">
-                Review and approve commands your AI agents want to run
+                审核并批准 AI 代理请求执行的命令
               </p>
             </div>
           </div>
@@ -134,12 +134,12 @@ export function ApprovalCenter() {
             {pendingCount > 0 && (
               <Badge className="gap-1.5 px-3 py-1 bg-yellow-500/10 text-yellow-500 border-yellow-500/20">
                 <AlertTriangle className="w-3.5 h-3.5" />
-                {pendingCount} Pending
+                {pendingCount} 待处理
               </Badge>
             )}
             <Button variant="outline" size="sm" onClick={fetchApprovals} className="gap-1.5">
               <RefreshCw className={`w-3.5 h-3.5 ${loading ? "animate-spin" : ""}`} />
-              Refresh
+刷新
             </Button>
           </div>
         </div>
@@ -154,10 +154,10 @@ export function ApprovalCenter() {
         ) : pendingCount > 0 ? (
           <div className="space-y-4 mb-8">
             <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground">
-              Pending Approvals
+待审批命令
             </h3>
             {approvals.map((req) => {
-              const cmd = req.command || req.cmd || "Unknown command";
+              const cmd = req.command || req.cmd || "未知命令";
               const risk = getRiskLevel(cmd);
               const RiskIcon = risk.icon;
               return (
@@ -169,24 +169,24 @@ export function ApprovalCenter() {
                     <div className="flex items-center gap-2.5">
                       <Bot className="w-4 h-4 text-primary" />
                       <span className="text-sm font-medium">
-                        Agent: {req.agentId || req.agent || "main"}
+                        代理：{req.agentId || req.agent || "main"}
                       </span>
                       <Badge variant="outline" className={`text-[10px] ${risk.color}`}>
                         <RiskIcon className="w-3 h-3 mr-1" />
-                        {risk.level} RISK
+{risk.level} 风险
                       </Badge>
                     </div>
                     <span className="text-xs text-muted-foreground flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {req.timestamp || req.createdAt
                         ? timeAgo(req.timestamp || req.createdAt!)
-                        : "just now"}
+                        : "刚刚"}
                     </span>
                   </div>
 
                   {/* Command display */}
                   <div className="mb-3">
-                    <span className="text-xs text-muted-foreground block mb-1.5">Command:</span>
+                    <span className="text-xs text-muted-foreground block mb-1.5">命令：</span>
                     <pre className="bg-muted/50 rounded border border-border px-4 py-3 text-sm font-mono overflow-x-auto">
                       {cmd}
                     </pre>
@@ -195,7 +195,7 @@ export function ApprovalCenter() {
                   {req.cwd && (
                     <div className="mb-4 text-xs text-muted-foreground flex items-center gap-1.5">
                       <Terminal className="w-3.5 h-3.5" />
-                      Working directory: <span className="font-mono">{req.cwd}</span>
+                      工作目录：<span className="font-mono">{req.cwd}</span>
                     </div>
                   )}
 
@@ -213,7 +213,7 @@ export function ApprovalCenter() {
                       ) : (
                         <CheckCircle2 className="w-4 h-4" />
                       )}
-                      Approve
+批准
                     </Button>
                     <Button
                       variant="outline"
@@ -224,7 +224,7 @@ export function ApprovalCenter() {
                       className="gap-1.5 text-red-400 border-red-400/20 hover:bg-red-400/10"
                     >
                       <XCircle className="w-4 h-4" />
-                      Reject
+拒绝
                     </Button>
                   </div>
                 </div>
@@ -234,9 +234,9 @@ export function ApprovalCenter() {
         ) : (
           <div className="text-center py-16">
             <ShieldCheck className="w-14 h-14 mx-auto mb-3 text-green-500 opacity-40" />
-            <p className="text-lg font-medium mb-1">All Clear</p>
+            <p className="text-lg font-medium mb-1">全部已处理</p>
             <p className="text-sm text-muted-foreground">
-              No commands waiting for your approval
+当前没有等待你审批的命令
             </p>
           </div>
         )}
@@ -245,11 +245,11 @@ export function ApprovalCenter() {
         {history.length > 0 && (
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-3">
-              History
+历史记录
             </h3>
             <div className="space-y-1.5">
               {history.slice(0, 20).map((req, i) => {
-                const cmd = req.command || req.cmd || "Unknown";
+                const cmd = req.command || req.cmd || "未知";
                 const approved = req.decision === "approve";
                 return (
                   <div
@@ -287,13 +287,13 @@ export function ApprovalCenter() {
           <DialogHeader>
             <DialogTitle>
               {confirmDialog?.decision === "approve"
-                ? "Approve this command?"
-                : "Reject this command?"}
+                ? "确认批准这条命令？"
+                : "确认拒绝这条命令？"}
             </DialogTitle>
             <DialogDescription>
               {confirmDialog?.decision === "approve"
-                ? "This will allow the AI agent to execute the command."
-                : "This will block the AI agent from running the command."}
+                ? "批准后，AI 代理将执行该命令。"
+                : "拒绝后，AI 代理将无法执行该命令。"}
             </DialogDescription>
           </DialogHeader>
           <pre className="bg-muted/50 rounded border border-border px-4 py-3 text-sm font-mono overflow-x-auto">
@@ -301,7 +301,7 @@ export function ApprovalCenter() {
           </pre>
           <DialogFooter>
             <Button variant="outline" onClick={() => setConfirmDialog(null)}>
-              Cancel
+取消
             </Button>
             <Button
               onClick={() =>
@@ -314,7 +314,7 @@ export function ApprovalCenter() {
                   : "bg-red-500 hover:bg-red-600"
               }
             >
-              {confirmDialog?.decision === "approve" ? "Yes, Approve" : "Yes, Reject"}
+              {confirmDialog?.decision === "approve" ? "确认批准" : "确认拒绝"}
             </Button>
           </DialogFooter>
         </DialogContent>
