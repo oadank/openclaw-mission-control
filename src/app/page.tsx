@@ -109,11 +109,11 @@ interface GatewayStatus {
 type ColumnId = "inbox" | "assigned" | "in_progress" | "review" | "done";
 
 const COLUMNS: { id: ColumnId; label: string }[] = [
-  { id: "inbox", label: "INBOX" },
-  { id: "assigned", label: "ASSIGNED" },
-  { id: "in_progress", label: "IN PROGRESS" },
-  { id: "review", label: "REVIEW" },
-  { id: "done", label: "DONE" },
+  { id: "inbox", label: "待处理" },
+  { id: "assigned", label: "已分配" },
+  { id: "in_progress", label: "进行中" },
+  { id: "review", label: "待审核" },
+  { id: "done", label: "已完成" },
 ];
 
 // --- Helpers ---
@@ -376,15 +376,15 @@ export default function Dashboard() {
   const getColumnTasks = (status: string) => tasks.filter((t) => t.status === status);
 
   const NAV_ITEMS = [
-    { id: "board" as const, icon: LayoutDashboard, label: "Dashboard" },
-    { id: "chat" as const, icon: MessageSquare, label: "Chat" },
-    { id: "agents" as const, icon: Bot, label: "Agents" },
-    { id: "missions" as const, icon: Rocket, label: "Missions" },
-    { id: "tools" as const, icon: Wrench, label: "Tools" },
-    { id: "usage" as const, icon: DollarSign, label: "Usage" },
-    { id: "approvals" as const, icon: Shield, label: "Approvals" },
-    { id: "cron" as const, icon: Clock, label: "Schedules" },
-    { id: "logs" as const, icon: FileText, label: "Logs" },
+    { id: "board" as const, icon: LayoutDashboard, label: "看板" },
+    { id: "chat" as const, icon: MessageSquare, label: "聊天" },
+    { id: "agents" as const, icon: Bot, label: "代理" },
+    { id: "missions" as const, icon: Rocket, label: "任务集" },
+    { id: "tools" as const, icon: Wrench, label: "工具" },
+    { id: "usage" as const, icon: DollarSign, label: "用量" },
+    { id: "approvals" as const, icon: Shield, label: "审批" },
+    { id: "cron" as const, icon: Clock, label: "计划任务" },
+    { id: "logs" as const, icon: FileText, label: "日志" },
   ];
 
   return (
@@ -450,7 +450,7 @@ export default function Dashboard() {
               </button>
             </TooltipTrigger>
             <TooltipContent side="right">
-              <p>Settings</p>
+              <p>设置</p>
             </TooltipContent>
           </Tooltip>
           <div className="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-xs font-bold text-primary border border-primary/30">
@@ -469,7 +469,7 @@ export default function Dashboard() {
           <div className="flex items-center gap-4">
             <h1 className="text-lg font-bold tracking-wider uppercase flex items-center gap-2">
               <span className="text-primary font-mono text-xl">{"//"}</span>
-              Mission Control
+              任务中控
             </h1>
             <Separator orientation="vertical" className="h-6" />
             <div className="flex items-center gap-2 text-xs font-mono text-primary">
@@ -479,7 +479,7 @@ export default function Dashboard() {
                 )}
                 <span className={`relative inline-flex rounded-full h-2 w-2 ${gatewayStatus.connected ? "bg-primary" : "bg-destructive"}`} />
               </span>
-              {gatewayStatus.connected ? "SYSTEM ONLINE" : "OFFLINE"}
+              {gatewayStatus.connected ? "系统在线" : "离线"}
             </div>
           </div>
 
@@ -497,11 +497,11 @@ export default function Dashboard() {
             {/* Stats */}
             <div className="flex items-center gap-4">
               <div className="flex flex-col items-end leading-none gap-1">
-                <span className="text-muted-foreground text-[10px] uppercase">Agents</span>
+                <span className="text-muted-foreground text-[10px] uppercase">代理</span>
                 <span className="font-bold">{gatewayStatus.agentCount}</span>
               </div>
               <div className="flex flex-col items-end leading-none gap-1">
-                <span className="text-muted-foreground text-[10px] uppercase">Tasks</span>
+                <span className="text-muted-foreground text-[10px] uppercase">任务</span>
                 <span className="text-primary font-bold">{tasks.length}</span>
               </div>
             </div>
@@ -521,7 +521,7 @@ export default function Dashboard() {
                 </button>
               </TooltipTrigger>
               <TooltipContent side="bottom">
-                <p>{terminalOpen ? "Hide terminal" : "Show terminal"}</p>
+                <p>{terminalOpen ? "隐藏终端" : "显示终端"}</p>
               </TooltipContent>
             </Tooltip>
             <ThemeToggle />
@@ -571,7 +571,7 @@ export default function Dashboard() {
             <div className="p-4 border-b border-border bg-card/50 flex justify-between items-center">
               <div className="flex items-center gap-2">
                 <Monitor className="w-4 h-4 text-primary" />
-                <span className="font-bold tracking-wide text-sm">LIVE TERMINAL</span>
+                <span className="font-bold tracking-wide text-sm">实时终端</span>
               </div>
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
@@ -589,7 +589,7 @@ export default function Dashboard() {
                 {activity.length === 0 ? (
                   <div className="text-center py-8 text-muted-foreground/50">
                     <Terminal className="w-8 h-8 mx-auto mb-2 opacity-30" />
-                    <p>Waiting for activity...</p>
+                    <p>等待活动中...</p>
                   </div>
                 ) : (
                   activity.map((entry, i) => (
@@ -627,7 +627,7 @@ export default function Dashboard() {
                 <span className="text-muted-foreground">$</span>
                 <input
                   className="bg-transparent border-none text-foreground focus:ring-0 focus:outline-none p-0 text-xs w-full font-mono placeholder:text-muted-foreground/40"
-                  placeholder="Enter command..."
+                  placeholder="输入命令..."
                   type="text"
                 />
               </div>
@@ -748,7 +748,7 @@ function KanbanBoard({
                 >
                   {colTasks.length === 0 ? (
                     <div className="text-center py-8 text-muted-foreground/40 text-xs">
-                      Drop tasks here
+                      将任务拖到这里
                     </div>
                   ) : (
                     colTasks.map((task) => (
