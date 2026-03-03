@@ -154,6 +154,26 @@ The production build uses Next.js standalone output for minimal footprint and fa
 
 ---
 
+## 🔁 本地汉化防覆盖（升级保留）
+
+本仓库已落地中文化提交：`c977b91`。
+为避免后续升级覆盖，可直接运行：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\upgrade-with-zh.ps1
+```
+
+它会自动：
+1. 拉取最新 `main`
+2. 回放汉化提交（cherry-pick `c977b91`）
+3. 更新 `localization-zh-cn` 分支快照
+
+如果出现冲突，按提示解决后执行：
+
+```powershell
+git cherry-pick --continue
+```
+
 ## 🔧 Configuration
 
 | Environment Variable   | Required | Default                | Description                                |
