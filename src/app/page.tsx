@@ -1069,7 +1069,7 @@ function DispatchModal({ task, agents, onClose, onDispatch }: {
         {agents.length === 0 ? (
           <div className="flex items-center gap-2 text-sm text-yellow-500 p-3 bg-yellow-500/10 rounded-md border border-yellow-500/20">
             <AlertTriangle className="w-4 h-4" />
-            No agents available. Go to Agents page to create one first.
+            当前没有可用代理，请先到代理页创建一个。
           </div>
         ) : (
           <>
@@ -1404,7 +1404,7 @@ function AgentsView({ status, agents, onRefresh }: { status: GatewayStatus; agen
         onRefresh();
         setTimeout(() => { setShowCreate(false); setCreateResult(null); }, 1500);
       } else {
-        setCreateResult(`error:${data.error || "Failed to create agent"}`);
+        setCreateResult(`error:${data.error || "创建代理失败"}`);
       }
     } catch (err) {
       setCreateResult(`error:${String(err)}`);
@@ -1417,8 +1417,8 @@ function AgentsView({ status, agents, onRefresh }: { status: GatewayStatus; agen
       <div className="flex-1 flex items-center justify-center">
         <div className="text-center space-y-3">
           <WifiOff className="w-12 h-12 mx-auto text-muted-foreground/30" />
-          <p className="text-muted-foreground">OpenClaw Gateway not connected</p>
-          <p className="text-xs text-muted-foreground/70">Make sure the gateway is running at ws://127.0.0.1:18789</p>
+          <p className="text-muted-foreground">OpenClaw 网关未连接</p>
+          <p className="text-xs text-muted-foreground/70">请确认网关正在 ws://127.0.0.1:18789 运行</p>
         </div>
       </div>
     );
@@ -1429,7 +1429,7 @@ function AgentsView({ status, agents, onRefresh }: { status: GatewayStatus; agen
       {/* Stats */}
       <div className="grid grid-cols-3 gap-4">
         <div className="bg-card border border-border rounded-lg p-4">
-          <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Total Agents</div>
+          <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">代理总数</div>
           <div className="text-2xl font-bold text-primary">{agents.length}</div>
         </div>
         <div className="bg-card border border-border rounded-lg p-4">
@@ -1437,23 +1437,23 @@ function AgentsView({ status, agents, onRefresh }: { status: GatewayStatus; agen
           <div className="text-2xl font-bold text-primary">{status.cronJobCount}</div>
         </div>
         <div className="bg-card border border-border rounded-lg p-4">
-          <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">Gateway</div>
+          <div className="text-xs text-muted-foreground uppercase tracking-wide mb-1">网关</div>
           <div className="text-lg font-bold text-green-500 flex items-center gap-2">
-            <Wifi className="w-4 h-4" /> Online
+            <Wifi className="w-4 h-4" /> 在线
           </div>
         </div>
       </div>
 
       {/* Create button */}
       <Button onClick={() => setShowCreate(!showCreate)} variant={showCreate ? "outline" : "default"}>
-        {showCreate ? "Cancel" : <><Plus className="w-4 h-4 mr-1" /> Create Agent</>}
+        {showCreate ? "取消" : <><Plus className="w-4 h-4 mr-1" /> 创建代理</>}
       </Button>
 
       {/* Create form */}
       {showCreate && (
         <div className="bg-card border border-primary/20 rounded-lg p-6 space-y-4">
           <div className="space-y-2">
-            <label className="text-sm font-medium">Agent ID</label>
+            <label className="text-sm font-medium">代理ID</label>
             <input
               className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               value={newId}
@@ -1462,7 +1462,7 @@ function AgentsView({ status, agents, onRefresh }: { status: GatewayStatus; agen
             />
           </div>
           <div className="space-y-2">
-            <label className="text-sm font-medium">Identity / Persona (SOUL.md)</label>
+            <label className="text-sm font-medium">身份设定 / 人格（SOUL.md）</label>
             <textarea
               className="w-full px-3 py-2 rounded-md border border-input bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring min-h-[100px] resize-y"
               value={newIdentity}
@@ -1476,11 +1476,11 @@ function AgentsView({ status, agents, onRefresh }: { status: GatewayStatus; agen
                 ? "bg-green-500/10 text-green-500"
                 : "bg-destructive/10 text-destructive"
             }`}>
-              {createResult === "success" ? "✅ Agent created successfully!" : `❌ ${createResult.replace("error:", "")}`}
+              {createResult === "success" ? "✅ 代理创建成功！" : `❌ ${createResult.replace("error:", "")}`}
             </div>
           )}
           <Button onClick={handleCreate} disabled={creating}>
-            {creating ? "Creating..." : "Create Agent in OpenClaw"}
+            {creating ? "创建中..." : "在 OpenClaw 中创建代理"}
           </Button>
         </div>
       )}
