@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback } from "react";
 import {
@@ -183,9 +183,9 @@ export function CostDashboard() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 className="text-xl font-bold">Usage & Costs</h2>
+          <h2 className="text-xl font-bold">用量与成本</h2>
           <p className="text-sm text-muted-foreground">
-            Track your AI spending and token consumption
+            追踪 AI 花费与 Token 消耗
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -201,7 +201,7 @@ export function CostDashboard() {
                     : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {p === "today" ? "Today" : p === "7d" ? "7 Days" : "30 Days"}
+                {p === "today" ? "今天" : p === "7d" ? "7天" : "30天"}
               </button>
             ))}
           </div>
@@ -217,7 +217,7 @@ export function CostDashboard() {
             ) : (
               <RefreshCw className="w-3.5 h-3.5" />
             )}
-            Refresh
+            刷新
           </Button>
         </div>
       </div>
@@ -225,31 +225,31 @@ export function CostDashboard() {
       {/* Stat cards */}
       <div className="grid grid-cols-4 gap-4 mb-6">
         <StatCard
-          label="Total Cost"
+          label="总成本"
           value={formatCost(totalCost)}
-          subtitle="this period"
+          subtitle="本周期"
           icon={DollarSign}
           trend={totalCost > 0 ? "up" : "flat"}
           accentColor="bg-green-600"
         />
         <StatCard
-          label="Input Tokens"
+          label="输入Token"
           value={formatTokens(inputTokens)}
-          subtitle="prompts sent"
+          subtitle="已发送提示"
           icon={TrendingUp}
           trend={inputTokens > 0 ? "up" : "flat"}
         />
         <StatCard
-          label="Output Tokens"
+          label="输出Token"
           value={formatTokens(outputTokens)}
-          subtitle="responses received"
+          subtitle="已接收回复"
           icon={Zap}
           trend={outputTokens > 0 ? "up" : "flat"}
         />
         <StatCard
-          label="Active Sessions"
+          label="活跃会话"
           value={String(sessions)}
-          subtitle="running now"
+          subtitle="当前运行"
           icon={BarChart3}
           trend="flat"
         />
@@ -257,24 +257,24 @@ export function CostDashboard() {
 
       {/* Charts row */}
       <div className="grid grid-cols-3 gap-4">
-        {/* Usage Over Time */}
+        {/* 用量趋势 */}
         <div className="col-span-2 glass-panel rounded-lg p-5">
           <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">
-            Usage Over Time
+            用量趋势
           </h3>
           {totalTokens > 0 ? (
             <BarChart data={dailyData} maxHeight={140} />
           ) : (
             <div className="flex items-center justify-center h-[140px] text-sm text-muted-foreground">
-              No usage data yet
+              暂无用量数据
             </div>
           )}
         </div>
 
-        {/* By Agent */}
+        {/* 按代理统计 */}
         <div className="glass-panel rounded-lg p-5">
           <h3 className="text-sm font-bold uppercase tracking-wider text-muted-foreground mb-4">
-            By Agent
+            按代理统计
           </h3>
           <HorizontalBar items={agentBreakdown} />
         </div>
@@ -284,7 +284,7 @@ export function CostDashboard() {
       {data && (
         <details className="mt-6">
           <summary className="text-xs text-muted-foreground cursor-pointer hover:text-foreground">
-            Show raw gateway response
+            显示网关原始响应
           </summary>
           <pre className="mt-2 bg-muted/50 rounded border border-border p-3 text-xs font-mono overflow-auto max-h-48">
             {JSON.stringify(data, null, 2)}
@@ -294,3 +294,5 @@ export function CostDashboard() {
     </div>
   );
 }
+
+
