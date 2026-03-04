@@ -27,26 +27,26 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 // Tool definitions with human-friendly names and categories
 const TOOL_CATALOG = [
   // Sessions
-  { tool: "sessions_list", label: "List Sessions", desc: "Show all active AI sessions", category: "Sessions", icon: MessageSquare, params: [{ name: "agentId", label: "Agent", type: "text", placeholder: "All agents", optional: true }] },
-  { tool: "sessions_preview", label: "Preview Session", desc: "See recent messages in a session", category: "Sessions", icon: MessageSquare, params: [{ name: "keys", label: "Session Key", type: "text", placeholder: "agent:main:main" }] },
+  { tool: "sessions_list", label: "列出会话", desc: "显示所有活跃的 AI 会话", category: "会话", icon: MessageSquare, params: [{ name: "agentId", label: "Agent", type: "text", placeholder: "所有 Agent", optional: true }] },
+  { tool: "sessions_preview", label: "预览会话", desc: "查看会话中的最近消息", category: "会话", icon: MessageSquare, params: [{ name: "keys", label: "会话 Key", type: "text", placeholder: "agent:main:main" }] },
   // Agents
-  { tool: "agents_list", label: "List Agents", desc: "Show all configured AI agents", category: "Agents", icon: Bot, params: [] },
+  { tool: "agents_list", label: "列出 Agent", desc: "显示所有配置的 AI Agent", category: "Agent", icon: Bot, params: [] },
   // Cron
-  { tool: "cron_list", label: "List Scheduled Tasks", desc: "Show all recurring AI tasks", category: "Automation", icon: Calendar, params: [] },
-  { tool: "cron_status", label: "Scheduler Status", desc: "Check if the scheduler is running", category: "Automation", icon: Calendar, params: [] },
+  { tool: "cron_list", label: "列出定时任务", desc: "显示所有循环 AI 任务", category: "自动化", icon: Calendar, params: [] },
+  { tool: "cron_status", label: "调度器状态", desc: "检查调度器是否运行中", category: "自动化", icon: Calendar, params: [] },
   // Usage
-  { tool: "usage_status", label: "Usage Status", desc: "Current token usage and quotas", category: "Usage", icon: BarChart3, params: [] },
-  { tool: "usage_cost", label: "Usage Cost", desc: "Total spending so far", category: "Usage", icon: BarChart3, params: [] },
+  { tool: "usage_status", label: "用量状态", desc: "当前 Token 用量和配额", category: "用量", icon: BarChart3, params: [] },
+  { tool: "usage_cost", label: "用量成本", desc: "目前总花费", category: "用量", icon: BarChart3, params: [] },
   // System
-  { tool: "health", label: "Health Check", desc: "Verify the gateway is healthy", category: "System", icon: Shield, params: [] },
-  { tool: "status", label: "System Status", desc: "Full gateway status information", category: "System", icon: Shield, params: [] },
-  { tool: "models_list", label: "List Models", desc: "Show all available AI models", category: "System", icon: Database, params: [] },
-  { tool: "channels_status", label: "Channel Status", desc: "Status of messaging channels", category: "Channels", icon: Globe, params: [] },
-  { tool: "skills_status", label: "Skills Status", desc: "List installed agent skills", category: "System", icon: Wrench, params: [] },
-  { tool: "logs_tail", label: "Recent Logs", desc: "Fetch the latest log entries", category: "System", icon: Clock, params: [] },
+  { tool: "health", label: "健康检查", desc: "验证网关是否健康", category: "系统", icon: Shield, params: [] },
+  { tool: "status", label: "系统状态", desc: "完整网关状态信息", category: "系统", icon: Shield, params: [] },
+  { tool: "models_list", label: "列出模型", desc: "显示所有可用 AI 模型", category: "系统", icon: Database, params: [] },
+  { tool: "channels_status", label: "通道状态", desc: "消息通道状态", category: "通道", icon: Globe, params: [] },
+  { tool: "skills_status", label: "技能状态", desc: "列出已安装的 Agent 技能", category: "系统", icon: Wrench, params: [] },
+  { tool: "logs_tail", label: "最近日志", desc: "获取最新日志条目", category: "系统", icon: Clock, params: [] },
 ];
 
-const CATEGORIES = ["All", ...Array.from(new Set(TOOL_CATALOG.map((t) => t.category)))];
+const CATEGORIES = ["全部", ...Array.from(new Set(TOOL_CATALOG.map((t) => t.category)))];
 
 interface ToolResult {
   ok: boolean;
@@ -172,7 +172,7 @@ export function ToolsPlayground() {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search tools..."
+              placeholder="搜索工具..."
               className="w-full pl-9 pr-3 py-2 bg-background border border-border rounded text-sm focus:outline-none focus:ring-1 focus:ring-primary"
             />
           </div>
@@ -266,7 +266,7 @@ export function ToolsPlayground() {
           {selectedTool.params.length > 0 && (
             <div className="mb-6">
               <h3 className="text-sm font-bold uppercase text-muted-foreground mb-3 tracking-wider">
-                Parameters
+                参数
               </h3>
               <div className="space-y-3">
                 {selectedTool.params.map((param) => (
@@ -274,7 +274,7 @@ export function ToolsPlayground() {
                     <label className="block text-sm font-medium mb-1.5">
                       {param.label}
                       {"optional" in param && param.optional && (
-                        <span className="text-muted-foreground text-xs ml-1">(optional)</span>
+                        <span className="text-muted-foreground text-xs ml-1">（可选）</span>
                       )}
                     </label>
                     <input
@@ -306,7 +306,7 @@ export function ToolsPlayground() {
             ) : (
               <Play className="w-4 h-4" />
             )}
-            {loading ? "Running..." : "Run Tool"}
+            {loading ? "运行中..." : "运行工具"}
           </Button>
 
           {/* Result */}
@@ -314,14 +314,14 @@ export function ToolsPlayground() {
             <div>
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-bold uppercase text-muted-foreground tracking-wider">
-                  Result
+                  结果
                 </h3>
                 <div className="flex items-center gap-3 text-xs">
                   <Badge
                     variant={result.ok ? "default" : "destructive"}
                     className="text-[10px]"
                   >
-                    {result.ok ? "✅ Success" : "❌ Error"}
+                    {result.ok ? "✅ 成功" : "❌ 错误"}
                   </Badge>
                   <span className="text-muted-foreground font-mono">
                     {result.duration}ms
@@ -335,7 +335,7 @@ export function ToolsPlayground() {
                     ) : (
                       <Copy className="w-3.5 h-3.5" />
                     )}
-                    {copied ? "Copied!" : "Copy"}
+                    {copied ? "已复制！" : "复制"}
                   </button>
                 </div>
               </div>
@@ -352,7 +352,7 @@ export function ToolsPlayground() {
             <div className="text-center py-12 text-muted-foreground">
               <Wrench className="w-12 h-12 mx-auto mb-3 opacity-30" />
               <p className="text-sm">
-                Select a tool and press <strong>Run</strong> to see results
+                选择一个工具并按 <strong>运行</strong> 查看结果
               </p>
             </div>
           )}
