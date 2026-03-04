@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useState, useEffect, useCallback } from "react";
 import {
@@ -52,16 +52,16 @@ interface CronJob {
 
 // Human-friendly schedule presets
 const SCHEDULE_PRESETS = [
-  { label: "Every hour", cron: "0 * * * *" },
-  { label: "Every day at 9:00 AM", cron: "0 9 * * *" },
-  { label: "Every day at 6:00 PM", cron: "0 18 * * *" },
-  { label: "Every weekday at 9:00 AM", cron: "0 9 * * 1-5" },
-  { label: "Every Monday at 9:00 AM", cron: "0 9 * * 1" },
-  { label: "Every Sunday at 2:00 AM", cron: "0 2 * * 0" },
-  { label: "Every 15 minutes", cron: "*/15 * * * *" },
-  { label: "Every 30 minutes", cron: "*/30 * * * *" },
-  { label: "Twice a day (9 AM & 6 PM)", cron: "0 9,18 * * *" },
-  { label: "First day of month", cron: "0 9 1 * *" },
+  { label: "每小时", cron: "0 * * * *" },
+  { label: "每天 09:00", cron: "0 9 * * *" },
+  { label: "每天 18:00", cron: "0 18 * * *" },
+  { label: "工作日 09:00", cron: "0 9 * * 1-5" },
+  { label: "每周一 09:00", cron: "0 9 * * 1" },
+  { label: "每周日 02:00", cron: "0 2 * * 0" },
+  { label: "每15分钟", cron: "*/15 * * * *" },
+  { label: "每30分钟", cron: "*/30 * * * *" },
+  { label: "每天两次（9点/18点）", cron: "0 9,18 * * *" },
+  { label: "每月1日", cron: "0 9 1 * *" },
 ];
 
 function formatMs(ms: number): string {
@@ -82,9 +82,9 @@ function scheduleToHuman(schedule: string | ScheduleObject): string {
     if (schedule.everyMs) {
       return `Every ${formatMs(schedule.everyMs)}`;
     }
-    return "Custom schedule";
+    return "自定义计划";
   }
-  if (typeof schedule !== "string") return "Custom schedule";
+  if (typeof schedule !== "string") return "自定义计划";
   return cronToHuman(schedule);
 }
 
@@ -119,7 +119,7 @@ function timeAgo(dateStr: string | undefined): string {
     if (future < 86400) return `in ${Math.floor(future / 3600)}h`;
     return `in ${Math.floor(future / 86400)}d`;
   }
-  if (seconds < 60) return "just now";
+  if (seconds < 60) return "刚刚";
   if (seconds < 3600) return `${Math.floor(seconds / 60)}m ago`;
   if (seconds < 86400) return `${Math.floor(seconds / 3600)}h ago`;
   return `${Math.floor(seconds / 86400)}d ago`;
@@ -231,19 +231,19 @@ export function CronScheduler() {
               <Calendar className="w-5 h-5 text-primary" />
             </div>
             <div>
-              <h2 className="text-xl font-bold">Scheduled Tasks</h2>
+              <h2 className="text-xl font-bold">定时任务</h2>
               <p className="text-sm text-muted-foreground">
-                Set up recurring AI tasks — they run automatically on schedule
+                设置周期性 AI 任务（按计划自动执行）
               </p>
             </div>
           </div>
           <div className="flex items-center gap-3">
             <Badge variant="secondary" className="font-mono">
-              {jobs.filter((j) => j.enabled).length} active
+              {jobs.filter((j) => j.enabled).length} 活跃
             </Badge>
             <Button onClick={() => setShowCreate(true)} className="gap-1.5">
               <Plus className="w-4 h-4" />
-              New Task
+              新建任务
             </Button>
           </div>
         </div>
@@ -257,13 +257,13 @@ export function CronScheduler() {
         ) : jobs.length === 0 ? (
           <div className="text-center py-16">
             <Clock className="w-14 h-14 mx-auto mb-3 text-muted-foreground opacity-30" />
-            <p className="text-lg font-medium mb-1">No Scheduled Tasks</p>
+            <p className="text-lg font-medium mb-1">暂无定时任务</p>
             <p className="text-sm text-muted-foreground mb-4">
-              Create your first recurring AI task
+              创建你的第一个周期任务
             </p>
             <Button onClick={() => setShowCreate(true)} className="gap-1.5">
               <Plus className="w-4 h-4" />
-              Create Task
+              创建任务
             </Button>
           </div>
         ) : (
@@ -291,7 +291,7 @@ export function CronScheduler() {
                     {/* Info */}
                     <div className="flex-1 min-w-0">
                       <div className="font-medium text-sm truncate">
-                        {job.prompt || "Unnamed task"}
+                        {job.prompt || "未命名任务"}
                       </div>
                       <div className="flex items-center gap-3 mt-1 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1">
@@ -316,7 +316,7 @@ export function CronScheduler() {
                         onClick={() => runNow(job.id)}
                         disabled={isLoading}
                         className="gap-1 text-xs h-8"
-                        title="Run Now"
+                        title="立即执行"
                       >
                         {isLoading ? (
                           <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -331,14 +331,14 @@ export function CronScheduler() {
                         onClick={() => toggleJob(job.id, job.enabled)}
                         disabled={isLoading}
                         className="gap-1 text-xs h-8"
-                        title={job.enabled ? "Pause" : "Resume"}
+                        title={job.enabled ? "暂停" : "恢复"}
                       >
                         {job.enabled ? (
                           <Pause className="w-3.5 h-3.5" />
                         ) : (
                           <RotateCcw className="w-3.5 h-3.5" />
                         )}
-                        {job.enabled ? "Pause" : "Resume"}
+                        {job.enabled ? "暂停" : "恢复"}
                       </Button>
                       <Button
                         variant="ghost"
@@ -362,19 +362,19 @@ export function CronScheduler() {
                     <div className="px-4 pb-4 pt-0 border-t border-border ml-6">
                       <div className="grid grid-cols-2 gap-3 py-3 text-xs">
                         <div>
-                          <span className="text-muted-foreground">Schedule:</span>{" "}
+                          <span className="text-muted-foreground">计划：</span>{" "}
                           <span className="font-mono">{scheduleToHuman(job.schedule)}</span>
                         </div>
                         <div>
-                          <span className="text-muted-foreground">Agent:</span>{" "}
+                          <span className="text-muted-foreground">代理：</span>{" "}
                           {job.agentId || "main"}
                         </div>
                         <div>
-                          <span className="text-muted-foreground">Last run:</span>{" "}
+                          <span className="text-muted-foreground">上次执行：</span>{" "}
                           {timeAgo(job.lastRun)}
                         </div>
                         <div>
-                          <span className="text-muted-foreground">Next run:</span>{" "}
+                          <span className="text-muted-foreground">下次执行：</span>{" "}
                           {timeAgo(job.nextRun)}
                         </div>
                       </div>
@@ -387,7 +387,7 @@ export function CronScheduler() {
                           className="gap-1 text-xs text-red-400 border-red-400/20 hover:bg-red-400/10"
                         >
                           <Trash2 className="w-3.5 h-3.5" />
-                          Delete
+                          删除
                         </Button>
                       </div>
                     </div>
@@ -403,9 +403,9 @@ export function CronScheduler() {
       <Dialog open={showCreate} onOpenChange={setShowCreate}>
         <DialogContent className="sm:max-w-lg">
           <DialogHeader>
-            <DialogTitle>Schedule a New Task</DialogTitle>
+            <DialogTitle>创建新定时任务</DialogTitle>
             <DialogDescription>
-              Tell your AI agent what to do, and how often.
+              告诉你的 AI 代理要做什么，以及执行频率。
             </DialogDescription>
           </DialogHeader>
 
@@ -413,12 +413,12 @@ export function CronScheduler() {
             {/* Prompt */}
             <div>
               <label className="block text-sm font-medium mb-1.5">
-                What should the AI do?
+                AI 要做什么？
               </label>
               <textarea
                 value={newPrompt}
                 onChange={(e) => setNewPrompt(e.target.value)}
-                placeholder="Summarize my unread emails and send a brief to Slack"
+                placeholder="总结我的未读邮件并给我一个简报"
                 rows={3}
                 className="w-full px-3 py-2 bg-background border border-border rounded text-sm focus:outline-none focus:ring-1 focus:ring-primary resize-none"
               />
@@ -427,11 +427,11 @@ export function CronScheduler() {
             {/* Schedule */}
             <div>
               <label className="block text-sm font-medium mb-1.5">
-                How often?
+                执行频率
               </label>
               <Select value={newSchedule} onValueChange={setNewSchedule}>
                 <SelectTrigger>
-                  <SelectValue placeholder="Choose a schedule" />
+                  <SelectValue placeholder="选择计划" />
                 </SelectTrigger>
                 <SelectContent>
                   {SCHEDULE_PRESETS.map((p) => (
@@ -446,7 +446,7 @@ export function CronScheduler() {
             {/* Agent */}
             <div>
               <label className="block text-sm font-medium mb-1.5">
-                Which agent?
+                使用哪个代理？
               </label>
               <input
                 type="text"
@@ -472,7 +472,7 @@ export function CronScheduler() {
               ) : (
                 <Plus className="w-4 h-4" />
               )}
-              Create Task
+              创建任务
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -480,3 +480,5 @@ export function CronScheduler() {
     </div>
   );
 }
+
+

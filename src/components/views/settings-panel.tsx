@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState, useCallback } from "react";
 import { Cpu, Check, RefreshCw, Sparkles, AlertTriangle } from "lucide-react";
@@ -372,3 +372,4 @@ export function SettingsPanel() {
     </div>
   );
 }
+
