@@ -182,16 +182,16 @@ export function LogsViewer() {
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2">
             <FileText className="w-5 h-5 text-primary" />
-            <h2 className="text-lg font-bold">Live Logs</h2>
+            <h2 className="text-lg font-bold">实时日志</h2>
           </div>
           {!paused && (
             <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-              Streaming
+              流式传输中
             </span>
           )}
           {paused && (
-            <Badge variant="secondary" className="text-xs">Paused</Badge>
+            <Badge variant="secondary" className="text-xs">已暂停</Badge>
           )}
         </div>
 
@@ -203,7 +203,7 @@ export function LogsViewer() {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search logs..."
+              placeholder="搜索日志..."
               className="pl-8 pr-3 py-1.5 bg-background border border-border rounded text-xs w-48 focus:outline-none focus:ring-1 focus:ring-primary"
             />
           </div>
@@ -233,7 +233,7 @@ export function LogsViewer() {
             size="sm"
             onClick={() => setPaused(!paused)}
             className="h-7 w-7 p-0"
-            title={paused ? "Resume" : "Pause"}
+            title={paused ? "继续" : "暂停"}
           >
             {paused ? (
               <Play className="w-3.5 h-3.5" />
@@ -251,7 +251,7 @@ export function LogsViewer() {
               }
             }}
             className="h-7 w-7 p-0"
-            title="Scroll to bottom"
+            title="滚动到底部"
           >
             <ArrowDown className="w-3.5 h-3.5" />
           </Button>
@@ -260,7 +260,7 @@ export function LogsViewer() {
             size="sm"
             onClick={() => setLogs([])}
             className="h-7 w-7 p-0"
-            title="Clear logs"
+            title="清空日志"
           >
             <Trash2 className="w-3.5 h-3.5" />
           </Button>
@@ -281,13 +281,13 @@ export function LogsViewer() {
         {loading && logs.length === 0 ? (
           <div className="flex items-center justify-center py-20 text-muted-foreground">
             <Loader2 className="w-5 h-5 animate-spin mr-2" />
-            Connecting to log stream...
+            正在连接日志流...
           </div>
         ) : filteredLogs.length === 0 ? (
           <div className="flex items-center justify-center py-20 text-muted-foreground">
             {logs.length > 0
-              ? "No logs match your filters"
-              : "Waiting for log entries..."}
+              ? "没有匹配的日志"
+              : "等待日志..."}
           </div>
         ) : (
           <div className="p-2">
@@ -322,8 +322,8 @@ export function LogsViewer() {
 
       {/* Footer status */}
       <div className="px-4 py-1.5 border-t border-border bg-card/30 flex items-center justify-between text-[10px] text-muted-foreground font-mono">
-        <span>{filteredLogs.length} lines shown</span>
-        <span>{autoScroll ? "Auto-scroll ON" : "Auto-scroll OFF"}</span>
+        <span>显示 {filteredLogs.length} 行</span>
+        <span>{autoScroll ? "自动滚动开" : "自动滚动关"}</span>
       </div>
     </div>
   );
