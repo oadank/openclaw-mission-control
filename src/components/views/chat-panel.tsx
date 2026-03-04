@@ -216,7 +216,7 @@ export function ChatPanel() {
               开始对话
             </h3>
             <p className="text-sm text-muted-foreground max-w-md">
-              Chat directly with your agent. Ask questions, give instructions, or
+              直接与代理对话。你可以提问、下指令，或
               打个招呼也行。
             </p>
           </div>
