@@ -152,10 +152,10 @@ export function SettingsPanel() {
           <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
             <Cpu className="w-5 h-5 text-primary" />
           </div>
-          Settings
+          设置
         </h2>
         <p className="text-muted-foreground mt-2">
-          Configure your default AI model and provider for task processing.
+          配置默认 AI 模型与提供商，用于任务处理。
         </p>
       </div>
 
@@ -165,17 +165,16 @@ export function SettingsPanel() {
           <div>
             <h3 className="text-lg font-semibold flex items-center gap-2">
               <Sparkles className="w-5 h-5 text-amber-400" />
-              AI Model &amp; Provider
+              AI 模型与提供商
             </h3>
             <p className="text-sm text-muted-foreground mt-1">
-              Choose which AI model processes your tasks. This affects all newly
-              dispatched tasks.
+              选择处理任务的 AI 模型。该设置会影响所有新派发的任务。
             </p>
           </div>
           <button
             onClick={fetchModels}
             className="p-2 rounded-lg hover:bg-muted/50 transition-colors text-muted-foreground hover:text-primary"
-            title="Refresh models"
+            title="刷新模型"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
           </button>
@@ -186,7 +185,7 @@ export function SettingsPanel() {
             <AlertTriangle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
             <div>
               <p className="text-sm font-medium text-destructive">
-                Failed to load models
+                加载模型失败
               </p>
               <p className="text-xs text-destructive/80 mt-1">{error}</p>
             </div>
@@ -196,7 +195,7 @@ export function SettingsPanel() {
         {loading && !data && (
           <div className="flex items-center justify-center py-12 text-muted-foreground">
             <RefreshCw className="w-5 h-5 animate-spin mr-3" />
-            Loading models from gateway...
+            正在从网关加载模型...
           </div>
         )}
 
@@ -206,7 +205,7 @@ export function SettingsPanel() {
             {currentPreference && (
               <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
                 <p className="text-xs font-medium text-primary/80 uppercase tracking-wider mb-1">
-                  Active Override
+                  当前覆盖设置
                 </p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
@@ -228,7 +227,7 @@ export function SettingsPanel() {
                     onClick={handleClearOverride}
                     className="text-xs text-muted-foreground hover:text-destructive transition-colors"
                   >
-                    Clear Override
+                    清除覆盖
                   </button>
                 </div>
               </div>
@@ -236,7 +235,7 @@ export function SettingsPanel() {
 
             {/* Provider Selection */}
             <div>
-              <label className="block text-sm font-medium mb-3">Provider</label>
+              <label className="block text-sm font-medium mb-3">提供商</label>
               <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                 {data.providers.map((provider) => {
                   const count = data.byProvider[provider]?.length ?? 0;
@@ -267,7 +266,7 @@ export function SettingsPanel() {
                         {PROVIDER_LABELS[provider] || provider}
                       </span>
                       <span className="text-xs text-muted-foreground">
-                        {count} model{count !== 1 ? "s" : ""}
+                        {count} 个模型
                       </span>
                     </button>
                   );
@@ -279,9 +278,9 @@ export function SettingsPanel() {
             {selectedProvider && availableModels.length > 0 && (
               <div>
                 <label className="block text-sm font-medium mb-3">
-                  Model
+                  模型
                   <span className="text-muted-foreground font-normal ml-2">
-                    ({availableModels.length} available)
+                    （{availableModels.length} 可用）
                   </span>
                 </label>
                 <div className="max-h-64 overflow-y-auto rounded-lg border border-border">
@@ -335,15 +334,15 @@ export function SettingsPanel() {
               >
                 {saved ? (
                   <span className="flex items-center gap-2">
-                    <Check className="w-4 h-4" /> Saved
+                    <Check className="w-4 h-4" /> 已保存
                   </span>
                 ) : (
-                  "Save as Default"
+                  "保存为默认"
                 )}
               </button>
               {!saved && selectedProvider && selectedModel && (
                 <span className="text-xs text-muted-foreground">
-                  New tasks will use{" "}
+                  新任务将使用{" "}
                   <span className="font-mono text-primary">
                     {selectedProvider}/{selectedModel}
                   </span>
@@ -356,18 +355,17 @@ export function SettingsPanel() {
 
       {/* Info Card */}
       <div className="bg-card/50 border border-border/50 rounded-xl p-5 text-sm text-muted-foreground space-y-2">
-        <p className="font-medium text-foreground">How model selection works</p>
+        <p className="font-medium text-foreground">模型选择说明</p>
         <ul className="list-disc list-inside space-y-1 text-xs">
           <li>
-            Your selection is saved locally and applied when dispatching new tasks
+            你的选择会保存在本地，并在派发新任务时生效
           </li>
           <li>
-            The session is patched with the model override before the agent starts
-            processing
+            在代理开始处理前，会将会话应用为所选模型覆盖
           </li>
-          <li>Existing in-progress tasks keep their original model assignment</li>
+          <li>正在执行中的任务会保持原有模型分配</li>
           <li>
-            Clear the override to use the gateway&apos;s default model for new tasks
+            清除覆盖后，新任务将使用网关默认模型
           </li>
         </ul>
       </div>
