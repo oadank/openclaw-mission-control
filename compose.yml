@@ -120,10 +120,14 @@ services:
       context: .
       dockerfile: backend/Dockerfile.test
     command: ["python", "-m", "pytest", "tests/", "-v", "--tb=short"]
+    depends_on:
+      - backend
     environment:
       AUTH_MODE: local
       LOCAL_AUTH_TOKEN: test-local-token-0123456789-0123456789-0123456789x
       BASE_URL: http://localhost:8000
+      TEST_AUTH_TOKEN: test-local-token-0123456789-0123456789-0123456789x
+      TEST_BASE_URL: http://backend:8000
 
 volumes:
   postgres_data:
