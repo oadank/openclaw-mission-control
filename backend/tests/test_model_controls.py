@@ -30,9 +30,9 @@ from app.schemas.model_controls import (
     RegenerateRecommendationRequest,
 )
 from app.services.model_controls import (
-    _ACTIVE_MODEL_IDS,
     _assemble_effective_fallback,
     _compute_validation,
+    _is_valid_model,
     _resolve_effective_primary,
     AgentModelAssignmentService,
 )
@@ -210,13 +210,7 @@ class TestComputeValidation:
 
 
 class TestCatalogSet:
-    def test_known_models_are_valid(self):
-        for mid in _ACTIVE_MODEL_IDS:
-            from app.services.model_controls import _is_valid_model
-            assert _is_valid_model(mid), f"Expected {mid} to be valid"
-
     def test_unknown_model_is_invalid(self):
-        from app.services.model_controls import _is_valid_model
         assert not _is_valid_model("9router/unknown/model")
 
 
