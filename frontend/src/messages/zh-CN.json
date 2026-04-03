@@ -1,0 +1,133 @@
+{
+  "common": {
+    "appName": "OpenClaw Mission Control",
+    "appDescription": "面向每项任务的冷静指挥中枢。",
+    "localeName": "简体中文"
+  },
+  "landing": {
+    "heroLabel": "OpenClaw Mission Control",
+    "titlePrefix": "指挥",
+    "titleHighlight": "自治工作流。",
+    "titleSuffix": "保留人工监督。",
+    "description": "在统一的指挥中枢中跟踪任务、审批和 agent 健康状态。工作一有变化，你就能实时感知，同时不丢失执行上下文。",
+    "openBoards": "打开 Boards",
+    "createBoard": "创建 Board",
+    "viewBoards": "查看 Boards",
+    "features": {
+      "agentFirst": "Agent 优先运营",
+      "approvalQueues": "审批队列",
+      "liveSignals": "实时信号"
+    },
+    "commandSurface": "指挥面板",
+    "live": "实时",
+    "surfaceTitle": "推进工作，不丢上下文。",
+    "surfaceDescription": "任务、审批和 agent 状态会在 board 内保持同步。",
+    "metrics": {
+      "boards": "Boards",
+      "agents": "Agents",
+      "tasks": "Tasks"
+    },
+    "boardProgress": "Board — 进行中",
+    "boardItems": {
+      "releaseCandidate": "切出 release candidate",
+      "triageApprovals": "清理审批积压",
+      "stabilizeHandoffs": "稳定 agent 交接"
+    },
+    "approvalsPending": "审批 — 3 项待处理",
+    "approvalItems": {
+      "deployConfirmed": "部署窗口已确认",
+      "copyReviewed": "文案已审阅",
+      "securitySignoff": "安全签核"
+    },
+    "signalsUpdated": "信号 — 刚刚更新",
+    "signals": {
+      "agentDelta": "Agent Delta 已将任务移动到 review",
+      "growthOps": "Growth Ops 达到 WIP 上限",
+      "releasePipeline": "发布流水线已稳定"
+    },
+    "featureCards": {
+      "boardsTitle": "Boards 即运营地图",
+      "boardsDescription": "让任务、优先级、依赖关系和责任归属一眼可见。",
+      "approvalsTitle": "可推进的审批流",
+      "approvalsDescription": "排队、评论、批准一气呵成，不丢上下文，也不拖慢执行。",
+      "signalsTitle": "实时信号",
+      "signalsDescription": "工作一发生变化就能看到：任务、agent 状态和审批会实时更新。",
+      "auditTitle": "内建审计轨迹",
+      "auditDescription": "每个决策都会留下轨迹，让 board 始终可解释、可复盘。"
+    },
+    "ctaTitle": "从一个 board 开始，逐步长成控制室。",
+    "ctaDescription": "为一个 board 完成 onboarding，指定 lead agent，并从第一天起就让审批和信号保持可见。"
+  },
+  "dashboard": {
+    "signedOut": "登录后查看 dashboard。",
+    "loadFailed": "加载失败：{message}",
+    "rangeLabel": "7 天",
+    "sessionFallback": "会话",
+    "status": {
+      "notConfigured": "未配置",
+      "checking": "检查中",
+      "allConnected": "全部已连接",
+      "partiallyConnected": "部分已连接",
+      "unavailable": "不可用",
+      "disconnected": "未连接"
+    },
+    "cards": {
+      "onlineAgents": "在线 Agents",
+      "tasksInProgress": "进行中的任务",
+      "errorRate": "错误率",
+      "completionSpeed": "完成速度",
+      "total": "共 {count}",
+      "completedLatest": "最近完成 {count}",
+      "completed": "已完成 {count}",
+      "basedOn": "基于 {range}"
+    },
+    "sections": {
+      "workload": "工作负载",
+      "throughput": "吞吐情况",
+      "gatewayHealth": "Gateway 健康度",
+      "pendingApprovals": "待处理审批",
+      "sessions": "会话",
+      "recentActivity": "最近活动"
+    },
+    "rows": {
+      "totalWorkItems": "总工作项",
+      "inbox": "Inbox",
+      "inProgress": "进行中",
+      "inReview": "审核中",
+      "completed": "已完成",
+      "completedTasks": "已完成任务",
+      "averageThroughput": "平均吞吐",
+      "errorRate": "错误率",
+      "completionConsistency": "完成稳定性",
+      "activeDays": "活跃 {count} 天",
+      "reviewBacklogRatio": "审核积压比",
+      "gatewayStatus": "Gateway 状态",
+      "configuredGateways": "已配置 Gateways",
+      "connectedGateways": "已连接 Gateways",
+      "unavailableGateways": "不可用 Gateways",
+      "gatewaysWithIssues": "有问题的 Gateways"
+    },
+    "links": {
+      "openGlobalApprovals": "打开全局审批",
+      "openFeed": "打开 Feed"
+    },
+    "states": {
+      "loadingPendingApprovals": "正在加载待处理审批...",
+      "pendingApprovalsUnavailable": "待处理审批暂时不可用。",
+      "pendingApprovalTitle": "待审批项",
+      "approvalScore": "{board} · 置信度 {score}%",
+      "showingPending": "当前显示最近 {shown} 条，共 {total} 条待处理审批。",
+      "noPendingApprovals": "你的 boards 当前没有待处理审批。",
+      "noGatewaysConfigured": "当前还没有任何 board 配置 gateway。",
+      "loadingSessions": "正在加载会话...",
+      "gatewayUnavailable": "有 {count} 个 gateway{plural} 不可用；当前仅显示可达 gateway 的会话。",
+      "usageUnavailable": "用量不可用",
+      "activityUnavailable": "活动不可用",
+      "sessionDataUnavailable": "所有已配置 gateway 的会话数据都不可用。",
+      "noActiveSessions": "未检测到活跃会话。",
+      "noActivityYet": "还没有活动",
+      "activityHint": "有事件产生时，这里会显示活动。"
+    },
+    "activityAria": "打开与 {type} 活动相关的上下文"
+  }
+}

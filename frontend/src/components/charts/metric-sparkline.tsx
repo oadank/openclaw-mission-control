@@ -102,10 +102,14 @@ export default function MetricSparkline({
             </linearGradient>
           </defs>
           <YAxis hide domain={["dataMin", "dataMax"]} />
-          <Tooltip<number, string>
+          <Tooltip
             cursor={false}
             content={(props) => (
-              <SparklineTooltip {...props} bucket={bucket} labels={labels} />
+              <SparklineTooltip
+                {...(props as TooltipContentProps<number, string>)}
+                bucket={bucket}
+                labels={labels}
+              />
             )}
           />
           <Area

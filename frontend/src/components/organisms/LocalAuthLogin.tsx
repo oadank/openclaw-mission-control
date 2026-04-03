@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Lock } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 import { setLocalAuthToken } from "@/auth/localAuth";
 import { Button } from "@/components/ui/button";
@@ -47,6 +48,7 @@ type LocalAuthLoginProps = {
 const defaultOnAuthenticated = () => window.location.reload();
 
 export function LocalAuthLogin({ onAuthenticated }: LocalAuthLoginProps) {
+  const t = useTranslations("localAuth");
   const [token, setToken] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isValidating, setIsValidating] = useState(false);
@@ -55,12 +57,12 @@ export function LocalAuthLogin({ onAuthenticated }: LocalAuthLoginProps) {
     event.preventDefault();
     const cleaned = token.trim();
     if (!cleaned) {
-      setError("Bearer token is required.");
+      setError(t("errors.tokenRequired"));
       return;
     }
     if (cleaned.length < LOCAL_AUTH_TOKEN_MIN_LENGTH) {
       setError(
-        `Bearer token must be at least ${LOCAL_AUTH_TOKEN_MIN_LENGTH} characters.`,
+        t("errors.tokenLength", { length: LOCAL_AUTH_TOKEN_MIN_LENGTH }),
       );
       return;
     }
@@ -89,7 +91,7 @@ export function LocalAuthLogin({ onAuthenticated }: LocalAuthLoginProps) {
         <CardHeader className="space-y-5 border-b border-[color:var(--border)] pb-5">
           <div className="flex items-center justify-between">
             <span className="rounded-full border border-[color:var(--border)] bg-[color:var(--surface-muted)] px-3 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-muted">
-              Self-host mode
+              {t("mode")}
             </span>
             <div className="rounded-xl bg-[color:var(--accent-soft)] p-2 text-[color:var(--accent)]">
               <Lock className="h-5 w-5" />
@@ -97,10 +99,10 @@ export function LocalAuthLogin({ onAuthenticated }: LocalAuthLoginProps) {
           </div>
           <div className="space-y-1">
             <h1 className="text-2xl font-semibold tracking-tight text-strong">
-              Local Authentication
+              {t("title")}
             </h1>
             <p className="text-sm text-muted">
-              Enter your access token to unlock Mission Control.
+              {t("subtitle")}
             </p>
           </div>
         </CardHeader>
@@ -111,14 +113,14 @@ export function LocalAuthLogin({ onAuthenticated }: LocalAuthLoginProps) {
                 htmlFor="local-auth-token"
                 className="text-xs font-semibold uppercase tracking-[0.08em] text-muted"
               >
-                Access token
+                {t("tokenLabel")}
               </label>
               <Input
                 id="local-auth-token"
                 type="password"
                 value={token}
                 onChange={(event) => setToken(event.target.value)}
-                placeholder="Paste token"
+                placeholder={t("tokenPlaceholder")}
                 autoFocus
                 disabled={isValidating}
                 className="font-mono"
@@ -130,7 +132,7 @@ export function LocalAuthLogin({ onAuthenticated }: LocalAuthLoginProps) {
               </p>
             ) : (
               <p className="text-xs text-muted">
-                Token must be at least {LOCAL_AUTH_TOKEN_MIN_LENGTH} characters.
+                {t("tokenHint", { length: LOCAL_AUTH_TOKEN_MIN_LENGTH })}
               </p>
             )}
             <Button
@@ -139,7 +141,7 @@ export function LocalAuthLogin({ onAuthenticated }: LocalAuthLoginProps) {
               size="lg"
               disabled={isValidating}
             >
-              {isValidating ? "Validating..." : "Continue"}
+              {isValidating ? t("validating") : t("continue")}
             </Button>
           </form>
         </CardContent>

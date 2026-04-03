@@ -1,0 +1,133 @@
+{
+  "common": {
+    "appName": "OpenClaw Mission Control",
+    "appDescription": "A calm command center for every task.",
+    "localeName": "English"
+  },
+  "landing": {
+    "heroLabel": "OpenClaw Mission Control",
+    "titlePrefix": "Command ",
+    "titleHighlight": "autonomous work.",
+    "titleSuffix": "Keep human oversight.",
+    "description": "Track tasks, approvals, and agent health in one unified command center. Get real-time signals when work changes, without losing the thread of execution.",
+    "openBoards": "Open Boards",
+    "createBoard": "Create Board",
+    "viewBoards": "View Boards",
+    "features": {
+      "agentFirst": "Agent-First Operations",
+      "approvalQueues": "Approval Queues",
+      "liveSignals": "Live Signals"
+    },
+    "commandSurface": "Command Surface",
+    "live": "LIVE",
+    "surfaceTitle": "Ship work without losing the thread.",
+    "surfaceDescription": "Tasks, approvals, and agent status stay synced across the board.",
+    "metrics": {
+      "boards": "Boards",
+      "agents": "Agents",
+      "tasks": "Tasks"
+    },
+    "boardProgress": "Board — In Progress",
+    "boardItems": {
+      "releaseCandidate": "Cut release candidate",
+      "triageApprovals": "Triage approvals backlog",
+      "stabilizeHandoffs": "Stabilize agent handoffs"
+    },
+    "approvalsPending": "Approvals — 3 Pending",
+    "approvalItems": {
+      "deployConfirmed": "Deploy window confirmed",
+      "copyReviewed": "Copy reviewed",
+      "securitySignoff": "Security sign-off"
+    },
+    "signalsUpdated": "Signals — Updated Moments Ago",
+    "signals": {
+      "agentDelta": "Agent Delta moved task to review",
+      "growthOps": "Growth Ops hit WIP limit",
+      "releasePipeline": "Release pipeline stabilized"
+    },
+    "featureCards": {
+      "boardsTitle": "Boards as ops maps",
+      "boardsDescription": "Keep tasks, priorities, dependencies, and ownership visible at a glance.",
+      "approvalsTitle": "Approvals that move",
+      "approvalsDescription": "Queue, comment, and approve without losing context or slowing execution.",
+      "signalsTitle": "Realtime signals",
+      "signalsDescription": "See work change as it happens: tasks, agent status, and approvals update live.",
+      "auditTitle": "Audit trail built in",
+      "auditDescription": "Every decision leaves a trail, so the board stays explainable and reviewable."
+    },
+    "ctaTitle": "Start with one board. Grow into a control room.",
+    "ctaDescription": "Onboard a board, name a lead agent, and keep approvals and signals visible from day one."
+  },
+  "dashboard": {
+    "signedOut": "Sign in to access the dashboard.",
+    "loadFailed": "Load failed: {message}",
+    "rangeLabel": "7 days",
+    "sessionFallback": "Session",
+    "status": {
+      "notConfigured": "Not configured",
+      "checking": "Checking",
+      "allConnected": "All connected",
+      "partiallyConnected": "Partially connected",
+      "unavailable": "Unavailable",
+      "disconnected": "Disconnected"
+    },
+    "cards": {
+      "onlineAgents": "Online Agents",
+      "tasksInProgress": "Tasks In Progress",
+      "errorRate": "Error Rate",
+      "completionSpeed": "Completion Speed",
+      "total": "{count} total",
+      "completedLatest": "{count} completed (latest)",
+      "completed": "{count} completed",
+      "basedOn": "Based on {range}"
+    },
+    "sections": {
+      "workload": "Workload",
+      "throughput": "Throughput",
+      "gatewayHealth": "Gateway Health",
+      "pendingApprovals": "Pending Approvals",
+      "sessions": "Sessions",
+      "recentActivity": "Recent Activity"
+    },
+    "rows": {
+      "totalWorkItems": "Total work items",
+      "inbox": "Inbox",
+      "inProgress": "In progress",
+      "inReview": "In review",
+      "completed": "Completed",
+      "completedTasks": "Completed tasks",
+      "averageThroughput": "Average throughput",
+      "errorRate": "Error rate",
+      "completionConsistency": "Completion consistency",
+      "activeDays": "{count} active days",
+      "reviewBacklogRatio": "Review backlog ratio",
+      "gatewayStatus": "Gateway status",
+      "configuredGateways": "Configured gateways",
+      "connectedGateways": "Connected gateways",
+      "unavailableGateways": "Unavailable gateways",
+      "gatewaysWithIssues": "Gateways with issues"
+    },
+    "links": {
+      "openGlobalApprovals": "Open global approvals",
+      "openFeed": "Open feed"
+    },
+    "states": {
+      "loadingPendingApprovals": "Loading pending approvals...",
+      "pendingApprovalsUnavailable": "Pending approvals are temporarily unavailable.",
+      "pendingApprovalTitle": "Pending approval",
+      "approvalScore": "{board} · {score}% score",
+      "showingPending": "Showing latest {shown} of {total} pending approvals.",
+      "noPendingApprovals": "No pending approvals across your boards.",
+      "noGatewaysConfigured": "No gateways are configured for any board yet.",
+      "loadingSessions": "Loading sessions...",
+      "gatewayUnavailable": "{count} gateway{plural} unavailable; showing sessions from reachable gateways.",
+      "usageUnavailable": "Usage unavailable",
+      "activityUnavailable": "Activity unavailable",
+      "sessionDataUnavailable": "Session data is unavailable for all configured gateways.",
+      "noActiveSessions": "No active sessions detected.",
+      "noActivityYet": "No activity yet",
+      "activityHint": "Activity appears here when events are emitted."
+    },
+    "activityAria": "Open related context for {type} activity"
+  }
+}

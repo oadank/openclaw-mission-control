@@ -243,14 +243,20 @@ function ChartTooltipContent({
 
             return (
               <div
-                key={item.dataKey}
+                key={String(item.dataKey ?? key)}
                 className={cn(
                   "[&>svg]:text-muted-foreground flex w-full flex-wrap items-stretch gap-2 [&>svg]:h-2.5 [&>svg]:w-2.5",
                   indicator === "dot" && "items-center",
                 )}
               >
                 {formatter && item?.value !== undefined && item.name ? (
-                  formatter(item.value, item.name, item, index, item.payload)
+                  formatter(
+                    item.value as ChartTooltipValue,
+                    item.name as ChartTooltipName,
+                    item as never,
+                    index,
+                    item.payload as never,
+                  )
                 ) : (
                   <>
                     {itemConfig?.icon ? (

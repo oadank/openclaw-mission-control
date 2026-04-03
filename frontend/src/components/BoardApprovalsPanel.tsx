@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
 
@@ -42,6 +44,7 @@ const normalizeApproval = (approval: ApprovalRead): Approval => ({
 });
 
 type BoardApprovalsPanelProps = {
+  t?: (key: string) => string;
   boardId: string;
   approvals?: ApprovalRead[];
   isLoading?: boolean;
@@ -391,6 +394,8 @@ const approvalSummary = (approval: Approval, boardLabel?: string | null) => {
 };
 
 export function BoardApprovalsPanel({
+  // @ts-ignore - t function for translations
+  t = (key: string) => key,
   boardId,
   approvals: externalApprovals,
   isLoading: externalLoading,
@@ -567,11 +572,10 @@ export function BoardApprovalsPanel({
               <CheckCircle2 className="h-6 w-6" />
             </div>
             <p className="mt-4 text-sm font-semibold text-slate-900">
-              All clear
+              {t("allClear")}
             </p>
             <p className="mt-2 text-sm text-slate-500">
-              No approvals to review right now. New approvals will show up here
-              as soon as they arrive.
+              {t("noApprovals")}
             </p>
           </div>
         </div>

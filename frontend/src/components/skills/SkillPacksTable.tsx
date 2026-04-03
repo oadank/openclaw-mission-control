@@ -1,5 +1,6 @@
 import { useMemo } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import {
   type ColumnDef,
@@ -52,6 +53,7 @@ export function SkillPacksTable({
   getEditHref,
   emptyState,
 }: SkillPacksTableProps) {
+  const t = useTranslations("skillPacksPage");
   const { resolvedSorting, handleSortingChange } = useTableSortingState(
     sorting,
     onSortingChange,
@@ -62,21 +64,21 @@ export function SkillPacksTable({
     const baseColumns: ColumnDef<SkillPackRead>[] = [
       {
         accessorKey: "name",
-        header: "Pack",
+        header: t("packColumn"),
         cell: ({ row }) => (
           <div>
             <p className="text-sm font-medium text-slate-900">
               {row.original.name}
             </p>
             <p className="mt-1 line-clamp-2 text-xs text-slate-500">
-              {row.original.description || "No description provided."}
+              {row.original.description || t("noDescription")}
             </p>
           </div>
         ),
       },
       {
         accessorKey: "source_url",
-        header: "Pack URL",
+        header: t("urlColumn"),
         cell: ({ row }) => (
           <Link
             href={row.original.source_url}
@@ -90,7 +92,7 @@ export function SkillPacksTable({
       },
       {
         accessorKey: "branch",
-        header: "Branch",
+        header: t("branchColumn"),
         cell: ({ row }) => (
           <p className="text-sm text-slate-900">
             {row.original.branch || "main"}
@@ -99,7 +101,7 @@ export function SkillPacksTable({
       },
       {
         accessorKey: "skill_count",
-        header: "Skills",
+        header: t("skillsColumn"),
         cell: ({ row }) => (
           <Link
             href={`/skills/marketplace?packId=${encodeURIComponent(row.original.id)}`}
@@ -111,7 +113,7 @@ export function SkillPacksTable({
       },
       {
         accessorKey: "updated_at",
-        header: "Updated",
+        header: t("updatedAtColumn"),
         cell: ({ row }) => dateCell(row.original.updated_at),
       },
       {
@@ -132,7 +134,7 @@ export function SkillPacksTable({
                 onClick={() => onSync(row.original)}
                 disabled={isThisPackSyncing || !canSync}
               >
-                {isThisPackSyncing ? "Syncing..." : "Sync"}
+                {isThisPackSyncing ? t("syncing") : t("sync")}
               </Button>
             </div>
           );
@@ -140,7 +142,7 @@ export function SkillPacksTable({
       },
     ];
     return baseColumns;
-  }, [canSync, onSync, syncingPackIds]);
+  }, [canSync, onSync, syncingPackIds, t]);
 
   // eslint-disable-next-line react-hooks/incompatible-library
   const table = useReactTable({

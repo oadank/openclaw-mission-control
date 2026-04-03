@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import {
   SignInButton,
@@ -28,23 +29,68 @@ const ArrowIcon = () => (
 );
 
 export function LandingHero() {
+  const t = useTranslations("landing");
   const clerkEnabled = isClerkEnabled();
+
+  const featureLabels = [
+    t("features.agentFirst"),
+    t("features.approvalQueues"),
+    t("features.liveSignals"),
+  ];
+
+  const boardItems = [
+    t("boardItems.releaseCandidate"),
+    t("boardItems.triageApprovals"),
+    t("boardItems.stabilizeHandoffs"),
+  ];
+
+  const approvalItems = [
+    { title: t("approvalItems.deployConfirmed"), status: "ready" as const },
+    { title: t("approvalItems.copyReviewed"), status: "waiting" as const },
+    { title: t("approvalItems.securitySignoff"), status: "waiting" as const },
+  ];
+
+  const signals = [
+    { text: t("signals.agentDelta"), time: "Now" },
+    { text: t("signals.growthOps"), time: "5m" },
+    { text: t("signals.releasePipeline"), time: "12m" },
+  ];
+
+  const featureCards = [
+    {
+      title: t("featureCards.boardsTitle"),
+      description: t("featureCards.boardsDescription"),
+    },
+    {
+      title: t("featureCards.approvalsTitle"),
+      description: t("featureCards.approvalsDescription"),
+    },
+    {
+      title: t("featureCards.signalsTitle"),
+      description: t("featureCards.signalsDescription"),
+    },
+    {
+      title: t("featureCards.auditTitle"),
+      description: t("featureCards.auditDescription"),
+    },
+  ];
+
+  const openBoardsLabel = t("openBoards");
+  const createBoardLabel = t("createBoard");
+  const viewBoardsLabel = t("viewBoards");
 
   return (
     <>
       <section className="hero">
         <div className="hero-content">
-          <div className="hero-label">OpenClaw Mission Control</div>
+          <div className="hero-label">{t("heroLabel")}</div>
           <h1>
-            Command <span className="hero-highlight">autonomous work.</span>
+            {t("titlePrefix")}
+            <span className="hero-highlight">{t("titleHighlight")}</span>
             <br />
-            Keep human oversight.
+            {t("titleSuffix")}
           </h1>
-          <p>
-            Track tasks, approvals, and agent health in one unified command
-            center. Get real-time signals when work changes, without losing the
-            thread of execution.
-          </p>
+          <p>{t("description")}</p>
 
           <div className="hero-actions">
             <SignedOut>
@@ -56,7 +102,7 @@ export function LandingHero() {
                     signUpForceRedirectUrl="/boards"
                   >
                     <button type="button" className="btn-large primary">
-                      Open Boards <ArrowIcon />
+                      {openBoardsLabel} <ArrowIcon />
                     </button>
                   </SignInButton>
                   <SignInButton
@@ -65,17 +111,17 @@ export function LandingHero() {
                     signUpForceRedirectUrl="/boards/new"
                   >
                     <button type="button" className="btn-large secondary">
-                      Create Board
+                      {createBoardLabel}
                     </button>
                   </SignInButton>
                 </>
               ) : (
                 <>
                   <Link href="/boards" className="btn-large primary">
-                    Open Boards <ArrowIcon />
+                    {openBoardsLabel} <ArrowIcon />
                   </Link>
                   <Link href="/boards/new" className="btn-large secondary">
-                    Create Board
+                    {createBoardLabel}
                   </Link>
                 </>
               )}
@@ -83,45 +129,41 @@ export function LandingHero() {
 
             <SignedIn>
               <Link href="/boards" className="btn-large primary">
-                Open Boards <ArrowIcon />
+                {openBoardsLabel} <ArrowIcon />
               </Link>
               <Link href="/boards/new" className="btn-large secondary">
-                Create Board
+                {createBoardLabel}
               </Link>
             </SignedIn>
           </div>
 
           <div className="hero-features">
-            {["Agent-First Operations", "Approval Queues", "Live Signals"].map(
-              (label) => (
-                <div key={label} className="hero-feature">
-                  <div className="feature-icon">✓</div>
-                  <span>{label}</span>
-                </div>
-              ),
-            )}
+            {featureLabels.map((label) => (
+              <div key={label} className="hero-feature">
+                <div className="feature-icon">✓</div>
+                <span>{label}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="command-surface">
           <div className="surface-header">
-            <div className="surface-title">Command Surface</div>
+            <div className="surface-title">{t("commandSurface")}</div>
             <div className="live-indicator">
               <div className="live-dot" />
-              LIVE
+              {t("live")}
             </div>
           </div>
           <div className="surface-subtitle">
-            <h3>Ship work without losing the thread.</h3>
-            <p>
-              Tasks, approvals, and agent status stay synced across the board.
-            </p>
+            <h3>{t("surfaceTitle")}</h3>
+            <p>{t("surfaceDescription")}</p>
           </div>
           <div className="metrics-row">
             {[
-              { label: "Boards", value: "12" },
-              { label: "Agents", value: "08" },
-              { label: "Tasks", value: "46" },
+              { label: t("metrics.boards"), value: "12" },
+              { label: t("metrics.agents"), value: "08" },
+              { label: t("metrics.tasks"), value: "46" },
             ].map((item) => (
               <div key={item.label} className="metric">
                 <div className="metric-value">{item.value}</div>
@@ -131,12 +173,8 @@ export function LandingHero() {
           </div>
           <div className="surface-content">
             <div className="content-section">
-              <h4>Board — In Progress</h4>
-              {[
-                "Cut release candidate",
-                "Triage approvals backlog",
-                "Stabilize agent handoffs",
-              ].map((title) => (
+              <h4>{t("boardProgress")}</h4>
+              {boardItems.map((title) => (
                 <div key={title} className="status-item">
                   <div className="status-icon progress">⊙</div>
                   <div className="status-item-content">
@@ -147,12 +185,8 @@ export function LandingHero() {
             </div>
 
             <div className="content-section">
-              <h4>Approvals — 3 Pending</h4>
-              {[
-                { title: "Deploy window confirmed", status: "ready" as const },
-                { title: "Copy reviewed", status: "waiting" as const },
-                { title: "Security sign-off", status: "waiting" as const },
-              ].map((item) => (
+              <h4>{t("approvalsPending")}</h4>
+              {approvalItems.map((item) => (
                 <div key={item.title} className="approval-item">
                   <div className="approval-title">{item.title}</div>
                   <div className={`approval-badge ${item.status}`}>
@@ -170,12 +204,8 @@ export function LandingHero() {
             }}
           >
             <div className="content-section">
-              <h4>Signals — Updated Moments Ago</h4>
-              {[
-                { text: "Agent Delta moved task to review", time: "Now" },
-                { text: "Growth Ops hit WIP limit", time: "5m" },
-                { text: "Release pipeline stabilized", time: "12m" },
-              ].map((signal) => (
+              <h4>{t("signalsUpdated")}</h4>
+              {signals.map((signal) => (
                 <div key={signal.text} className="signal-item">
                   <div className="signal-text">{signal.text}</div>
                   <div className="signal-time">{signal.time}</div>
@@ -188,28 +218,7 @@ export function LandingHero() {
 
       <section className="features-section" id="capabilities">
         <div className="features-grid">
-          {[
-            {
-              title: "Boards as ops maps",
-              description:
-                "Keep tasks, priorities, dependencies, and ownership visible at a glance.",
-            },
-            {
-              title: "Approvals that move",
-              description:
-                "Queue, comment, and approve without losing context or slowing execution.",
-            },
-            {
-              title: "Realtime signals",
-              description:
-                "See work change as it happens: tasks, agent status, and approvals update live.",
-            },
-            {
-              title: "Audit trail built in",
-              description:
-                "Every decision leaves a trail, so the board stays explainable and reviewable.",
-            },
-          ].map((feature, idx) => (
+          {featureCards.map((feature, idx) => (
             <div key={feature.title} className="feature-card">
               <div className="feature-number">
                 {String(idx + 1).padStart(2, "0")}
@@ -223,11 +232,8 @@ export function LandingHero() {
 
       <section className="cta-section">
         <div className="cta-content">
-          <h2>Start with one board. Grow into a control room.</h2>
-          <p>
-            Onboard a board, name a lead agent, and keep approvals and signals
-            visible from day one.
-          </p>
+          <h2>{t("ctaTitle")}</h2>
+          <p>{t("ctaDescription")}</p>
           <div className="cta-actions">
             <SignedOut>
               {clerkEnabled ? (
@@ -238,7 +244,7 @@ export function LandingHero() {
                     signUpForceRedirectUrl="/boards/new"
                   >
                     <button type="button" className="btn-large white">
-                      Create Board
+                      {createBoardLabel}
                     </button>
                   </SignInButton>
                   <SignInButton
@@ -247,17 +253,17 @@ export function LandingHero() {
                     signUpForceRedirectUrl="/boards"
                   >
                     <button type="button" className="btn-large outline">
-                      View Boards
+                      {viewBoardsLabel}
                     </button>
                   </SignInButton>
                 </>
               ) : (
                 <>
                   <Link href="/boards/new" className="btn-large white">
-                    Create Board
+                    {createBoardLabel}
                   </Link>
                   <Link href="/boards" className="btn-large outline">
-                    View Boards
+                    {viewBoardsLabel}
                   </Link>
                 </>
               )}
@@ -265,10 +271,10 @@ export function LandingHero() {
 
             <SignedIn>
               <Link href="/boards/new" className="btn-large white">
-                Create Board
+                {createBoardLabel}
               </Link>
               <Link href="/boards" className="btn-large outline">
-                View Boards
+                {viewBoardsLabel}
               </Link>
             </SignedIn>
           </div>

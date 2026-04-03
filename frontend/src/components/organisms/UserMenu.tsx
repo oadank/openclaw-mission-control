@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { SignOutButton, useUser } from "@/auth/clerk";
 import { clearLocalAuthToken, isLocalAuthMode } from "@/auth/localAuth";
+import { useTranslations } from "next-intl";
 import {
   Activity,
   Bot,
@@ -39,6 +40,7 @@ export function UserMenu({
 }: UserMenuProps) {
   const [open, setOpen] = useState(false);
   const { user } = useUser();
+  const t = useTranslations("userMenu");
   const localMode = isLocalAuthMode();
   if (!user && !localMode) return null;
 
@@ -137,7 +139,7 @@ export function UserMenu({
               onClick={() => setOpen(false)}
             >
               <Trello className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
-              Open boards
+              {t("openBoards")}
             </Link>
             <Link
               href="/boards/new"
@@ -145,37 +147,68 @@ export function UserMenu({
               onClick={() => setOpen(false)}
             >
               <Plus className="h-4 w-4 opacity-90" />
-              Create board
+              {t("createBoard")}
             </Link>
           </div>
 
           <div className="my-2 h-px bg-[color:var(--neutral-200,var(--border))]" />
 
-          {(
-            [
-              { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-              { href: "/activity", label: "Activity", icon: Activity },
-              { href: "/agents", label: "Agents", icon: Bot },
-              { href: "/gateways", label: "Gateways", icon: Server },
-              {
-                href: "/skills/marketplace",
-                label: "Skills marketplace",
-                icon: Store,
-              },
-              { href: "/skills/packs", label: "Skill packs", icon: Boxes },
-              { href: "/settings", label: "Settings", icon: Settings },
-            ] as const
-          ).map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-[color:var(--neutral-800,var(--text))] transition hover:bg-[color:var(--neutral-100,var(--surface-muted))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-teal,var(--accent))] focus-visible:ring-offset-2"
-              onClick={() => setOpen(false)}
-            >
-              <item.icon className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
-              {item.label}
-            </Link>
-          ))}
+          <Link
+            href="/dashboard"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-[color:var(--neutral-800,var(--text))] transition hover:bg-[color:var(--neutral-100,var(--surface-muted))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-teal,var(--accent))] focus-visible:ring-offset-2"
+            onClick={() => setOpen(false)}
+          >
+            <LayoutDashboard className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
+            {t("dashboard")}
+          </Link>
+          <Link
+            href="/activity"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-[color:var(--neutral-800,var(--text))] transition hover:bg-[color:var(--neutral-100,var(--surface-muted))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-teal,var(--accent))] focus-visible:ring-offset-2"
+            onClick={() => setOpen(false)}
+          >
+            <Activity className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
+            {t("activity")}
+          </Link>
+          <Link
+            href="/agents"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-[color:var(--neutral-800,var(--text))] transition hover:bg-[color:var(--neutral-100,var(--surface-muted))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-teal,var(--accent))] focus-visible:ring-offset-2"
+            onClick={() => setOpen(false)}
+          >
+            <Bot className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
+            {t("agents")}
+          </Link>
+          <Link
+            href="/gateways"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-[color:var(--neutral-800,var(--text))] transition hover:bg-[color:var(--neutral-100,var(--surface-muted))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-teal,var(--accent))] focus-visible:ring-offset-2"
+            onClick={() => setOpen(false)}
+          >
+            <Server className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
+            {t("gateways")}
+          </Link>
+          <Link
+            href="/skills/marketplace"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-[color:var(--neutral-800,var(--text))] transition hover:bg-[color:var(--neutral-100,var(--surface-muted))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-teal,var(--accent))] focus-visible:ring-offset-2"
+            onClick={() => setOpen(false)}
+          >
+            <Store className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
+            {t("skillsMarketplace")}
+          </Link>
+          <Link
+            href="/skills/packs"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-[color:var(--neutral-800,var(--text))] transition hover:bg-[color:var(--neutral-100,var(--surface-muted))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-teal,var(--accent))] focus-visible:ring-offset-2"
+            onClick={() => setOpen(false)}
+          >
+            <Boxes className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
+            {t("skillPacks")}
+          </Link>
+          <Link
+            href="/settings"
+            className="flex w-full items-center gap-2 rounded-xl px-3 py-2 text-sm font-semibold text-[color:var(--neutral-800,var(--text))] transition hover:bg-[color:var(--neutral-100,var(--surface-muted))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent-teal,var(--accent))] focus-visible:ring-offset-2"
+            onClick={() => setOpen(false)}
+          >
+            <Settings className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
+            {t("settings")}
+          </Link>
 
           <div className="my-2 h-px bg-[color:var(--neutral-200,var(--border))]" />
 
@@ -190,7 +223,7 @@ export function UserMenu({
               }}
             >
               <LogOut className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
-              Sign out
+              {t("signOut")}
             </button>
           ) : (
             <SignOutButton>
@@ -200,7 +233,7 @@ export function UserMenu({
                 onClick={() => setOpen(false)}
               >
                 <LogOut className="h-4 w-4 text-[color:var(--neutral-700,var(--text-quiet))]" />
-                Sign out
+                {t("signOut")}
               </button>
             </SignOutButton>
           )}

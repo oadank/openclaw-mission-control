@@ -1,5 +1,7 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import Link from "next/link";
 import type { ReactNode } from "react";
 
@@ -13,6 +15,7 @@ import {
 import { UserMenu } from "@/components/organisms/UserMenu";
 
 export function LandingShell({ children }: { children: ReactNode }) {
+  const t = useTranslations("landing");
   const clerkEnabled = isClerkEnabled();
 
   return (
@@ -30,10 +33,10 @@ export function LandingShell({ children }: { children: ReactNode }) {
           </Link>
 
           <div className="nav-links">
-            <Link href="#capabilities">Capabilities</Link>
-            <Link href="/boards">Boards</Link>
-            <Link href="/activity">Activity</Link>
-            <Link href="/gateways">Gateways</Link>
+            <Link href="#capabilities">{t("capabilities")}</Link>
+            <Link href="/boards">{t("boards")}</Link>
+            <Link href="/activity">{t("activity")}</Link>
+            <Link href="/gateways">{t("gateways")}</Link>
           </div>
 
           <div className="nav-cta">
@@ -73,10 +76,10 @@ export function LandingShell({ children }: { children: ReactNode }) {
 
             <SignedIn>
               <Link href="/boards/new" className="btn-secondary">
-                Create Board
+                {t("createBoard")}
               </Link>
               <Link href="/boards" className="btn-primary">
-                Open Boards
+                {t("openBoards")}
               </Link>
               <UserMenu />
             </SignedIn>
@@ -90,16 +93,16 @@ export function LandingShell({ children }: { children: ReactNode }) {
         <div className="footer-content">
           <div className="footer-brand">
             <h3>OpenClaw</h3>
-            <p>A calm command center for boards, agents, and approvals.</p>
-            <div className="footer-tagline">Realtime Execution Visibility</div>
+            <p>{t("footerDesc")}</p>
+            <div className="footer-tagline">{t("realtimeVisibility")}</div>
           </div>
 
           <div className="footer-column">
             <h4>Product</h4>
             <div className="footer-links">
-              <Link href="#capabilities">Capabilities</Link>
-              <Link href="/boards">Boards</Link>
-              <Link href="/activity">Activity</Link>
+              <Link href="#capabilities">{t("capabilities")}</Link>
+              <Link href="/boards">{t("boards")}</Link>
+              <Link href="/activity">{t("activity")}</Link>
               <Link href="/dashboard">Dashboard</Link>
             </div>
           </div>
@@ -107,7 +110,7 @@ export function LandingShell({ children }: { children: ReactNode }) {
           <div className="footer-column">
             <h4>Platform</h4>
             <div className="footer-links">
-              <Link href="/gateways">Gateways</Link>
+              <Link href="/gateways">{t("gateways")}</Link>
               <Link href="/agents">Agents</Link>
               <Link href="/dashboard">Dashboard</Link>
             </div>
@@ -135,13 +138,13 @@ export function LandingShell({ children }: { children: ReactNode }) {
                     </SignInButton>
                   </>
                 ) : (
-                  <Link href="/boards">Boards</Link>
+                  <Link href="/boards">{t("boards")}</Link>
                 )}
                 <Link href="/onboarding">Onboarding</Link>
               </SignedOut>
               <SignedIn>
-                <Link href="/boards">Open Boards</Link>
-                <Link href="/boards/new">Create Board</Link>
+                <Link href="/boards">{t("openBoards")}</Link>
+                <Link href="/boards/new">{t("createBoard")}</Link>
                 <Link href="/dashboard">Dashboard</Link>
               </SignedIn>
             </div>
@@ -153,9 +156,9 @@ export function LandingShell({ children }: { children: ReactNode }) {
             © {new Date().getFullYear()} OpenClaw. All rights reserved.
           </div>
           <div className="footer-bottom-links">
-            <Link href="#capabilities">Capabilities</Link>
-            <Link href="/boards">Boards</Link>
-            <Link href="/activity">Activity</Link>
+            <Link href="#capabilities">{t("capabilities")}</Link>
+            <Link href="/boards">{t("boards")}</Link>
+            <Link href="/activity">{t("activity")}</Link>
           </div>
         </div>
       </footer>

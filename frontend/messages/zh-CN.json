@@ -1,0 +1,472 @@
+{
+  "common": {
+    "appName": "OpenClaw Mission Control",
+    "appDescription": "面向每项任务的冷静指挥中枢。",
+    "localeName": "简体中文"
+  },
+  "landing": {
+    "heroLabel": "OpenClaw Mission Control",
+    "titlePrefix": "指挥",
+    "titleHighlight": "自治工作流。",
+    "titleSuffix": "保留人工监督。",
+    "description": "在统一的指挥中枢中跟踪任务、审批和 agent 健康状态。工作一有变化，你就能实时感知，同时不丢失执行上下文。",
+    "openBoards": "打开看板",
+    "createBoard": "创建看板",
+    "viewBoards": "查看看板",
+    "features": {
+      "agentFirst": "Agent 优先运营",
+      "approvalQueues": "审批队列",
+      "liveSignals": "实时信号"
+    },
+    "commandSurface": "指挥面板",
+    "live": "实时",
+    "surfaceTitle": "推进工作，不丢上下文。",
+    "surfaceDescription": "任务、审批和 agent 状态会在 board 内保持同步。",
+    "metrics": {
+      "boards": "个看板",
+      "agents": "个智能体",
+      "tasks": "个任务"
+    },
+    "boardProgress": "Board — 进行中",
+    "boardItems": {
+      "releaseCandidate": "切出发布候选版本",
+      "triageApprovals": "清理审批积压",
+      "stabilizeHandoffs": "稳定智能体交接"
+    },
+    "approvalsPending": "审批 — 3 项待处理",
+    "approvalItems": {
+      "deployConfirmed": "部署窗口已确认",
+      "copyReviewed": "文案已审阅",
+      "securitySignoff": "安全签核"
+    },
+    "signalsUpdated": "信号 — 刚刚更新",
+    "signals": {
+      "agentDelta": "Agent Delta 已将任务移动到 review",
+      "growthOps": "增长运营达到在制品上限",
+      "releasePipeline": "发布流水线已稳定"
+    },
+    "featureCards": {
+      "boardsTitle": "Boards 即运营地图",
+      "boardsDescription": "让任务、优先级、依赖关系和责任归属一眼可见。",
+      "approvalsTitle": "可推进的审批流",
+      "approvalsDescription": "排队、评论、批准一气呵成，不丢上下文，也不拖慢执行。",
+      "signalsTitle": "实时信号",
+      "signalsDescription": "工作一发生变化就能看到：任务、agent 状态和审批会实时更新。",
+      "auditTitle": "内建审计轨迹",
+      "auditDescription": "每个决策都会留下轨迹，让 board 始终可解释、可复盘。"
+    },
+    "ctaTitle": "从一个看板开始，逐步长成控制室。",
+    "ctaDescription": "为一个看板完成入驻，指定负责人，并从第一天起就让审批和信号保持可见。",
+    "capabilities": "功能",
+    "gateways": "网关",
+    "agents": "智能体",
+    "dashboard": "仪表板",
+    "activity": "活动",
+    "product": "产品",
+    "platform": "平台",
+    "access": "访问",
+    "footerDesc": "一个冷静的看板、智能体和审批指挥中心。",
+    "realtimeVisibility": "实时执行可见性",
+    "copyright": "© 2026 OpenClaw. 版权所有。",
+    "boards": "看板",
+    "waitingActivity": "等待新活动...",
+    "activityHint": "有更新时会在这里显示。",
+    "appName": "OpenClaw 任务控制",
+    "statsBoards": "个看板",
+    "statsAgents": "个智能体",
+    "statsTasks": "个任务",
+    "boardItemRelease": "切出发布候选版本",
+    "boardItemTriage": "清理审批积压",
+    "boardItemStabilize": "稳定智能体交接",
+    "ready": "就绪",
+    "waiting": "等待中",
+    "boardPlaceholder": "看板",
+    "onboardingPlaceholder": "入驻",
+    "leadAgentPlaceholder": "负责人"
+  },
+  "dashboard": {
+    "signedOut": "登录后访问仪表板。",
+    "rangeLabel": "7 天",
+    "cards": {
+      "onlineAgents": "在线智能体",
+      "tasksInProgress": "进行中的任务",
+      "errorRate": "错误率",
+      "completionSpeed": "完成速度",
+      "total": "共 {count} 项",
+      "completedLatest": "最近完成 {count} 项",
+      "completed": "已完成 {count} 项",
+      "basedOn": "基于 {range}"
+    },
+    "sections": {
+      "workload": "工作负载",
+      "throughput": "吞吐量",
+      "gatewayHealth": "网关健康度",
+      "pendingApprovals": "待处理审批",
+      "sessions": "会话",
+      "recentActivity": "最近活动"
+    },
+    "rows": {
+      "totalWorkItems": "总工作项",
+      "inbox": "收件箱",
+      "inProgress": "进行中",
+      "inReview": "审核中",
+      "completed": "已完成",
+      "completedTasks": "已完成任务",
+      "averageThroughput": "平均吞吐量",
+      "errorRate": "错误率",
+      "completionConsistency": "完成稳定性",
+      "activeDays": "活跃 {count} 天",
+      "reviewBacklogRatio": "审核积压比",
+      "gatewayStatus": "网关状态",
+      "configuredGateways": "已配置网关",
+      "connectedGateways": "已连接网关",
+      "unavailableGateways": "不可用网关",
+      "gatewaysWithIssues": "有问题的网关"
+    },
+    "states": {
+      "noActivityYet": "暂无活动",
+      "activityHint": "有更新时会在这里显示。",
+      "loadingSessions": "正在加载会话...",
+      "noActiveSessions": "暂无活跃会话"
+    }
+  },
+  "boardsPage": {
+    "signedOut": "登录后查看 boards。",
+    "title": "Boards",
+    "description": "管理 boards 和任务工作流。共 {count} 个 board。",
+    "createBoard": "创建 board",
+    "emptyState": {
+      "title": "还没有 boards",
+      "description": "创建你的第一个 board，开始跨 agent 路由任务和监控工作。",
+      "actionLabel": "创建第一个 board"
+    },
+    "delete": {
+      "ariaLabel": "删除 board",
+      "title": "删除 board",
+      "description": "这将移除 {name}。此操作无法撤销。"
+    }
+  },
+  "agentsPage": {
+    "signedOut": "登录后查看 agents。",
+    "title": "Agents",
+    "description": "共 {count} 个 agent。",
+    "newAgent": "新建 agent",
+    "adminOnlyMessage": "只有组织 owner 和管理员可以访问 agents。",
+    "emptyState": {
+      "title": "还没有 agents",
+      "description": "创建你的第一个 agent，开始在这个 board 上执行任务。",
+      "actionLabel": "创建第一个 agent"
+    },
+    "delete": {
+      "ariaLabel": "删除 agent",
+      "title": "删除 agent",
+      "description": "这将移除 {name}。此操作无法撤销。"
+    },
+    "createAgent": "创建智能体",
+    "createAgentDesc": "智能体在签入前处于配置状态。",
+    "agentNameLabel": "智能体名称",
+    "agentNamePlaceholder": "e.g. Deploy bot",
+    "roleLabel": "角色",
+    "boardLabel": "看板",
+    "emojiLabel": "表情",
+    "communicationStyleLabel": "沟通风格",
+    "intervalLabel": "间隔",
+    "intervalHint": "此智能体运行 HEARTBEAT.md 的频率 (10m, 30m, 2h)。",
+    "backToAgents": "返回智能体列表"
+  },
+  "gatewaysPage": {
+    "signedOut": "登录后查看 gateways。",
+    "title": "Gateways",
+    "description": "管理 boards 使用的 OpenClaw gateway 连接",
+    "createGateway": "创建网关",
+    "adminOnlyMessage": "只有组织 owner 和管理员可以访问 gateways。",
+    "emptyState": {
+      "title": "还没有 gateways",
+      "description": "创建你的第一个 gateway，连接 boards 并开始管理 OpenClaw 连接。",
+      "actionLabel": "创建第一个 gateway"
+    },
+    "delete": {
+      "title": "删除 gateway？",
+      "description": "这将从 Mission Control 移除 gateway 连接。使用它的 boards 需要重新分配 gateway。"
+    },
+    "createGatewayDesc": "为 mission control 配置 OpenClaw 网关。",
+    "gatewayNameLabel": "网关名称",
+    "gatewayNamePlaceholder": "Primary gateway",
+    "gatewayUrlLabel": "网关 URL",
+    "gatewayTokenLabel": "网关令牌",
+    "workspaceRootLabel": "工作区根目录",
+    "disablePairingLabel": "禁用设备配对",
+    "allowSelfSignedLabel": "允许自签名 TLS 证书",
+    "cancel": "取消"
+  },
+  "sidebar": {
+    "navigation": "导航",
+    "overview": "总览",
+    "dashboard": "仪表板",
+    "activity": "实时动态",
+    "boards": "看板",
+    "boardGroups": "看板分组",
+    "tags": "标签",
+    "approvals": "审批",
+    "customFields": "自定义字段",
+    "skills": "技能",
+    "marketplace": "市场",
+    "packs": "套件",
+    "administration": "管理",
+    "organization": "组织",
+    "gateways": "网关",
+    "agents": "智能体",
+    "systemStatus": {
+      "operational": "所有系统正常",
+      "unavailable": "系统状态不可用",
+      "degraded": "系统降级"
+    }
+  },
+  "localAuth": {
+    "mode": "自部署模式",
+    "title": "本地认证",
+    "subtitle": "输入你的访问令牌以解锁 Mission Control。",
+    "tokenLabel": "访问令牌",
+    "tokenPlaceholder": "粘贴令牌",
+    "errors": {
+      "tokenRequired": "Bearer 令牌是必需的。",
+      "tokenLength": "Bearer 令牌至少需要 {length} 个字符。",
+      "invalid": "令牌无效。",
+      "validateFailed": "无法验证令牌 (HTTP {status})。",
+      "resolveFailed": "无法解析后端 URL。",
+      "reachFailed": "无法连接后端进行令牌验证。"
+    },
+    "validating": "验证中...",
+    "continue": "继续",
+    "tokenHint": "令牌至少需要 {length} 个字符。"
+  },
+  "activityPage": {
+    "title": "活动",
+    "description": "实时活动动态",
+    "waitingActivity": "等待新活动...",
+    "activityHint": "有更新时会在这里显示。",
+    "emptyState": {
+      "title": "暂无活动",
+      "description": "有事件产生时，这里会显示活动。"
+    }
+  },
+  "approvalsPage": {
+    "title": "审批",
+    "description": "管理跨 board 的审批",
+    "emptyState": {
+      "title": "没有待处理的审批",
+      "description": "需要你处理的审批会显示在这里。"
+    },
+    "allClear": "全部完成",
+    "noApprovals": "暂无待审批项。新的审批到达时会在这里显示。",
+    "requestColumn": "请求",
+    "boardColumn": "看板",
+    "requestedColumn": "请求时间",
+    "statusColumn": "状态",
+    "signInMessage": "登录后查看审批。",
+    "signInButton": "登录"
+  },
+  "settingsPage": {
+    "title": "设置",
+    "description": "更新你的个人资料和账户偏好。",
+    "signInMessage": "登录后管理你的设置。",
+    "profile": {
+      "title": "个人资料",
+      "description": "保持你的身份信息和时区为最新。"
+    },
+    "fields": {
+      "name": "姓名",
+      "namePlaceholder": "你的名字",
+      "timezone": "时区",
+      "timezoneAria": "选择时区",
+      "timezonePlaceholder": "选择时区",
+      "timezoneSearch": "搜索时区...",
+      "timezoneEmpty": "没有匹配的时区。",
+      "email": "邮箱"
+    },
+    "actions": {
+      "save": "保存设置",
+      "saving": "保存中…",
+      "reset": "重置"
+    },
+    "messages": {
+      "saved": "设置已保存。",
+      "saveError": "无法保存设置。",
+      "deleteError": "无法删除账户。",
+      "required": "姓名和时区为必填项。"
+    },
+    "delete": {
+      "title": "删除账户",
+      "description": "这会永久删除你的 Mission Control 账户及相关个人数据。此操作无法撤销。",
+      "button": "删除账户",
+      "confirmTitle": "确认删除你的账户？",
+      "confirmDescription": "你的账户和个人数据将被永久删除。",
+      "confirmButton": "删除账户",
+      "confirming": "正在删除账户…",
+      "ariaLabel": "删除账户确认"
+    }
+  },
+  "signInPage": {
+    "title": "登录",
+    "description": "登录以访问 Mission Control",
+    "providers": {
+      "clerk": "使用邮箱登录",
+      "github": "使用 GitHub 登录",
+      "google": "使用 Google 登录"
+    },
+    "formData": {
+      "email": "邮箱",
+      "password": "密码",
+      "forgotPassword": "忘记密码？",
+      "signIn": "登录",
+      "noAccount": "没有账号？",
+      "signUp": "注册"
+    },
+    "errors": {
+      "invalidCredentials": "邮箱或密码无效。",
+      "unknown": "发生错误，请重试。"
+    }
+  },
+  "userMenu": {
+    "openBoards": "打开看板",
+    "createBoard": "创建看板",
+    "dashboard": "仪表板",
+    "activity": "活动动态",
+    "agents": "智能体",
+    "gateways": "网关",
+    "skillsMarketplace": "技能市场",
+    "skillPacks": "技能套件",
+    "settings": "设置",
+    "signOut": "退出登录"
+  },
+  "skillPacksPage": {
+    "title": "技能套件",
+    "description": "已配置 {count} 个套件。",
+    "syncAll": "全部同步",
+    "syncingAll": "同步中...",
+    "addPack": "添加技能套件",
+    "noPacks": "暂无套件",
+    "noPacksDescription": "添加你的第一个技能 URL 套件开始使用。",
+    "addFirstPack": "添加第一个套件",
+    "deleteTitle": "删除技能套件",
+    "deleteDescription": "这将从套件列表中移除 {name}。此操作无法撤销。",
+    "adminOnlyMessage": "只有组织所有者和管理员可以管理技能套件。",
+    "signInMessage": "登录后管理技能套件。",
+    "packColumn": "套件",
+    "urlColumn": "套件 URL",
+    "branchColumn": "分支",
+    "skillsColumn": "技能",
+    "updatedAtColumn": "更新时间",
+    "actionsColumn": "操作",
+    "sync": "同步",
+    "edit": "编辑",
+    "delete": "删除",
+    "noDescription": "暂无描述。",
+    "syncing": "同步中...",
+    "addPackDesc": "为你的组织添加新的技能 URL 套件。",
+    "packUrlLabel": "套件 URL",
+    "packUrlPlaceholder": "https://github.com/org/skill-repo",
+    "packBranchLabel": "分支",
+    "packBranchPlaceholder": "main",
+    "packNameLabel": "套件名称",
+    "packNamePlaceholder": "Deploy Helper",
+    "packDescLabel": "套件描述",
+    "packDescPlaceholder": "在套件列表中显示的简短摘要。",
+    "cancel": "取消"
+  },
+  "boardGroupsPage": {
+    "title": "看板分组",
+    "description": "已配置 {count} 个分组",
+    "signInMessage": "登录后查看看板分组。",
+    "createGroup": "创建分组",
+    "noGroups": "暂无分组",
+    "noGroupsDesc": "创建看板分组以提高跨看板的智能体可见性。",
+    "createFirst": "创建第一个分组",
+    "deleteTitle": "删除看板分组",
+    "deleteDesc": "这将从分组列表中移除 {name}。此操作无法撤销。"
+  },
+  "tagsPage": {
+    "title": "标签",
+    "description": "已配置 {count} 个标签",
+    "createTag": "创建标签",
+    "noTags": "暂无标签",
+    "noTagsDesc": "创建你的第一个标签开始使用",
+    "createFirst": "创建第一个标签",
+    "nameColumn": "标签",
+    "colorColumn": "颜色",
+    "boardsColumn": "看板",
+    "updatedAtColumn": "更新时间",
+    "signInMessage": "登录后管理标签。",
+    "adminOnlyMessage": "只有组织所有者和管理员可以管理标签。",
+    "emptyState": {
+      "title": "暂无标签",
+      "description": "创建标签以在不同 boards 间分类和归组任务。",
+      "actionLabel": "创建第一个标签"
+    },
+    "delete": {
+      "ariaLabel": "删除标签",
+      "title": "删除标签",
+      "description": "这会把 {name} 从所有已打标签的任务中移除。此操作无法撤销。",
+      "errorFallback": "无法删除标签。"
+    },
+    "createTagDesc": "定义可重用的标签用于任务分组。",
+    "nameLabel": "名称",
+    "namePlaceholder": "例如：Backend",
+    "slugLabel": "缩写",
+    "slugHint": "留空则从标签名自动生成",
+    "colorLabel": "颜色",
+    "preview": "预览",
+    "descriptionLabel": "描述",
+    "descriptionPlaceholder": "可选描述",
+    "cancel": "取消"
+  },
+  "customFieldsPage": {
+    "title": "自定义字段",
+    "description": "已配置 {count} 个字段",
+    "createField": "创建字段",
+    "noFields": "暂无自定义字段",
+    "noFieldsDesc": "创建你的第一个自定义字段开始使用",
+    "createFirst": "创建第一个字段",
+    "nameColumn": "字段",
+    "typeColumn": "类型",
+    "boardsColumn": "看板",
+    "updatedAtColumn": "更新时间",
+    "signInMessage": "登录后管理自定义字段。",
+    "adminOnlyMessage": "只有组织所有者和管理员可以管理自定义字段。",
+    "emptyState": {
+      "title": "暂无自定义字段",
+      "description": "创建组织级自定义字段，让它们出现在每个任务上。",
+      "actionLabel": "创建第一个字段"
+    },
+    "delete": {
+      "ariaLabel": "删除自定义字段",
+      "title": "删除自定义字段",
+      "description": "这将删除 {name}。此操作无法撤销。",
+      "errorFallback": "无法删除自定义字段。"
+    }
+  },
+  "skillsMarketplacePage": {
+    "title": "技能市场",
+    "description": "可用 {count} 个技能",
+    "searchPlaceholder": "搜索技能...",
+    "noSkills": "暂无技能",
+    "noSkillsDesc": "添加技能后会在这里显示"
+  },
+  "organizationPage": {
+    "title": "组织",
+    "description": "管理你的组织设置",
+    "nameLabel": "组织名称",
+    "membersLabel": "成员",
+    "settingsLabel": "设置",
+    "signInMessage": "登录后管理你的组织。",
+    "deleteOrg": "删除组织",
+    "inviteMember": "邀请成员",
+    "membersInvites": "成员与邀请",
+    "inviteDesc": "邀请队友并调整他们的看板权限。",
+    "member": "成员",
+    "status": "状态",
+    "access": "权限",
+    "actions": "操作",
+    "manageAccess": "管理权限"
+  }
+}

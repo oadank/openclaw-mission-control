@@ -34,10 +34,10 @@ export function ActivityFeed<TItem extends FeedItem>({
     return (
       <div className="rounded-xl border border-slate-200 bg-white p-10 text-center shadow-sm">
         <p className="text-sm font-medium text-slate-900">
-          Waiting for new activity…
+          等待新活动...
         </p>
         <p className="mt-1 text-sm text-slate-500">
-          When updates happen, they will show up here.
+          有更新时会在这里显示。
         </p>
       </div>
     );

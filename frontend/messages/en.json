@@ -1,0 +1,407 @@
+{
+  "common": {
+    "appName": "OpenClaw Mission Control",
+    "appDescription": "A calm command center for every task.",
+    "localeName": "English"
+  },
+  "landing": {
+    "heroLabel": "OpenClaw Mission Control",
+    "titlePrefix": "Command ",
+    "titleHighlight": "autonomous work.",
+    "titleSuffix": "Keep human oversight.",
+    "description": "Track tasks, approvals, and agent health in one unified command center. Get real-time signals when work changes, without losing the thread of execution.",
+    "openBoards": "Open Boards",
+    "createBoard": "Create Board",
+    "viewBoards": "View Boards",
+    "features": {
+      "agentFirst": "Agent-First Operations",
+      "approvalQueues": "Approval Queues",
+      "liveSignals": "Live Signals"
+    },
+    "commandSurface": "Command Surface",
+    "live": "LIVE",
+    "surfaceTitle": "Ship work without losing the thread.",
+    "surfaceDescription": "Tasks, approvals, and agent status stay synced across the board.",
+    "metrics": {
+      "boards": "Boards",
+      "agents": "Agents",
+      "tasks": "Tasks"
+    },
+    "boardProgress": "Board — In Progress",
+    "boardItems": {
+      "releaseCandidate": "Cut release candidate",
+      "triageApprovals": "Triage approvals backlog",
+      "stabilizeHandoffs": "Stabilize agent handoffs"
+    },
+    "approvalsPending": "Approvals — 3 Pending",
+    "approvalItems": {
+      "deployConfirmed": "Deploy window confirmed",
+      "copyReviewed": "Copy reviewed",
+      "securitySignoff": "Security sign-off"
+    },
+    "signalsUpdated": "Signals — Updated Moments Ago",
+    "signals": {
+      "agentDelta": "Agent Delta moved task to review",
+      "growthOps": "Growth Ops hit WIP limit",
+      "releasePipeline": "Release pipeline stabilized"
+    },
+    "featureCards": {
+      "boardsTitle": "Boards as ops maps",
+      "boardsDescription": "Keep tasks, priorities, dependencies, and ownership visible at a glance.",
+      "approvalsTitle": "Approvals that move",
+      "approvalsDescription": "Queue, comment, and approve without losing context or slowing execution.",
+      "signalsTitle": "Realtime signals",
+      "signalsDescription": "See work change as it happens: tasks, agent status, and approvals update live.",
+      "auditTitle": "Audit trail built in",
+      "auditDescription": "Every decision leaves a trail, so the board stays explainable and reviewable."
+    },
+    "ctaTitle": "Start with one board. Grow into a control room.",
+    "ctaDescription": "Onboard a board, name a lead agent, and keep approvals and signals visible from day one.",
+    "capabilities": "Capabilities",
+    "gateways": "Gateways",
+    "agents": "Agents",
+    "dashboard": "Dashboard",
+    "activity": "Activity",
+    "product": "PRODUCT",
+    "platform": "PLATFORM",
+    "access": "ACCESS",
+    "footerDesc": "A calm command center for boards, agents, and approvals.",
+    "realtimeVisibility": "REALTIME EXECUTION VISIBILITY",
+    "copyright": "© 2026 OpenClaw. All rights reserved.",
+    "boards": "Boards",
+    "waitingActivity": "Waiting for new activity...",
+    "activityHint": "When updates happen, they will show up here.",
+    "appName": "OpenClaw Mission Control",
+    "statsBoards": "Boards",
+    "statsAgents": "Agents",
+    "statsTasks": "Tasks",
+    "boardItemRelease": "Cut release candidate",
+    "boardItemTriage": "Triage approvals backlog",
+    "boardItemStabilize": "Stabilize agent handoffs",
+    "ready": "Ready",
+    "waiting": "Waiting",
+    "boardPlaceholder": "board",
+    "onboardingPlaceholder": "onboarding",
+    "leadAgentPlaceholder": "lead agent"
+  },
+  "dashboard": {
+    "signedOut": "Sign in to access the dashboard.",
+    "rangeLabel": "7 days",
+    "onlineAgents": "Online Agents",
+    "tasksInProgress": "Tasks In Progress",
+    "errorRate": "Error Rate",
+    "completionSpeed": "Completion Speed",
+    "workload": "Workload",
+    "throughput": "Throughput",
+    "gatewayHealth": "Gateway Health",
+    "pendingApprovals": "Pending Approvals",
+    "sessions": "Sessions",
+    "recentActivity": "Recent Activity",
+    "totalWorkItems": "Total work items",
+    "inbox": "Inbox",
+    "inProgress": "In progress",
+    "inReview": "In review",
+    "completed": "Completed",
+    "averageThroughput": "Average throughput",
+    "completionConsistency": "Completion consistency",
+    "activeDays": "{count} active days",
+    "reviewBacklogRatio": "Review backlog ratio",
+    "gatewayStatus": "Gateway Status",
+    "configuredGateways": "Configured Gateways",
+    "connectedGateways": "Connected Gateways",
+    "unavailableGateways": "Unavailable Gateways",
+    "gatewaysWithIssues": "Gateways with issues",
+    "noActivityYet": "No activity yet",
+    "activityHint": "When updates happen, they will show up here."
+  },
+  "boardsPage": {
+    "signedOut": "Sign in to view boards.",
+    "title": "Boards",
+    "description": "Manage boards and task workflows. {count, plural, =1 {1 board} other {# boards}} total.",
+    "createBoard": "Create board",
+    "emptyState": {
+      "title": "No boards yet",
+      "description": "Create your first board to start routing tasks and monitoring work across agents.",
+      "actionLabel": "Create your first board"
+    },
+    "delete": {
+      "ariaLabel": "Delete board",
+      "title": "Delete board",
+      "description": "This will remove {name}. This action cannot be undone."
+    }
+  },
+  "agentsPage": {
+    "signedOut": "Sign in to view agents.",
+    "title": "Agents",
+    "description": "{count, plural, =1 {1 agent} other {# agents}} total.",
+    "newAgent": "New agent",
+    "adminOnlyMessage": "Only organization owners and admins can access agents.",
+    "emptyState": {
+      "title": "No agents yet",
+      "description": "Create your first agent to start executing tasks on this board.",
+      "actionLabel": "Create your first agent"
+    },
+    "delete": {
+      "ariaLabel": "Delete agent",
+      "title": "Delete agent",
+      "description": "This will remove {name}. This action cannot be undone."
+    }
+  },
+  "gatewaysPage": {
+    "signedOut": "Sign in to view gateways.",
+    "title": "Gateways",
+    "description": "Manage OpenClaw gateway connections used by boards",
+    "createGateway": "Create gateway",
+    "adminOnlyMessage": "Only organization owners and admins can access gateways.",
+    "emptyState": {
+      "title": "No gateways yet",
+      "description": "Create your first gateway to connect boards and start managing your OpenClaw connections.",
+      "actionLabel": "Create your first gateway"
+    },
+    "delete": {
+      "title": "Delete gateway?",
+      "description": "This removes the gateway connection from Mission Control. Boards using it will need a new gateway assigned."
+    }
+  },
+  "sidebar": {
+    "navigation": "Navigation",
+    "overview": "Overview",
+    "dashboard": "Dashboard",
+    "activity": "Live feed",
+    "boards": "Boards",
+    "boardGroups": "Board groups",
+    "tags": "Tags",
+    "approvals": "Approvals",
+    "customFields": "Custom fields",
+    "skills": "Skills",
+    "marketplace": "Marketplace",
+    "packs": "Packs",
+    "administration": "Administration",
+    "organization": "Organization",
+    "gateways": "Gateways",
+    "agents": "Agents",
+    "systemStatus": {
+      "operational": "All systems operational",
+      "unavailable": "System status unavailable",
+      "degraded": "System degraded"
+    }
+  },
+  "localAuth": {
+    "mode": "Self-host mode",
+    "title": "Local Authentication",
+    "subtitle": "Enter your access token to unlock Mission Control.",
+    "tokenLabel": "Access token",
+    "tokenPlaceholder": "Paste token",
+    "errors": {
+      "tokenRequired": "Bearer token is required.",
+      "tokenLength": "Bearer token must be at least {length} characters.",
+      "invalid": "Token is invalid.",
+      "validateFailed": "Unable to validate token (HTTP {status}).",
+      "resolveFailed": "Unable to resolve backend URL.",
+      "reachFailed": "Unable to reach backend to validate token."
+    },
+    "validating": "Validating...",
+    "continue": "Continue",
+    "tokenHint": "Token must be at least {length} characters."
+  },
+  "activityPage": {
+    "title": "Activity",
+    "description": "Real-time activity feed",
+    "emptyState": {
+      "title": "No activity yet",
+      "description": "Activity will appear here when events are emitted."
+    },
+    "noActivity": "No activity yet",
+    "noActivityDesc": "Activity will appear here as it happens"
+  },
+  "approvalsPage": {
+    "title": "Approvals",
+    "description": "Manage approvals across boards",
+    "emptyState": {
+      "title": "No approvals pending",
+      "description": "Approvals will appear here when they require your attention."
+    },
+    "allClear": "All clear",
+    "noApprovals": "No approvals to review right now. New approvals will show up here as soon as they arrive.",
+    "requestColumn": "Request",
+    "boardColumn": "Board",
+    "requestedColumn": "Requested",
+    "statusColumn": "Status",
+    "signInMessage": "Sign in to view approvals.",
+    "signInButton": "Sign in"
+  },
+  "settingsPage": {
+    "title": "Settings",
+    "description": "Update your profile and account preferences.",
+    "signInMessage": "Sign in to manage your settings.",
+    "profile": {
+      "title": "Profile",
+      "description": "Keep your identity and timezone up to date."
+    },
+    "fields": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "timezone": "Timezone",
+      "timezoneAria": "Select timezone",
+      "timezonePlaceholder": "Select timezone",
+      "timezoneSearch": "Search timezones...",
+      "timezoneEmpty": "No matching timezones.",
+      "email": "Email"
+    },
+    "actions": {
+      "save": "Save settings",
+      "saving": "Saving…",
+      "reset": "Reset"
+    },
+    "messages": {
+      "saved": "Settings saved.",
+      "saveError": "Unable to save settings.",
+      "deleteError": "Unable to delete account.",
+      "required": "Name and timezone are required."
+    },
+    "delete": {
+      "title": "Delete account",
+      "description": "This permanently removes your Mission Control account and related personal data. This action cannot be undone.",
+      "button": "Delete account",
+      "confirmTitle": "Delete your account?",
+      "confirmDescription": "Your account and personal data will be permanently deleted.",
+      "confirmButton": "Delete account",
+      "confirming": "Deleting account…",
+      "ariaLabel": "Delete account confirmation"
+    }
+  },
+  "signInPage": {
+    "title": "Sign In",
+    "description": "Sign in to access Mission Control",
+    "providers": {
+      "clerk": "Sign in with email",
+      "github": "Sign in with GitHub",
+      "google": "Sign in with Google"
+    },
+    "formData": {
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign In",
+      "noAccount": "Don't have an account? ",
+      "signUp": "Sign up"
+    },
+    "errors": {
+      "invalidCredentials": "Invalid email or password.",
+      "unknown": "An error occurred. Please try again."
+    }
+  },
+  "userMenu": {
+    "openBoards": "Open boards",
+    "createBoard": "Create board",
+    "dashboard": "Dashboard",
+    "activity": "Activity",
+    "agents": "Agents",
+    "gateways": "Gateways",
+    "skillsMarketplace": "Skills marketplace",
+    "skillPacks": "Skill packs",
+    "settings": "Settings",
+    "signOut": "Sign out"
+  },
+  "skillPacksPage": {
+    "title": "Skill Packs",
+    "description": "{count} pack{plural} configured.",
+    "syncAll": "Sync all",
+    "syncingAll": "Syncing all...",
+    "addPack": "Add pack",
+    "noPacks": "No packs yet",
+    "noPacksDescription": "Add your first skill URL pack to get started.",
+    "addFirstPack": "Add your first pack",
+    "deleteTitle": "Delete skill pack",
+    "deleteDescription": "This will remove {name} from your pack list. This action cannot be undone.",
+    "adminOnlyMessage": "Only organization owners and admins can manage skill packs.",
+    "signInMessage": "Sign in to manage skill packs.",
+    "packColumn": "Pack",
+    "urlColumn": "Pack URL",
+    "branchColumn": "Branch",
+    "skillsColumn": "Skills",
+    "updatedAtColumn": "Updated",
+    "actionsColumn": "Actions",
+    "sync": "Sync",
+    "edit": "Edit",
+    "delete": "Delete",
+    "noDescription": "No description provided.",
+    "syncing": "Syncing..."
+  },
+  "boardGroupsPage": {
+    "title": "Board Groups",
+    "description": "{count} group{plural} configured",
+    "signInMessage": "Sign in to view board groups.",
+    "createGroup": "Create group",
+    "noGroups": "No groups yet",
+    "noGroupsDesc": "Create a board group to increase cross-board visibility for agents.",
+    "createFirst": "Create your first group",
+    "deleteTitle": "Delete board group",
+    "deleteDesc": "This will remove {name} from your group list. This action cannot be undone."
+  },
+  "tagsPage": {
+    "title": "Tags",
+    "description": "{count} tag{plural} configured",
+    "createTag": "Create tag",
+    "noTags": "No tags yet",
+    "noTagsDesc": "Create your first tag to get started",
+    "createFirst": "Create first tag",
+    "nameColumn": "Tag",
+    "colorColumn": "Color",
+    "boardsColumn": "Boards",
+    "updatedAtColumn": "Updated",
+    "signInMessage": "Sign in to manage tags.",
+    "adminOnlyMessage": "Only organization owners and admins can manage tags.",
+    "emptyState": {
+      "title": "No tags yet",
+      "description": "Create tags to classify and group tasks across your boards.",
+      "actionLabel": "Create your first tag"
+    },
+    "delete": {
+      "ariaLabel": "Delete tag",
+      "title": "Delete tag",
+      "description": "This will remove {name} from all tagged tasks. This action cannot be undone.",
+      "errorFallback": "Unable to delete tag."
+    }
+  },
+  "customFieldsPage": {
+    "title": "Custom Fields",
+    "description": "{count} field{plural} configured",
+    "createField": "Create field",
+    "noFields": "No custom fields yet",
+    "noFieldsDesc": "Create your first custom field to get started",
+    "createFirst": "Create first field",
+    "nameColumn": "Field",
+    "typeColumn": "Type",
+    "boardsColumn": "Boards",
+    "updatedAtColumn": "Updated",
+    "signInMessage": "Sign in to manage custom fields.",
+    "adminOnlyMessage": "Only organization owners and admins can manage custom fields.",
+    "emptyState": {
+      "title": "No custom fields yet",
+      "description": "Create organization-level custom fields that appear on every task.",
+      "actionLabel": "Create your first field"
+    },
+    "delete": {
+      "ariaLabel": "Delete custom field",
+      "title": "Delete custom field",
+      "description": "This will delete {name}. This action cannot be undone.",
+      "errorFallback": "Unable to delete custom field."
+    }
+  },
+  "skillsMarketplacePage": {
+    "title": "Skills Marketplace",
+    "description": "{count} skill{plural} available",
+    "searchPlaceholder": "Search skills...",
+    "noSkills": "No skills yet",
+    "noSkillsDesc": "Skills will appear here once added"
+  },
+  "organizationPage": {
+    "title": "Organization",
+    "description": "Manage your organization settings",
+    "nameLabel": "Organization name",
+    "membersLabel": "Members",
+    "settingsLabel": "Settings",
+    "signInMessage": "Sign in to manage your organization."
+  }
+}

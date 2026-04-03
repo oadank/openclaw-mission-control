@@ -3,9 +3,11 @@ import "./globals.css";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
+import { getLocale, getMessages } from 'next-intl/server';
 import { DM_Serif_Display, IBM_Plex_Sans, Sora } from "next/font/google";
 
 import { AuthProvider } from "@/components/providers/AuthProvider";
+import { NextIntlProvider } from "@/providers/NextIntlProvider";
 import { QueryProvider } from "@/components/providers/QueryProvider";
 import { GlobalLoader } from "@/components/ui/global-loader";
 
@@ -35,18 +37,23 @@ const displayFont = DM_Serif_Display({
   weight: ["400"],
 });
 
-export default function RootLayout({ children }: { children: ReactNode }) {
+export default async function RootLayout({ children }: { children: ReactNode }) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <body
         className={`${bodyFont.variable} ${headingFont.variable} ${displayFont.variable} min-h-screen bg-app text-strong antialiased`}
       >
-        <AuthProvider>
-          <QueryProvider>
-            <GlobalLoader />
-            {children}
-          </QueryProvider>
-        </AuthProvider>
+        <NextIntlProvider locale={locale} messages={messages}>
+          <AuthProvider>
+            <QueryProvider>
+              <GlobalLoader />
+              {children}
+            </QueryProvider>
+          </AuthProvider>
+        </NextIntlProvider>
       </body>
     </html>
   );
