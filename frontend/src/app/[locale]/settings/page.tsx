@@ -1,4 +1,5 @@
 "use client";
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export const dynamic = "force-dynamic";
 
@@ -119,6 +120,9 @@ export default function SettingsPage() {
   const isSaving = updateMeMutation.isPending;
 
   return (
+    <div className="mb-6">
+      <LanguageSwitcher />
+    </div>
     <>
       <DashboardPageLayout
         signedOut={{ message: t("signInMessage"), forceRedirectUrl: "/settings", signUpForceRedirectUrl: "/settings" }}
