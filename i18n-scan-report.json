@@ -1,16 +1,197 @@
 {
   "summary": {
     "totalFilesScanned": 0,
-    "filesWithUseTranslations": 7,
-    "filesWithHardcodedText": 42,
-    "totalHardcodedHits": 204,
-    "existingEnKeys": 191,
-    "existingZhKeys": 191
+    "filesWithUseTranslations": 24,
+    "filesWithHardcodedText": 68,
+    "totalHardcodedHits": 339,
+    "existingEnKeys": 311,
+    "existingZhKeys": 368
   },
   "filesByPriority": {
     "critical": [
       {
         "file": "src/app/[locale]/boards/[boardId]/page.tsx",
+        "hitCount": 35,
+        "hits": [
+          {
+            "line": 3091,
+            "text": "Sign in",
+            "context": "<Button>Sign in</Button>"
+          },
+          {
+            "line": 3148,
+            "text": "New task",
+            "context": "aria-label=\"New task\""
+          },
+          {
+            "line": 3158,
+            "text": "Approvals",
+            "context": "aria-label=\"Approvals\""
+          },
+          {
+            "line": 3159,
+            "text": "Approvals",
+            "context": "title=\"Approvals\""
+          },
+          {
+            "line": 3210,
+            "text": "Board chat",
+            "context": "aria-label=\"Board chat\""
+          },
+          {
+            "line": 3211,
+            "text": "Board chat",
+            "context": "title=\"Board chat\""
+          },
+          {
+            "line": 3219,
+            "text": "Live feed",
+            "context": "aria-label=\"Live feed\""
+          },
+          {
+            "line": 3220,
+            "text": "Live feed",
+            "context": "title=\"Live feed\""
+          },
+          {
+            "line": 3229,
+            "text": "Board settings",
+            "context": "aria-label=\"Board settings\""
+          },
+          {
+            "line": 3230,
+            "text": "Board settings",
+            "context": "title=\"Board settings\""
+          },
+          {
+            "line": 4014,
+            "text": "Close board chat",
+            "context": "aria-label=\"Close board chat\""
+          },
+          {
+            "line": 4076,
+            "text": "Close live feed",
+            "context": "aria-label=\"Close live feed\""
+          },
+          {
+            "line": 4140,
+            "text": "Edit task",
+            "context": "<DialogContent aria-label=\"Edit task\">"
+          },
+          {
+            "line": 4142,
+            "text": "Edit task",
+            "context": "<DialogTitle>Edit task</DialogTitle>"
+          },
+          {
+            "line": 4155,
+            "text": "Task title",
+            "context": "placeholder=\"Task title\""
+          },
+          {
+            "line": 4166,
+            "text": "Task details",
+            "context": "placeholder=\"Task details\""
+          },
+          {
+            "line": 4194,
+            "text": "Select status",
+            "context": "<SelectValue placeholder=\"Select status\" />"
+          },
+          {
+            "line": 4215,
+            "text": "Select priority",
+            "context": "<SelectValue placeholder=\"Select priority\" />"
+          },
+          {
+            "line": 4250,
+            "text": "Unassigned",
+            "context": "<SelectValue placeholder=\"Unassigned\" />"
+          },
+          {
+            "line": 4253,
+            "text": "Unassigned",
+            "context": "<SelectItem value=\"unassigned\">Unassigned</SelectItem>"
+          },
+          {
+            "line": 4282,
+            "text": "Add tag",
+            "context": "placeholder=\"Add tag\""
+          },
+          {
+            "line": 4315,
+            "text": "Remove tag",
+            "context": "aria-label=\"Remove tag\""
+          },
+          {
+            "line": 4335,
+            "text": "Add dependency",
+            "context": "placeholder=\"Add dependency\""
+          },
+          {
+            "line": 4388,
+            "text": "Remove dependency",
+            "context": "aria-label=\"Remove dependency\""
+          },
+          {
+            "line": 4438,
+            "text": "Delete task",
+            "context": "<DialogContent aria-label=\"Delete task\">"
+          },
+          {
+            "line": 4440,
+            "text": "Delete task",
+            "context": "<DialogTitle>Delete task</DialogTitle>"
+          },
+          {
+            "line": 4480,
+            "text": "New task",
+            "context": "<DialogTitle>New task</DialogTitle>"
+          },
+          {
+            "line": 4487,
+            "text": "Title",
+            "context": "<label className=\"text-sm font-medium text-strong\">Title</label>"
+          },
+          {
+            "line": 4502,
+            "text": "Optional details",
+            "context": "placeholder=\"Optional details\""
+          },
+          {
+            "line": 4529,
+            "text": "Select priority",
+            "context": "<SelectValue placeholder=\"Select priority\" />"
+          },
+          {
+            "line": 4553,
+            "text": "Tags",
+            "context": "<label className=\"text-sm font-medium text-strong\">Tags</label>"
+          },
+          {
+            "line": 4564,
+            "text": "Add tag",
+            "context": "placeholder=\"Add tag\""
+          },
+          {
+            "line": 4589,
+            "text": "Remove tag",
+            "context": "aria-label=\"Remove tag\""
+          },
+          {
+            "line": 4632,
+            "text": "Agent controls",
+            "context": "<DialogContent aria-label=\"Agent controls\">"
+          },
+          {
+            "line": 4653,
+            "text": "What happens",
+            "context": "<p className=\"font-semibold text-slate-900\">What happens</p>"
+          }
+        ]
+      },
+      {
+        "file": "src/app/boards/[boardId]/page.tsx",
         "hitCount": 35,
         "hits": [
           {
@@ -302,7 +483,118 @@
         ]
       },
       {
-        "file": "src/app/[locale]/organization/page.tsx",
+        "file": "src/app/boards/[boardId]/edit/page.tsx",
+        "hitCount": 21,
+        "hits": [
+          {
+            "line": 216,
+            "text": "Describe exactly what the lead agent should do when payloads arrive.",
+            "context": "placeholder=\"Describe exactly what the lead agent should do when payloads arrive.\""
+          },
+          {
+            "line": 221,
+            "text": "Agent",
+            "context": "<label className=\"text-sm font-medium text-slate-900\">Agent</label>"
+          },
+          {
+            "line": 228,
+            "text": "Lead agent (default fallback)",
+            "context": "<SelectValue placeholder=\"Lead agent (default fallback)\" />"
+          },
+          {
+            "line": 764,
+            "text": "Edit board",
+            "context": "title=\"Edit board\""
+          },
+          {
+            "line": 805,
+            "text": "Board name",
+            "context": "placeholder=\"Board name\""
+          },
+          {
+            "line": 818,
+            "text": "Select gateway",
+            "context": "placeholder=\"Select gateway\""
+          },
+          {
+            "line": 835,
+            "text": "Select board type",
+            "context": "<SelectValue placeholder=\"Select board type\" />"
+          },
+          {
+            "line": 838,
+            "text": "Goal",
+            "context": "<SelectItem value=\"goal\">Goal</SelectItem>"
+          },
+          {
+            "line": 839,
+            "text": "General",
+            "context": "<SelectItem value=\"general\">General</SelectItem>"
+          },
+          {
+            "line": 872,
+            "text": "No group",
+            "context": "placeholder=\"No group\""
+          },
+          {
+            "line": 907,
+            "text": "What context should the lead agent know?",
+            "context": "placeholder=\"What context should the lead agent know?\""
+          },
+          {
+            "line": 925,
+            "text": "What should this board achieve?",
+            "context": "placeholder=\"What should this board achieve?\""
+          },
+          {
+            "line": 969,
+            "text": "Require approval",
+            "context": "aria-label=\"Require approval\""
+          },
+          {
+            "line": 1004,
+            "text": "Require review before done",
+            "context": "aria-label=\"Require review before done\""
+          },
+          {
+            "line": 1038,
+            "text": "Require comment for review",
+            "context": "aria-label=\"Require comment for review\""
+          },
+          {
+            "line": 1074,
+            "text": "Block status changes with pending approval",
+            "context": "aria-label=\"Block status changes with pending approval\""
+          },
+          {
+            "line": 1110,
+            "text": "Only lead can change status",
+            "context": "aria-label=\"Only lead can change status\""
+          },
+          {
+            "line": 1188,
+            "text": "Describe exactly what the lead agent should do when payloads arrive.",
+            "context": "placeholder=\"Describe exactly what the lead agent should do when payloads arrive.\""
+          },
+          {
+            "line": 1202,
+            "text": "Lead agent (default fallback)",
+            "context": "<SelectValue placeholder=\"Lead agent (default fallback)\" />"
+          },
+          {
+            "line": 1277,
+            "text": "Board onboarding",
+            "context": "aria-label=\"Board onboarding\""
+          },
+          {
+            "line": 1286,
+            "text": "Close onboarding",
+            "context": "aria-label=\"Close onboarding\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/organization/page.tsx",
         "hitCount": 11,
         "hits": [
           {
@@ -365,163 +657,332 @@
     ],
     "high": [
       {
-        "file": "src/components/templates/LandingShell.tsx",
-        "hitCount": 30,
+        "file": "src/components/agents/ModelControlsPanel.tsx",
+        "hitCount": 15,
         "hits": [
           {
-            "line": 20,
+            "line": 423,
+            "text": "Refresh model catalog",
+            "context": "title=\"Refresh model catalog\""
+          },
+          {
+            "line": 499,
+            "text": "Effective",
+            "context": "<span className=\"text-muted\">Effective</span>"
+          },
+          {
+            "line": 505,
+            "text": "Source",
+            "context": "<span className=\"text-muted\">Source</span>"
+          },
+          {
+            "line": 509,
+            "text": "Mode",
+            "context": "<span className=\"text-muted\">Mode</span>"
+          },
+          {
+            "line": 514,
+            "text": "Manual selection",
+            "context": "<span className=\"text-muted\">Manual selection</span>"
+          },
+          {
+            "line": 522,
+            "text": "Recommended",
+            "context": "<span className=\"text-muted\">Recommended</span>"
+          },
+          {
+            "line": 561,
+            "text": "Override mode",
+            "context": "<span className=\"text-muted\">Override mode</span>"
+          },
+          {
+            "line": 565,
+            "text": "Status",
+            "context": "<span className=\"text-muted\">Status</span>"
+          },
+          {
+            "line": 578,
+            "text": "Effective fallback chain",
+            "context": "<p className=\"text-xs text-quiet\">Effective fallback chain</p>"
+          },
+          {
+            "line": 612,
+            "text": "Status",
+            "context": "<span className=\"text-muted\">Status</span>"
+          },
+          {
+            "line": 622,
+            "text": "Generated",
+            "context": "<span className=\"text-muted\">Generated</span>"
+          },
+          {
+            "line": 657,
+            "text": "Edit primary model",
+            "context": "<DialogContent aria-label=\"Edit primary model\">"
+          },
+          {
+            "line": 659,
+            "text": "Edit Primary Model",
+            "context": "<DialogTitle>Edit Primary Model</DialogTitle>"
+          },
+          {
+            "line": 734,
+            "text": "Edit fallback override",
+            "context": "<DialogContent aria-label=\"Edit fallback override\">"
+          },
+          {
+            "line": 736,
+            "text": "Fallback Override",
+            "context": "<DialogTitle>Fallback Override</DialogTitle>"
+          }
+        ]
+      },
+      {
+        "file": "src/components/templates/LandingShell.tsx",
+        "hitCount": 15,
+        "hits": [
+          {
+            "line": 23,
             "text": "Primary navigation",
             "context": "<nav className=\"landing-nav\" aria-label=\"Primary navigation\">"
           },
           {
-            "line": 22,
+            "line": 25,
             "text": "OpenClaw home",
             "context": "<Link href=\"/\" className=\"logo-section\" aria-label=\"OpenClaw home\">"
           },
           {
-            "line": 27,
+            "line": 30,
             "text": "OpenClaw",
             "context": "<div className=\"logo-name\">OpenClaw</div>"
           },
           {
-            "line": 28,
+            "line": 31,
             "text": "Mission Control",
             "context": "<div className=\"logo-tagline\">Mission Control</div>"
           },
           {
-            "line": 33,
-            "text": "Capabilities",
-            "context": "<Link href=\"#capabilities\">Capabilities</Link>"
-          },
-          {
-            "line": 34,
-            "text": "Boards",
-            "context": "<Link href=\"/boards\">Boards</Link>"
-          },
-          {
-            "line": 35,
-            "text": "Activity",
-            "context": "<Link href=\"/activity\">Activity</Link>"
-          },
-          {
-            "line": 36,
-            "text": "Gateways",
-            "context": "<Link href=\"/gateways\">Gateways</Link>"
-          },
-          {
-            "line": 92,
+            "line": 95,
             "text": "OpenClaw",
             "context": "<h3>OpenClaw</h3>"
           },
           {
-            "line": 94,
-            "text": "Realtime Execution Visibility",
-            "context": "<div className=\"footer-tagline\">Realtime Execution Visibility</div>"
-          },
-          {
-            "line": 98,
+            "line": 101,
             "text": "Product",
             "context": "<h4>Product</h4>"
           },
           {
-            "line": 100,
-            "text": "Capabilities",
-            "context": "<Link href=\"#capabilities\">Capabilities</Link>"
-          },
-          {
-            "line": 101,
-            "text": "Boards",
-            "context": "<Link href=\"/boards\">Boards</Link>"
-          },
-          {
-            "line": 102,
-            "text": "Activity",
-            "context": "<Link href=\"/activity\">Activity</Link>"
-          },
-          {
-            "line": 103,
+            "line": 106,
             "text": "Dashboard",
             "context": "<Link href=\"/dashboard\">Dashboard</Link>"
           },
           {
-            "line": 108,
+            "line": 111,
             "text": "Platform",
             "context": "<h4>Platform</h4>"
           },
           {
-            "line": 110,
-            "text": "Gateways",
-            "context": "<Link href=\"/gateways\">Gateways</Link>"
-          },
-          {
-            "line": 111,
+            "line": 114,
             "text": "Agents",
             "context": "<Link href=\"/agents\">Agents</Link>"
           },
           {
-            "line": 112,
+            "line": 115,
             "text": "Dashboard",
             "context": "<Link href=\"/dashboard\">Dashboard</Link>"
           },
           {
-            "line": 117,
+            "line": 120,
             "text": "Access",
             "context": "<h4>Access</h4>"
           },
           {
-            "line": 127,
+            "line": 130,
             "text": "Sign In",
             "context": "<button type=\"button\">Sign In</button>"
           },
           {
-            "line": 134,
+            "line": 137,
             "text": "Create Account",
             "context": "<button type=\"button\">Create Account</button>"
           },
           {
-            "line": 138,
-            "text": "Boards",
-            "context": "<Link href=\"/boards\">Boards</Link>"
-          },
-          {
-            "line": 140,
+            "line": 143,
             "text": "Onboarding",
             "context": "<Link href=\"/onboarding\">Onboarding</Link>"
           },
           {
-            "line": 143,
-            "text": "Open Boards",
-            "context": "<Link href=\"/boards\">Open Boards</Link>"
-          },
-          {
-            "line": 144,
-            "text": "Create Board",
-            "context": "<Link href=\"/boards/new\">Create Board</Link>"
-          },
-          {
-            "line": 145,
+            "line": 148,
             "text": "Dashboard",
             "context": "<Link href=\"/dashboard\">Dashboard</Link>"
+          }
+        ]
+      },
+      {
+        "file": "src/app/[locale]/organization/page.tsx",
+        "hitCount": 10,
+        "hits": [
+          {
+            "line": 824,
+            "text": "Invite a member",
+            "context": "<DialogTitle>Invite a member</DialogTitle>"
           },
           {
-            "line": 156,
-            "text": "Capabilities",
-            "context": "<Link href=\"#capabilities\">Capabilities</Link>"
+            "line": 851,
+            "text": "Select role",
+            "context": "<SelectValue placeholder=\"Select role\" />"
           },
           {
-            "line": 157,
-            "text": "Boards",
-            "context": "<Link href=\"/boards\">Boards</Link>"
+            "line": 854,
+            "text": "Member",
+            "context": "<SelectItem value=\"member\">Member</SelectItem>"
           },
           {
-            "line": 158,
-            "text": "Activity",
-            "context": "<Link href=\"/activity\">Activity</Link>"
+            "line": 855,
+            "text": "Admin",
+            "context": "<SelectItem value=\"admin\">Admin</SelectItem>"
+          },
+          {
+            "line": 908,
+            "text": "Manage member access",
+            "context": "<DialogTitle>Manage member access</DialogTitle>"
+          },
+          {
+            "line": 942,
+            "text": "Select role",
+            "context": "<SelectValue placeholder=\"Select role\" />"
+          },
+          {
+            "line": 945,
+            "text": "Owner",
+            "context": "<SelectItem value=\"owner\">Owner</SelectItem>"
+          },
+          {
+            "line": 946,
+            "text": "Member",
+            "context": "<SelectItem value=\"member\">Member</SelectItem>"
+          },
+          {
+            "line": 947,
+            "text": "Admin",
+            "context": "<SelectItem value=\"admin\">Admin</SelectItem>"
+          },
+          {
+            "line": 1047,
+            "text": "Remove member",
+            "context": "title=\"Remove member\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/dashboard/page.tsx",
+        "hitCount": 10,
+        "hits": [
+          {
+            "line": 913,
+            "text": "Online Agents",
+            "context": "title=\"Online Agents\""
+          },
+          {
+            "line": 920,
+            "text": "Tasks In Progress",
+            "context": "title=\"Tasks In Progress\""
+          },
+          {
+            "line": 927,
+            "text": "Error Rate",
+            "context": "title=\"Error Rate\""
+          },
+          {
+            "line": 934,
+            "text": "Completion Speed",
+            "context": "title=\"Completion Speed\""
+          },
+          {
+            "line": 945,
+            "text": "Workload",
+            "context": "title=\"Workload\""
+          },
+          {
+            "line": 949,
+            "text": "Throughput",
+            "context": "title=\"Throughput\""
+          },
+          {
+            "line": 954,
+            "text": "Gateway Health",
+            "context": "title=\"Gateway Health\""
+          },
+          {
+            "line": 965,
+            "text": "Pending Approvals",
+            "context": "<h3 className=\"text-lg font-semibold text-slate-900\">Pending Approvals</h3>"
+          },
+          {
+            "line": 1023,
+            "text": "Sessions",
+            "context": "<h3 className=\"text-lg font-semibold text-slate-900\">Sessions</h3>"
+          },
+          {
+            "line": 1089,
+            "text": "Recent Activity",
+            "context": "<h3 className=\"text-lg font-semibold text-slate-900\">Recent Activity</h3>"
           }
         ]
       },
       {
         "file": "src/app/[locale]/board-groups/[groupId]/page.tsx",
+        "hitCount": 9,
+        "hits": [
+          {
+            "line": 774,
+            "text": "Edit group",
+            "context": "title=\"Edit group\""
+          },
+          {
+            "line": 790,
+            "text": "Group chat",
+            "context": "title=\"Group chat\""
+          },
+          {
+            "line": 805,
+            "text": "Group notes",
+            "context": "title=\"Group notes\""
+          },
+          {
+            "line": 830,
+            "text": "Top tasks per board",
+            "context": "<span className=\"text-slate-500\">Top tasks per board</span>"
+          },
+          {
+            "line": 851,
+            "text": "Agent pace",
+            "context": "<span className=\"text-slate-500\">Agent pace</span>"
+          },
+          {
+            "line": 997,
+            "text": "Open board",
+            "context": "title=\"Open board\""
+          },
+          {
+            "line": 1033,
+            "text": "Open task on board",
+            "context": "title=\"Open task on board\""
+          },
+          {
+            "line": 1124,
+            "text": "Close group chat",
+            "context": "aria-label=\"Close group chat\""
+          },
+          {
+            "line": 1211,
+            "text": "Close group notes",
+            "context": "aria-label=\"Close group notes\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/board-groups/[groupId]/page.tsx",
         "hitCount": 9,
         "hits": [
           {
@@ -649,7 +1110,43 @@
         ]
       },
       {
-        "file": "src/app/[locale]/skills/marketplace/page.tsx",
+        "file": "src/app/agents/[agentId]/page.tsx",
+        "hitCount": 6,
+        "hits": [
+          {
+            "line": 159,
+            "text": "Sign in",
+            "context": "<Button>Sign in</Button>"
+          },
+          {
+            "line": 306,
+            "text": "Heartbeat window",
+            "context": "<span>Heartbeat window</span>"
+          },
+          {
+            "line": 310,
+            "text": "Session binding",
+            "context": "<span>Session binding</span>"
+          },
+          {
+            "line": 316,
+            "text": "Status",
+            "context": "<span>Status</span>"
+          },
+          {
+            "line": 381,
+            "text": "Delete agent",
+            "context": "<DialogContent aria-label=\"Delete agent\">"
+          },
+          {
+            "line": 383,
+            "text": "Delete agent",
+            "context": "<DialogTitle>Delete agent</DialogTitle>"
+          }
+        ]
+      },
+      {
+        "file": "src/app/skills/marketplace/page.tsx",
         "hitCount": 6,
         "hits": [
           {
@@ -721,7 +1218,38 @@
         ]
       },
       {
-        "file": "src/app/[locale]/settings/page.tsx",
+        "file": "src/app/[locale]/skills/marketplace/page.tsx",
+        "hitCount": 5,
+        "hits": [
+          {
+            "line": 822,
+            "text": "Search by name, description, category, pack, source...",
+            "context": "placeholder=\"Search by name, description, category, pack, source...\""
+          },
+          {
+            "line": 841,
+            "text": "All categories",
+            "context": "<SelectValue placeholder=\"All categories\" />"
+          },
+          {
+            "line": 844,
+            "text": "All categories",
+            "context": "<SelectItem value=\"all\">All categories</SelectItem>"
+          },
+          {
+            "line": 871,
+            "text": "Safe",
+            "context": "<SelectValue placeholder=\"Safe\" />"
+          },
+          {
+            "line": 874,
+            "text": "All risks",
+            "context": "<SelectItem value=\"all\">All risks</SelectItem>"
+          }
+        ]
+      },
+      {
+        "file": "src/app/settings/page.tsx",
         "hitCount": 5,
         "hits": [
           {
@@ -830,23 +1358,80 @@
         ]
       },
       {
-        "file": "src/app/[locale]/agents/new/page.tsx",
-        "hitCount": 3,
+        "file": "src/app/board-groups/[groupId]/edit/page.tsx",
+        "hitCount": 4,
         "hits": [
           {
-            "line": 138,
-            "text": "Create agent",
-            "context": "title=\"Create agent\""
+            "line": 307,
+            "text": "Group name",
+            "context": "placeholder=\"Group name\""
           },
           {
-            "line": 191,
-            "text": "Select board",
-            "context": "placeholder=\"Select board\""
+            "line": 320,
+            "text": "What ties these boards together?",
+            "context": "placeholder=\"What ties these boards together?\""
           },
           {
-            "line": 220,
-            "text": "Select emoji",
-            "context": "<SelectValue placeholder=\"Select emoji\" />"
+            "line": 329,
+            "text": "Boards",
+            "context": "<p className=\"text-sm font-medium text-slate-900\">Boards</p>"
+          },
+          {
+            "line": 343,
+            "text": "Search boards...",
+            "context": "placeholder=\"Search boards...\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/board-groups/new/page.tsx",
+        "hitCount": 4,
+        "hits": [
+          {
+            "line": 131,
+            "text": "Create board group",
+            "context": "title=\"Create board group\""
+          },
+          {
+            "line": 159,
+            "text": "What ties these boards together? What should agents coordinate on?",
+            "context": "placeholder=\"What ties these boards together? What should agents coordinate on?\""
+          },
+          {
+            "line": 167,
+            "text": "Boards",
+            "context": "<label className=\"text-sm font-medium text-slate-900\">Boards</label>"
+          },
+          {
+            "line": 175,
+            "text": "Search boards...",
+            "context": "placeholder=\"Search boards...\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/boards/new/page.tsx",
+        "hitCount": 4,
+        "hits": [
+          {
+            "line": 157,
+            "text": "Create board",
+            "context": "title=\"Create board\""
+          },
+          {
+            "line": 188,
+            "text": "Select gateway",
+            "context": "placeholder=\"Select gateway\""
+          },
+          {
+            "line": 208,
+            "text": "No group",
+            "context": "placeholder=\"No group\""
+          },
+          {
+            "line": 229,
+            "text": "What context should the lead agent know before onboarding?",
+            "context": "placeholder=\"What context should the lead agent know before onboarding?\""
           }
         ]
       },
@@ -872,34 +1457,60 @@
         ]
       },
       {
-        "file": "src/app/[locale]/board-groups/page.tsx",
-        "hitCount": 2,
+        "file": "src/app/agents/new/page.tsx",
+        "hitCount": 3,
         "hits": [
           {
-            "line": 93,
-            "text": "Board groups",
-            "context": "title=\"Board groups\""
+            "line": 138,
+            "text": "Create agent",
+            "context": "title=\"Create agent\""
           },
           {
-            "line": 138,
-            "text": "Delete board group",
-            "context": "title=\"Delete board group\""
+            "line": 191,
+            "text": "Select board",
+            "context": "placeholder=\"Select board\""
+          },
+          {
+            "line": 220,
+            "text": "Select emoji",
+            "context": "<SelectValue placeholder=\"Select emoji\" />"
           }
         ]
       },
       {
-        "file": "src/app/[locale]/custom-fields/page.tsx",
+        "file": "src/app/onboarding/page.tsx",
+        "hitCount": 3,
+        "hits": [
+          {
+            "line": 133,
+            "text": "Sign in",
+            "context": "<Button size=\"lg\">Sign in</Button>"
+          },
+          {
+            "line": 162,
+            "text": "Enter your name",
+            "context": "placeholder=\"Enter your name\""
+          },
+          {
+            "line": 178,
+            "text": "Select timezone",
+            "context": "placeholder=\"Select timezone\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/[locale]/agents/new/page.tsx",
         "hitCount": 2,
         "hits": [
           {
-            "line": 88,
-            "text": "Custom fields",
-            "context": "title=\"Custom fields\""
+            "line": 193,
+            "text": "Select board",
+            "context": "placeholder=\"Select board\""
           },
           {
-            "line": 139,
-            "text": "Delete custom field",
-            "context": "title=\"Delete custom field\""
+            "line": 222,
+            "text": "Select emoji",
+            "context": "<SelectValue placeholder=\"Select emoji\" />"
           }
         ]
       },
@@ -936,7 +1547,119 @@
         ]
       },
       {
-        "file": "src/app/[locale]/skills/packs/page.tsx",
+        "file": "src/app/agents/page.tsx",
+        "hitCount": 2,
+        "hits": [
+          {
+            "line": 132,
+            "text": "Agents",
+            "context": "title=\"Agents\""
+          },
+          {
+            "line": 180,
+            "text": "Delete agent",
+            "context": "title=\"Delete agent\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/board-groups/page.tsx",
+        "hitCount": 2,
+        "hits": [
+          {
+            "line": 93,
+            "text": "Board groups",
+            "context": "title=\"Board groups\""
+          },
+          {
+            "line": 138,
+            "text": "Delete board group",
+            "context": "title=\"Delete board group\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/boards/page.tsx",
+        "hitCount": 2,
+        "hits": [
+          {
+            "line": 120,
+            "text": "Boards",
+            "context": "title=\"Boards\""
+          },
+          {
+            "line": 171,
+            "text": "Delete board",
+            "context": "title=\"Delete board\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/custom-fields/page.tsx",
+        "hitCount": 2,
+        "hits": [
+          {
+            "line": 88,
+            "text": "Custom fields",
+            "context": "title=\"Custom fields\""
+          },
+          {
+            "line": 139,
+            "text": "Delete custom field",
+            "context": "title=\"Delete custom field\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/gateways/[gatewayId]/page.tsx",
+        "hitCount": 2,
+        "hits": [
+          {
+            "line": 233,
+            "text": "Token",
+            "context": "<p className=\"text-xs uppercase text-slate-400\">Token</p>"
+          },
+          {
+            "line": 326,
+            "text": "Delete agent",
+            "context": "title=\"Delete agent\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/gateways/page.tsx",
+        "hitCount": 2,
+        "hits": [
+          {
+            "line": 97,
+            "text": "Gateways",
+            "context": "title=\"Gateways\""
+          },
+          {
+            "line": 145,
+            "text": "Delete gateway?",
+            "context": "title=\"Delete gateway?\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/invite/page.tsx",
+        "hitCount": 2,
+        "hits": [
+          {
+            "line": 97,
+            "text": "Paste invite token",
+            "context": "placeholder=\"Paste invite token\""
+          },
+          {
+            "line": 111,
+            "text": "Sign in",
+            "context": "<Button size=\"md\">Sign in</Button>"
+          }
+        ]
+      },
+      {
+        "file": "src/app/skills/packs/page.tsx",
         "hitCount": 2,
         "hits": [
           {
@@ -952,7 +1675,7 @@
         ]
       },
       {
-        "file": "src/app/[locale]/tags/page.tsx",
+        "file": "src/app/tags/page.tsx",
         "hitCount": 2,
         "hits": [
           {
@@ -979,13 +1702,13 @@
         ]
       },
       {
-        "file": "src/app/[locale]/approvals/page.tsx",
+        "file": "src/app/[locale]/board-groups/page.tsx",
         "hitCount": 1,
         "hits": [
           {
-            "line": 198,
-            "text": "Sign in",
-            "context": "<Button>Sign in</Button>"
+            "line": 139,
+            "text": "Delete board group",
+            "context": "title=\"Delete board group\""
           }
         ]
       },
@@ -1034,7 +1757,73 @@
         ]
       },
       {
-        "file": "src/app/[locale]/gateways/new/page.tsx",
+        "file": "src/app/agents/[agentId]/edit/page.tsx",
+        "hitCount": 1,
+        "hits": [
+          {
+            "line": 367,
+            "text": "Select emoji",
+            "context": "<SelectValue placeholder=\"Select emoji\" />"
+          }
+        ]
+      },
+      {
+        "file": "src/app/approvals/page.tsx",
+        "hitCount": 1,
+        "hits": [
+          {
+            "line": 198,
+            "text": "Sign in",
+            "context": "<Button>Sign in</Button>"
+          }
+        ]
+      },
+      {
+        "file": "src/app/boards/[boardId]/approvals/page.tsx",
+        "hitCount": 1,
+        "hits": [
+          {
+            "line": 29,
+            "text": "Sign in",
+            "context": "<Button>Sign in</Button>"
+          }
+        ]
+      },
+      {
+        "file": "src/app/boards/[boardId]/webhooks/[webhookId]/payloads/page.tsx",
+        "hitCount": 1,
+        "hits": [
+          {
+            "line": 109,
+            "text": "Webhook payloads",
+            "context": "title=\"Webhook payloads\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/custom-fields/[fieldId]/edit/page.tsx",
+        "hitCount": 1,
+        "hits": [
+          {
+            "line": 125,
+            "text": "Edit custom field",
+            "context": "title=\"Edit custom field\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/custom-fields/new/page.tsx",
+        "hitCount": 1,
+        "hits": [
+          {
+            "line": 77,
+            "text": "Add custom field",
+            "context": "title=\"Add custom field\""
+          }
+        ]
+      },
+      {
+        "file": "src/app/gateways/new/page.tsx",
         "hitCount": 1,
         "hits": [
           {
@@ -1045,7 +1834,7 @@
         ]
       },
       {
-        "file": "src/app/[locale]/skills/packs/new/page.tsx",
+        "file": "src/app/skills/packs/new/page.tsx",
         "hitCount": 1,
         "hits": [
           {
@@ -1056,7 +1845,7 @@
         ]
       },
       {
-        "file": "src/app/[locale]/tags/add/page.tsx",
+        "file": "src/app/tags/add/page.tsx",
         "hitCount": 1,
         "hits": [
           {
@@ -1156,19 +1945,35 @@
         "hitCount": 3,
         "hits": [
           {
-            "line": 68,
+            "line": 70,
             "text": "Open user menu",
             "context": "aria-label=\"Open user menu\""
           },
           {
-            "line": 81,
+            "line": 83,
             "text": "User avatar",
             "context": "alt=\"User avatar\""
           },
           {
-            "line": 111,
+            "line": 113,
             "text": "User avatar",
             "context": "alt=\"User avatar\""
+          }
+        ]
+      },
+      {
+        "file": "src/components/gateways/GatewayModelProfilesPanel.tsx",
+        "hitCount": 2,
+        "hits": [
+          {
+            "line": 107,
+            "text": "No model selected",
+            "context": "<span className=\"italic text-slate-400\">No model selected</span>"
+          },
+          {
+            "line": 109,
+            "text": "Using runtime default",
+            "context": "<span className=\"text-blue-700\">Using runtime default</span>"
           }
         ]
       },
@@ -1286,6 +2091,32 @@
             "context": "<SelectItem value=\"false\">False</SelectItem>"
           }
         ]
+      },
+      {
+        "file": "src/app/boards/[boardId]/TaskCustomFieldsEditor.tsx",
+        "hitCount": 4,
+        "hits": [
+          {
+            "line": 80,
+            "text": "Optional",
+            "context": "<SelectValue placeholder=\"Optional\" />"
+          },
+          {
+            "line": 83,
+            "text": "Optional",
+            "context": "<SelectItem value=\"unset\">Optional</SelectItem>"
+          },
+          {
+            "line": 84,
+            "text": "True",
+            "context": "<SelectItem value=\"true\">True</SelectItem>"
+          },
+          {
+            "line": 85,
+            "text": "False",
+            "context": "<SelectItem value=\"false\">False</SelectItem>"
+          }
+        ]
       }
     ]
   },
@@ -1334,27 +2165,15 @@
     },
     {
       "file": "src/app/[locale]/agents/new/page.tsx",
-      "line": 138,
-      "text": "Create agent",
-      "context": "title=\"Create agent\""
-    },
-    {
-      "file": "src/app/[locale]/agents/new/page.tsx",
-      "line": 191,
+      "line": 193,
       "text": "Select board",
       "context": "placeholder=\"Select board\""
     },
     {
       "file": "src/app/[locale]/agents/new/page.tsx",
-      "line": 220,
+      "line": 222,
       "text": "Select emoji",
       "context": "<SelectValue placeholder=\"Select emoji\" />"
-    },
-    {
-      "file": "src/app/[locale]/approvals/page.tsx",
-      "line": 198,
-      "text": "Sign in",
-      "context": "<Button>Sign in</Button>"
     },
     {
       "file": "src/app/[locale]/board-groups/[groupId]/edit/page.tsx",
@@ -1460,13 +2279,7 @@
     },
     {
       "file": "src/app/[locale]/board-groups/page.tsx",
-      "line": 93,
-      "text": "Board groups",
-      "context": "title=\"Board groups\""
-    },
-    {
-      "file": "src/app/[locale]/board-groups/page.tsx",
-      "line": 138,
+      "line": 139,
       "text": "Delete board group",
       "context": "title=\"Delete board group\""
     },
@@ -1879,18 +2692,6 @@
       "context": "title=\"Add custom field\""
     },
     {
-      "file": "src/app/[locale]/custom-fields/page.tsx",
-      "line": 88,
-      "text": "Custom fields",
-      "context": "title=\"Custom fields\""
-    },
-    {
-      "file": "src/app/[locale]/custom-fields/page.tsx",
-      "line": 139,
-      "text": "Delete custom field",
-      "context": "title=\"Delete custom field\""
-    },
-    {
       "file": "src/app/[locale]/gateways/[gatewayId]/page.tsx",
       "line": 232,
       "text": "Token",
@@ -1901,12 +2702,6 @@
       "line": 318,
       "text": "Delete agent",
       "context": "title=\"Delete agent\""
-    },
-    {
-      "file": "src/app/[locale]/gateways/new/page.tsx",
-      "line": 118,
-      "text": "Create gateway",
-      "context": "title=\"Create gateway\""
     },
     {
       "file": "src/app/[locale]/invite/page.tsx",
@@ -1940,168 +2735,1002 @@
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 822,
+      "line": 824,
       "text": "Invite a member",
       "context": "<DialogTitle>Invite a member</DialogTitle>"
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 849,
+      "line": 851,
       "text": "Select role",
       "context": "<SelectValue placeholder=\"Select role\" />"
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 852,
+      "line": 854,
       "text": "Member",
       "context": "<SelectItem value=\"member\">Member</SelectItem>"
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 853,
+      "line": 855,
       "text": "Admin",
       "context": "<SelectItem value=\"admin\">Admin</SelectItem>"
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 906,
+      "line": 908,
       "text": "Manage member access",
       "context": "<DialogTitle>Manage member access</DialogTitle>"
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 940,
+      "line": 942,
       "text": "Select role",
       "context": "<SelectValue placeholder=\"Select role\" />"
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 943,
+      "line": 945,
       "text": "Owner",
       "context": "<SelectItem value=\"owner\">Owner</SelectItem>"
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 944,
+      "line": 946,
       "text": "Member",
       "context": "<SelectItem value=\"member\">Member</SelectItem>"
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 945,
+      "line": 947,
       "text": "Admin",
       "context": "<SelectItem value=\"admin\">Admin</SelectItem>"
     },
     {
       "file": "src/app/[locale]/organization/page.tsx",
-      "line": 1022,
-      "text": "Delete organization",
-      "context": "title=\"Delete organization\""
-    },
-    {
-      "file": "src/app/[locale]/organization/page.tsx",
-      "line": 1045,
+      "line": 1047,
       "text": "Remove member",
       "context": "title=\"Remove member\""
     },
     {
-      "file": "src/app/[locale]/settings/page.tsx",
-      "line": 150,
-      "text": "Settings",
-      "context": "title=\"Settings\""
-    },
-    {
-      "file": "src/app/[locale]/settings/page.tsx",
-      "line": 155,
-      "text": "Profile",
-      "context": "<h2 className=\"text-base font-semibold text-slate-900\">Profile</h2>"
-    },
-    {
-      "file": "src/app/[locale]/settings/page.tsx",
-      "line": 173,
-      "text": "Your name",
-      "context": "placeholder=\"Your name\""
-    },
-    {
-      "file": "src/app/[locale]/settings/page.tsx",
-      "line": 191,
-      "text": "Select timezone",
-      "context": "placeholder=\"Select timezone\""
-    },
-    {
-      "file": "src/app/[locale]/settings/page.tsx",
-      "line": 273,
-      "text": "Delete your account?",
-      "context": "title=\"Delete your account?\""
-    },
-    {
       "file": "src/app/[locale]/skills/marketplace/page.tsx",
-      "line": 775,
-      "text": "Skills Marketplace",
-      "context": "title=\"Skills Marketplace\""
-    },
-    {
-      "file": "src/app/[locale]/skills/marketplace/page.tsx",
-      "line": 820,
+      "line": 822,
       "text": "Search by name, description, category, pack, source...",
       "context": "placeholder=\"Search by name, description, category, pack, source...\""
     },
     {
       "file": "src/app/[locale]/skills/marketplace/page.tsx",
-      "line": 839,
+      "line": 841,
       "text": "All categories",
       "context": "<SelectValue placeholder=\"All categories\" />"
     },
     {
       "file": "src/app/[locale]/skills/marketplace/page.tsx",
-      "line": 842,
+      "line": 844,
       "text": "All categories",
       "context": "<SelectItem value=\"all\">All categories</SelectItem>"
     },
     {
       "file": "src/app/[locale]/skills/marketplace/page.tsx",
-      "line": 869,
+      "line": 871,
       "text": "Safe",
       "context": "<SelectValue placeholder=\"Safe\" />"
     },
     {
       "file": "src/app/[locale]/skills/marketplace/page.tsx",
+      "line": 874,
+      "text": "All risks",
+      "context": "<SelectItem value=\"all\">All risks</SelectItem>"
+    },
+    {
+      "file": "src/app/agents/[agentId]/edit/page.tsx",
+      "line": 367,
+      "text": "Select emoji",
+      "context": "<SelectValue placeholder=\"Select emoji\" />"
+    },
+    {
+      "file": "src/app/agents/[agentId]/page.tsx",
+      "line": 159,
+      "text": "Sign in",
+      "context": "<Button>Sign in</Button>"
+    },
+    {
+      "file": "src/app/agents/[agentId]/page.tsx",
+      "line": 306,
+      "text": "Heartbeat window",
+      "context": "<span>Heartbeat window</span>"
+    },
+    {
+      "file": "src/app/agents/[agentId]/page.tsx",
+      "line": 310,
+      "text": "Session binding",
+      "context": "<span>Session binding</span>"
+    },
+    {
+      "file": "src/app/agents/[agentId]/page.tsx",
+      "line": 316,
+      "text": "Status",
+      "context": "<span>Status</span>"
+    },
+    {
+      "file": "src/app/agents/[agentId]/page.tsx",
+      "line": 381,
+      "text": "Delete agent",
+      "context": "<DialogContent aria-label=\"Delete agent\">"
+    },
+    {
+      "file": "src/app/agents/[agentId]/page.tsx",
+      "line": 383,
+      "text": "Delete agent",
+      "context": "<DialogTitle>Delete agent</DialogTitle>"
+    },
+    {
+      "file": "src/app/agents/new/page.tsx",
+      "line": 138,
+      "text": "Create agent",
+      "context": "title=\"Create agent\""
+    },
+    {
+      "file": "src/app/agents/new/page.tsx",
+      "line": 191,
+      "text": "Select board",
+      "context": "placeholder=\"Select board\""
+    },
+    {
+      "file": "src/app/agents/new/page.tsx",
+      "line": 220,
+      "text": "Select emoji",
+      "context": "<SelectValue placeholder=\"Select emoji\" />"
+    },
+    {
+      "file": "src/app/agents/page.tsx",
+      "line": 132,
+      "text": "Agents",
+      "context": "title=\"Agents\""
+    },
+    {
+      "file": "src/app/agents/page.tsx",
+      "line": 180,
+      "text": "Delete agent",
+      "context": "title=\"Delete agent\""
+    },
+    {
+      "file": "src/app/approvals/page.tsx",
+      "line": 198,
+      "text": "Sign in",
+      "context": "<Button>Sign in</Button>"
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/edit/page.tsx",
+      "line": 307,
+      "text": "Group name",
+      "context": "placeholder=\"Group name\""
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/edit/page.tsx",
+      "line": 320,
+      "text": "What ties these boards together?",
+      "context": "placeholder=\"What ties these boards together?\""
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/edit/page.tsx",
+      "line": 329,
+      "text": "Boards",
+      "context": "<p className=\"text-sm font-medium text-slate-900\">Boards</p>"
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/edit/page.tsx",
+      "line": 343,
+      "text": "Search boards...",
+      "context": "placeholder=\"Search boards...\""
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/page.tsx",
+      "line": 774,
+      "text": "Edit group",
+      "context": "title=\"Edit group\""
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/page.tsx",
+      "line": 790,
+      "text": "Group chat",
+      "context": "title=\"Group chat\""
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/page.tsx",
+      "line": 805,
+      "text": "Group notes",
+      "context": "title=\"Group notes\""
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/page.tsx",
+      "line": 830,
+      "text": "Top tasks per board",
+      "context": "<span className=\"text-slate-500\">Top tasks per board</span>"
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/page.tsx",
+      "line": 851,
+      "text": "Agent pace",
+      "context": "<span className=\"text-slate-500\">Agent pace</span>"
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/page.tsx",
+      "line": 997,
+      "text": "Open board",
+      "context": "title=\"Open board\""
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/page.tsx",
+      "line": 1033,
+      "text": "Open task on board",
+      "context": "title=\"Open task on board\""
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/page.tsx",
+      "line": 1124,
+      "text": "Close group chat",
+      "context": "aria-label=\"Close group chat\""
+    },
+    {
+      "file": "src/app/board-groups/[groupId]/page.tsx",
+      "line": 1211,
+      "text": "Close group notes",
+      "context": "aria-label=\"Close group notes\""
+    },
+    {
+      "file": "src/app/board-groups/new/page.tsx",
+      "line": 131,
+      "text": "Create board group",
+      "context": "title=\"Create board group\""
+    },
+    {
+      "file": "src/app/board-groups/new/page.tsx",
+      "line": 159,
+      "text": "What ties these boards together? What should agents coordinate on?",
+      "context": "placeholder=\"What ties these boards together? What should agents coordinate on?\""
+    },
+    {
+      "file": "src/app/board-groups/new/page.tsx",
+      "line": 167,
+      "text": "Boards",
+      "context": "<label className=\"text-sm font-medium text-slate-900\">Boards</label>"
+    },
+    {
+      "file": "src/app/board-groups/new/page.tsx",
+      "line": 175,
+      "text": "Search boards...",
+      "context": "placeholder=\"Search boards...\""
+    },
+    {
+      "file": "src/app/board-groups/page.tsx",
+      "line": 93,
+      "text": "Board groups",
+      "context": "title=\"Board groups\""
+    },
+    {
+      "file": "src/app/board-groups/page.tsx",
+      "line": 138,
+      "text": "Delete board group",
+      "context": "title=\"Delete board group\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/TaskCustomFieldsEditor.tsx",
+      "line": 80,
+      "text": "Optional",
+      "context": "<SelectValue placeholder=\"Optional\" />"
+    },
+    {
+      "file": "src/app/boards/[boardId]/TaskCustomFieldsEditor.tsx",
+      "line": 83,
+      "text": "Optional",
+      "context": "<SelectItem value=\"unset\">Optional</SelectItem>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/TaskCustomFieldsEditor.tsx",
+      "line": 84,
+      "text": "True",
+      "context": "<SelectItem value=\"true\">True</SelectItem>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/TaskCustomFieldsEditor.tsx",
+      "line": 85,
+      "text": "False",
+      "context": "<SelectItem value=\"false\">False</SelectItem>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/approvals/page.tsx",
+      "line": 29,
+      "text": "Sign in",
+      "context": "<Button>Sign in</Button>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 216,
+      "text": "Describe exactly what the lead agent should do when payloads arrive.",
+      "context": "placeholder=\"Describe exactly what the lead agent should do when payloads arrive.\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 221,
+      "text": "Agent",
+      "context": "<label className=\"text-sm font-medium text-slate-900\">Agent</label>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 228,
+      "text": "Lead agent (default fallback)",
+      "context": "<SelectValue placeholder=\"Lead agent (default fallback)\" />"
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 764,
+      "text": "Edit board",
+      "context": "title=\"Edit board\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 805,
+      "text": "Board name",
+      "context": "placeholder=\"Board name\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 818,
+      "text": "Select gateway",
+      "context": "placeholder=\"Select gateway\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 835,
+      "text": "Select board type",
+      "context": "<SelectValue placeholder=\"Select board type\" />"
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 838,
+      "text": "Goal",
+      "context": "<SelectItem value=\"goal\">Goal</SelectItem>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 839,
+      "text": "General",
+      "context": "<SelectItem value=\"general\">General</SelectItem>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 872,
+      "text": "No group",
+      "context": "placeholder=\"No group\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 907,
+      "text": "What context should the lead agent know?",
+      "context": "placeholder=\"What context should the lead agent know?\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 925,
+      "text": "What should this board achieve?",
+      "context": "placeholder=\"What should this board achieve?\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 969,
+      "text": "Require approval",
+      "context": "aria-label=\"Require approval\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 1004,
+      "text": "Require review before done",
+      "context": "aria-label=\"Require review before done\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 1038,
+      "text": "Require comment for review",
+      "context": "aria-label=\"Require comment for review\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 1074,
+      "text": "Block status changes with pending approval",
+      "context": "aria-label=\"Block status changes with pending approval\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 1110,
+      "text": "Only lead can change status",
+      "context": "aria-label=\"Only lead can change status\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 1188,
+      "text": "Describe exactly what the lead agent should do when payloads arrive.",
+      "context": "placeholder=\"Describe exactly what the lead agent should do when payloads arrive.\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 1202,
+      "text": "Lead agent (default fallback)",
+      "context": "<SelectValue placeholder=\"Lead agent (default fallback)\" />"
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 1277,
+      "text": "Board onboarding",
+      "context": "aria-label=\"Board onboarding\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/edit/page.tsx",
+      "line": 1286,
+      "text": "Close onboarding",
+      "context": "aria-label=\"Close onboarding\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3091,
+      "text": "Sign in",
+      "context": "<Button>Sign in</Button>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3148,
+      "text": "New task",
+      "context": "aria-label=\"New task\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3158,
+      "text": "Approvals",
+      "context": "aria-label=\"Approvals\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3159,
+      "text": "Approvals",
+      "context": "title=\"Approvals\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3210,
+      "text": "Board chat",
+      "context": "aria-label=\"Board chat\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3211,
+      "text": "Board chat",
+      "context": "title=\"Board chat\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3219,
+      "text": "Live feed",
+      "context": "aria-label=\"Live feed\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3220,
+      "text": "Live feed",
+      "context": "title=\"Live feed\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3229,
+      "text": "Board settings",
+      "context": "aria-label=\"Board settings\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 3230,
+      "text": "Board settings",
+      "context": "title=\"Board settings\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4014,
+      "text": "Close board chat",
+      "context": "aria-label=\"Close board chat\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4076,
+      "text": "Close live feed",
+      "context": "aria-label=\"Close live feed\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4140,
+      "text": "Edit task",
+      "context": "<DialogContent aria-label=\"Edit task\">"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4142,
+      "text": "Edit task",
+      "context": "<DialogTitle>Edit task</DialogTitle>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4155,
+      "text": "Task title",
+      "context": "placeholder=\"Task title\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4166,
+      "text": "Task details",
+      "context": "placeholder=\"Task details\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4194,
+      "text": "Select status",
+      "context": "<SelectValue placeholder=\"Select status\" />"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4215,
+      "text": "Select priority",
+      "context": "<SelectValue placeholder=\"Select priority\" />"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4250,
+      "text": "Unassigned",
+      "context": "<SelectValue placeholder=\"Unassigned\" />"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4253,
+      "text": "Unassigned",
+      "context": "<SelectItem value=\"unassigned\">Unassigned</SelectItem>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4282,
+      "text": "Add tag",
+      "context": "placeholder=\"Add tag\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4315,
+      "text": "Remove tag",
+      "context": "aria-label=\"Remove tag\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4335,
+      "text": "Add dependency",
+      "context": "placeholder=\"Add dependency\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4388,
+      "text": "Remove dependency",
+      "context": "aria-label=\"Remove dependency\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4438,
+      "text": "Delete task",
+      "context": "<DialogContent aria-label=\"Delete task\">"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4440,
+      "text": "Delete task",
+      "context": "<DialogTitle>Delete task</DialogTitle>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4480,
+      "text": "New task",
+      "context": "<DialogTitle>New task</DialogTitle>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4487,
+      "text": "Title",
+      "context": "<label className=\"text-sm font-medium text-strong\">Title</label>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4502,
+      "text": "Optional details",
+      "context": "placeholder=\"Optional details\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4529,
+      "text": "Select priority",
+      "context": "<SelectValue placeholder=\"Select priority\" />"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4553,
+      "text": "Tags",
+      "context": "<label className=\"text-sm font-medium text-strong\">Tags</label>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4564,
+      "text": "Add tag",
+      "context": "placeholder=\"Add tag\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4589,
+      "text": "Remove tag",
+      "context": "aria-label=\"Remove tag\""
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4632,
+      "text": "Agent controls",
+      "context": "<DialogContent aria-label=\"Agent controls\">"
+    },
+    {
+      "file": "src/app/boards/[boardId]/page.tsx",
+      "line": 4653,
+      "text": "What happens",
+      "context": "<p className=\"font-semibold text-slate-900\">What happens</p>"
+    },
+    {
+      "file": "src/app/boards/[boardId]/webhooks/[webhookId]/payloads/page.tsx",
+      "line": 109,
+      "text": "Webhook payloads",
+      "context": "title=\"Webhook payloads\""
+    },
+    {
+      "file": "src/app/boards/new/page.tsx",
+      "line": 157,
+      "text": "Create board",
+      "context": "title=\"Create board\""
+    },
+    {
+      "file": "src/app/boards/new/page.tsx",
+      "line": 188,
+      "text": "Select gateway",
+      "context": "placeholder=\"Select gateway\""
+    },
+    {
+      "file": "src/app/boards/new/page.tsx",
+      "line": 208,
+      "text": "No group",
+      "context": "placeholder=\"No group\""
+    },
+    {
+      "file": "src/app/boards/new/page.tsx",
+      "line": 229,
+      "text": "What context should the lead agent know before onboarding?",
+      "context": "placeholder=\"What context should the lead agent know before onboarding?\""
+    },
+    {
+      "file": "src/app/boards/page.tsx",
+      "line": 120,
+      "text": "Boards",
+      "context": "title=\"Boards\""
+    },
+    {
+      "file": "src/app/boards/page.tsx",
+      "line": 171,
+      "text": "Delete board",
+      "context": "title=\"Delete board\""
+    },
+    {
+      "file": "src/app/custom-fields/[fieldId]/edit/page.tsx",
+      "line": 125,
+      "text": "Edit custom field",
+      "context": "title=\"Edit custom field\""
+    },
+    {
+      "file": "src/app/custom-fields/new/page.tsx",
+      "line": 77,
+      "text": "Add custom field",
+      "context": "title=\"Add custom field\""
+    },
+    {
+      "file": "src/app/custom-fields/page.tsx",
+      "line": 88,
+      "text": "Custom fields",
+      "context": "title=\"Custom fields\""
+    },
+    {
+      "file": "src/app/custom-fields/page.tsx",
+      "line": 139,
+      "text": "Delete custom field",
+      "context": "title=\"Delete custom field\""
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 913,
+      "text": "Online Agents",
+      "context": "title=\"Online Agents\""
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 920,
+      "text": "Tasks In Progress",
+      "context": "title=\"Tasks In Progress\""
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 927,
+      "text": "Error Rate",
+      "context": "title=\"Error Rate\""
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 934,
+      "text": "Completion Speed",
+      "context": "title=\"Completion Speed\""
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 945,
+      "text": "Workload",
+      "context": "title=\"Workload\""
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 949,
+      "text": "Throughput",
+      "context": "title=\"Throughput\""
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 954,
+      "text": "Gateway Health",
+      "context": "title=\"Gateway Health\""
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 965,
+      "text": "Pending Approvals",
+      "context": "<h3 className=\"text-lg font-semibold text-slate-900\">Pending Approvals</h3>"
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 1023,
+      "text": "Sessions",
+      "context": "<h3 className=\"text-lg font-semibold text-slate-900\">Sessions</h3>"
+    },
+    {
+      "file": "src/app/dashboard/page.tsx",
+      "line": 1089,
+      "text": "Recent Activity",
+      "context": "<h3 className=\"text-lg font-semibold text-slate-900\">Recent Activity</h3>"
+    },
+    {
+      "file": "src/app/gateways/[gatewayId]/page.tsx",
+      "line": 233,
+      "text": "Token",
+      "context": "<p className=\"text-xs uppercase text-slate-400\">Token</p>"
+    },
+    {
+      "file": "src/app/gateways/[gatewayId]/page.tsx",
+      "line": 326,
+      "text": "Delete agent",
+      "context": "title=\"Delete agent\""
+    },
+    {
+      "file": "src/app/gateways/new/page.tsx",
+      "line": 118,
+      "text": "Create gateway",
+      "context": "title=\"Create gateway\""
+    },
+    {
+      "file": "src/app/gateways/page.tsx",
+      "line": 97,
+      "text": "Gateways",
+      "context": "title=\"Gateways\""
+    },
+    {
+      "file": "src/app/gateways/page.tsx",
+      "line": 145,
+      "text": "Delete gateway?",
+      "context": "title=\"Delete gateway?\""
+    },
+    {
+      "file": "src/app/invite/page.tsx",
+      "line": 97,
+      "text": "Paste invite token",
+      "context": "placeholder=\"Paste invite token\""
+    },
+    {
+      "file": "src/app/invite/page.tsx",
+      "line": 111,
+      "text": "Sign in",
+      "context": "<Button size=\"md\">Sign in</Button>"
+    },
+    {
+      "file": "src/app/onboarding/page.tsx",
+      "line": 133,
+      "text": "Sign in",
+      "context": "<Button size=\"lg\">Sign in</Button>"
+    },
+    {
+      "file": "src/app/onboarding/page.tsx",
+      "line": 162,
+      "text": "Enter your name",
+      "context": "placeholder=\"Enter your name\""
+    },
+    {
+      "file": "src/app/onboarding/page.tsx",
+      "line": 178,
+      "text": "Select timezone",
+      "context": "placeholder=\"Select timezone\""
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 822,
+      "text": "Invite a member",
+      "context": "<DialogTitle>Invite a member</DialogTitle>"
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 849,
+      "text": "Select role",
+      "context": "<SelectValue placeholder=\"Select role\" />"
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 852,
+      "text": "Member",
+      "context": "<SelectItem value=\"member\">Member</SelectItem>"
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 853,
+      "text": "Admin",
+      "context": "<SelectItem value=\"admin\">Admin</SelectItem>"
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 906,
+      "text": "Manage member access",
+      "context": "<DialogTitle>Manage member access</DialogTitle>"
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 940,
+      "text": "Select role",
+      "context": "<SelectValue placeholder=\"Select role\" />"
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 943,
+      "text": "Owner",
+      "context": "<SelectItem value=\"owner\">Owner</SelectItem>"
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 944,
+      "text": "Member",
+      "context": "<SelectItem value=\"member\">Member</SelectItem>"
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 945,
+      "text": "Admin",
+      "context": "<SelectItem value=\"admin\">Admin</SelectItem>"
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 1022,
+      "text": "Delete organization",
+      "context": "title=\"Delete organization\""
+    },
+    {
+      "file": "src/app/organization/page.tsx",
+      "line": 1045,
+      "text": "Remove member",
+      "context": "title=\"Remove member\""
+    },
+    {
+      "file": "src/app/settings/page.tsx",
+      "line": 150,
+      "text": "Settings",
+      "context": "title=\"Settings\""
+    },
+    {
+      "file": "src/app/settings/page.tsx",
+      "line": 155,
+      "text": "Profile",
+      "context": "<h2 className=\"text-base font-semibold text-slate-900\">Profile</h2>"
+    },
+    {
+      "file": "src/app/settings/page.tsx",
+      "line": 173,
+      "text": "Your name",
+      "context": "placeholder=\"Your name\""
+    },
+    {
+      "file": "src/app/settings/page.tsx",
+      "line": 191,
+      "text": "Select timezone",
+      "context": "placeholder=\"Select timezone\""
+    },
+    {
+      "file": "src/app/settings/page.tsx",
+      "line": 273,
+      "text": "Delete your account?",
+      "context": "title=\"Delete your account?\""
+    },
+    {
+      "file": "src/app/skills/marketplace/page.tsx",
+      "line": 775,
+      "text": "Skills Marketplace",
+      "context": "title=\"Skills Marketplace\""
+    },
+    {
+      "file": "src/app/skills/marketplace/page.tsx",
+      "line": 820,
+      "text": "Search by name, description, category, pack, source...",
+      "context": "placeholder=\"Search by name, description, category, pack, source...\""
+    },
+    {
+      "file": "src/app/skills/marketplace/page.tsx",
+      "line": 839,
+      "text": "All categories",
+      "context": "<SelectValue placeholder=\"All categories\" />"
+    },
+    {
+      "file": "src/app/skills/marketplace/page.tsx",
+      "line": 842,
+      "text": "All categories",
+      "context": "<SelectItem value=\"all\">All categories</SelectItem>"
+    },
+    {
+      "file": "src/app/skills/marketplace/page.tsx",
+      "line": 869,
+      "text": "Safe",
+      "context": "<SelectValue placeholder=\"Safe\" />"
+    },
+    {
+      "file": "src/app/skills/marketplace/page.tsx",
       "line": 872,
       "text": "All risks",
       "context": "<SelectItem value=\"all\">All risks</SelectItem>"
     },
     {
-      "file": "src/app/[locale]/skills/packs/new/page.tsx",
+      "file": "src/app/skills/packs/new/page.tsx",
       "line": 28,
       "text": "Add skill pack",
       "context": "title=\"Add skill pack\""
     },
     {
-      "file": "src/app/[locale]/skills/packs/page.tsx",
+      "file": "src/app/skills/packs/page.tsx",
       "line": 200,
       "text": "Skill Packs",
       "context": "title=\"Skill Packs\""
     },
     {
-      "file": "src/app/[locale]/skills/packs/page.tsx",
+      "file": "src/app/skills/packs/page.tsx",
       "line": 291,
       "text": "Delete skill pack",
       "context": "title=\"Delete skill pack\""
     },
     {
-      "file": "src/app/[locale]/tags/add/page.tsx",
+      "file": "src/app/tags/add/page.tsx",
       "line": 33,
       "text": "Create tag",
       "context": "title=\"Create tag\""
     },
     {
-      "file": "src/app/[locale]/tags/page.tsx",
+      "file": "src/app/tags/page.tsx",
       "line": 87,
       "text": "Tags",
       "context": "title=\"Tags\""
     },
     {
-      "file": "src/app/[locale]/tags/page.tsx",
+      "file": "src/app/tags/page.tsx",
       "line": 140,
       "text": "Delete tag",
       "context": "title=\"Delete tag\""
@@ -2147,6 +3776,96 @@
       "line": 601,
       "text": "Type your answer...",
       "context": "placeholder=\"Type your answer...\""
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 423,
+      "text": "Refresh model catalog",
+      "context": "title=\"Refresh model catalog\""
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 499,
+      "text": "Effective",
+      "context": "<span className=\"text-muted\">Effective</span>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 505,
+      "text": "Source",
+      "context": "<span className=\"text-muted\">Source</span>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 509,
+      "text": "Mode",
+      "context": "<span className=\"text-muted\">Mode</span>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 514,
+      "text": "Manual selection",
+      "context": "<span className=\"text-muted\">Manual selection</span>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 522,
+      "text": "Recommended",
+      "context": "<span className=\"text-muted\">Recommended</span>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 561,
+      "text": "Override mode",
+      "context": "<span className=\"text-muted\">Override mode</span>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 565,
+      "text": "Status",
+      "context": "<span className=\"text-muted\">Status</span>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 578,
+      "text": "Effective fallback chain",
+      "context": "<p className=\"text-xs text-quiet\">Effective fallback chain</p>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 612,
+      "text": "Status",
+      "context": "<span className=\"text-muted\">Status</span>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 622,
+      "text": "Generated",
+      "context": "<span className=\"text-muted\">Generated</span>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 657,
+      "text": "Edit primary model",
+      "context": "<DialogContent aria-label=\"Edit primary model\">"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 659,
+      "text": "Edit Primary Model",
+      "context": "<DialogTitle>Edit Primary Model</DialogTitle>"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 734,
+      "text": "Edit fallback override",
+      "context": "<DialogContent aria-label=\"Edit fallback override\">"
+    },
+    {
+      "file": "src/components/agents/ModelControlsPanel.tsx",
+      "line": 736,
+      "text": "Fallback Override",
+      "context": "<DialogTitle>Fallback Override</DialogTitle>"
     },
     {
       "file": "src/components/custom-fields/CustomFieldForm.tsx",
@@ -2207,6 +3926,18 @@
       "line": 162,
       "text": "Allow self-signed TLS certificates",
       "context": "aria-label=\"Allow self-signed TLS certificates\""
+    },
+    {
+      "file": "src/components/gateways/GatewayModelProfilesPanel.tsx",
+      "line": 107,
+      "text": "No model selected",
+      "context": "<span className=\"italic text-slate-400\">No model selected</span>"
+    },
+    {
+      "file": "src/components/gateways/GatewayModelProfilesPanel.tsx",
+      "line": 109,
+      "text": "Using runtime default",
+      "context": "<span className=\"text-blue-700\">Using runtime default</span>"
     },
     {
       "file": "src/components/molecules/HeroCopy.tsx",
@@ -2270,19 +4001,19 @@
     },
     {
       "file": "src/components/organisms/UserMenu.tsx",
-      "line": 68,
+      "line": 70,
       "text": "Open user menu",
       "context": "aria-label=\"Open user menu\""
     },
     {
       "file": "src/components/organisms/UserMenu.tsx",
-      "line": 81,
+      "line": 83,
       "text": "User avatar",
       "context": "alt=\"User avatar\""
     },
     {
       "file": "src/components/organisms/UserMenu.tsx",
-      "line": 111,
+      "line": 113,
       "text": "User avatar",
       "context": "alt=\"User avatar\""
     },
@@ -2330,183 +4061,93 @@
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 20,
+      "line": 23,
       "text": "Primary navigation",
       "context": "<nav className=\"landing-nav\" aria-label=\"Primary navigation\">"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 22,
+      "line": 25,
       "text": "OpenClaw home",
       "context": "<Link href=\"/\" className=\"logo-section\" aria-label=\"OpenClaw home\">"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 27,
+      "line": 30,
       "text": "OpenClaw",
       "context": "<div className=\"logo-name\">OpenClaw</div>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 28,
+      "line": 31,
       "text": "Mission Control",
       "context": "<div className=\"logo-tagline\">Mission Control</div>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 33,
-      "text": "Capabilities",
-      "context": "<Link href=\"#capabilities\">Capabilities</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 34,
-      "text": "Boards",
-      "context": "<Link href=\"/boards\">Boards</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 35,
-      "text": "Activity",
-      "context": "<Link href=\"/activity\">Activity</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 36,
-      "text": "Gateways",
-      "context": "<Link href=\"/gateways\">Gateways</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 92,
+      "line": 95,
       "text": "OpenClaw",
       "context": "<h3>OpenClaw</h3>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 94,
-      "text": "Realtime Execution Visibility",
-      "context": "<div className=\"footer-tagline\">Realtime Execution Visibility</div>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 98,
+      "line": 101,
       "text": "Product",
       "context": "<h4>Product</h4>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 100,
-      "text": "Capabilities",
-      "context": "<Link href=\"#capabilities\">Capabilities</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 101,
-      "text": "Boards",
-      "context": "<Link href=\"/boards\">Boards</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 102,
-      "text": "Activity",
-      "context": "<Link href=\"/activity\">Activity</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 103,
+      "line": 106,
       "text": "Dashboard",
       "context": "<Link href=\"/dashboard\">Dashboard</Link>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 108,
+      "line": 111,
       "text": "Platform",
       "context": "<h4>Platform</h4>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 110,
-      "text": "Gateways",
-      "context": "<Link href=\"/gateways\">Gateways</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 111,
+      "line": 114,
       "text": "Agents",
       "context": "<Link href=\"/agents\">Agents</Link>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 112,
+      "line": 115,
       "text": "Dashboard",
       "context": "<Link href=\"/dashboard\">Dashboard</Link>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 117,
+      "line": 120,
       "text": "Access",
       "context": "<h4>Access</h4>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 127,
+      "line": 130,
       "text": "Sign In",
       "context": "<button type=\"button\">Sign In</button>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 134,
+      "line": 137,
       "text": "Create Account",
       "context": "<button type=\"button\">Create Account</button>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 138,
-      "text": "Boards",
-      "context": "<Link href=\"/boards\">Boards</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 140,
+      "line": 143,
       "text": "Onboarding",
       "context": "<Link href=\"/onboarding\">Onboarding</Link>"
     },
     {
       "file": "src/components/templates/LandingShell.tsx",
-      "line": 143,
-      "text": "Open Boards",
-      "context": "<Link href=\"/boards\">Open Boards</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 144,
-      "text": "Create Board",
-      "context": "<Link href=\"/boards/new\">Create Board</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 145,
+      "line": 148,
       "text": "Dashboard",
       "context": "<Link href=\"/dashboard\">Dashboard</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 156,
-      "text": "Capabilities",
-      "context": "<Link href=\"#capabilities\">Capabilities</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 157,
-      "text": "Boards",
-      "context": "<Link href=\"/boards\">Boards</Link>"
-    },
-    {
-      "file": "src/components/templates/LandingShell.tsx",
-      "line": 158,
-      "text": "Activity",
-      "context": "<Link href=\"/activity\">Activity</Link>"
     },
     {
       "file": "src/components/ui/global-loader.tsx",
@@ -2517,19 +4158,35 @@
   ],
   "filesList": {
     "withUseTranslations": [
+      "src/app/[locale]/activity/page.tsx",
+      "src/app/[locale]/agents/new/page.tsx",
       "src/app/[locale]/agents/page.tsx",
+      "src/app/[locale]/approvals/page.tsx",
+      "src/app/[locale]/board-groups/page.tsx",
       "src/app/[locale]/boards/page.tsx",
+      "src/app/[locale]/custom-fields/page.tsx",
       "src/app/[locale]/dashboard/page.tsx",
+      "src/app/[locale]/gateways/new/page.tsx",
       "src/app/[locale]/gateways/page.tsx",
+      "src/app/[locale]/organization/page.tsx",
+      "src/app/[locale]/settings/page.tsx",
+      "src/app/[locale]/skills/marketplace/page.tsx",
+      "src/app/[locale]/skills/packs/new/page.tsx",
+      "src/app/[locale]/skills/packs/page.tsx",
+      "src/app/[locale]/tags/add/page.tsx",
+      "src/app/[locale]/tags/page.tsx",
+      "src/components/BoardApprovalsPanel.tsx",
       "src/components/organisms/DashboardSidebar.tsx",
       "src/components/organisms/LandingHero.tsx",
-      "src/components/organisms/LocalAuthLogin.tsx"
+      "src/components/organisms/LocalAuthLogin.tsx",
+      "src/components/organisms/UserMenu.tsx",
+      "src/components/skills/SkillPacksTable.tsx",
+      "src/components/templates/LandingShell.tsx"
     ],
     "withHardcodedText": [
       "src/app/[locale]/agents/[agentId]/edit/page.tsx",
       "src/app/[locale]/agents/[agentId]/page.tsx",
       "src/app/[locale]/agents/new/page.tsx",
-      "src/app/[locale]/approvals/page.tsx",
       "src/app/[locale]/board-groups/[groupId]/edit/page.tsx",
       "src/app/[locale]/board-groups/[groupId]/page.tsx",
       "src/app/[locale]/board-groups/new/page.tsx",
@@ -2542,21 +4199,48 @@
       "src/app/[locale]/boards/new/page.tsx",
       "src/app/[locale]/custom-fields/[fieldId]/edit/page.tsx",
       "src/app/[locale]/custom-fields/new/page.tsx",
-      "src/app/[locale]/custom-fields/page.tsx",
       "src/app/[locale]/gateways/[gatewayId]/page.tsx",
-      "src/app/[locale]/gateways/new/page.tsx",
       "src/app/[locale]/invite/page.tsx",
       "src/app/[locale]/onboarding/page.tsx",
       "src/app/[locale]/organization/page.tsx",
-      "src/app/[locale]/settings/page.tsx",
       "src/app/[locale]/skills/marketplace/page.tsx",
-      "src/app/[locale]/skills/packs/new/page.tsx",
-      "src/app/[locale]/skills/packs/page.tsx",
-      "src/app/[locale]/tags/add/page.tsx",
-      "src/app/[locale]/tags/page.tsx",
+      "src/app/agents/[agentId]/edit/page.tsx",
+      "src/app/agents/[agentId]/page.tsx",
+      "src/app/agents/new/page.tsx",
+      "src/app/agents/page.tsx",
+      "src/app/approvals/page.tsx",
+      "src/app/board-groups/[groupId]/edit/page.tsx",
+      "src/app/board-groups/[groupId]/page.tsx",
+      "src/app/board-groups/new/page.tsx",
+      "src/app/board-groups/page.tsx",
+      "src/app/boards/[boardId]/TaskCustomFieldsEditor.tsx",
+      "src/app/boards/[boardId]/approvals/page.tsx",
+      "src/app/boards/[boardId]/edit/page.tsx",
+      "src/app/boards/[boardId]/page.tsx",
+      "src/app/boards/[boardId]/webhooks/[webhookId]/payloads/page.tsx",
+      "src/app/boards/new/page.tsx",
+      "src/app/boards/page.tsx",
+      "src/app/custom-fields/[fieldId]/edit/page.tsx",
+      "src/app/custom-fields/new/page.tsx",
+      "src/app/custom-fields/page.tsx",
+      "src/app/dashboard/page.tsx",
+      "src/app/gateways/[gatewayId]/page.tsx",
+      "src/app/gateways/new/page.tsx",
+      "src/app/gateways/page.tsx",
+      "src/app/invite/page.tsx",
+      "src/app/onboarding/page.tsx",
+      "src/app/organization/page.tsx",
+      "src/app/settings/page.tsx",
+      "src/app/skills/marketplace/page.tsx",
+      "src/app/skills/packs/new/page.tsx",
+      "src/app/skills/packs/page.tsx",
+      "src/app/tags/add/page.tsx",
+      "src/app/tags/page.tsx",
       "src/components/BoardOnboardingChat.tsx",
+      "src/components/agents/ModelControlsPanel.tsx",
       "src/components/custom-fields/CustomFieldForm.tsx",
       "src/components/gateways/GatewayForm.tsx",
+      "src/components/gateways/GatewayModelProfilesPanel.tsx",
       "src/components/molecules/HeroCopy.tsx",
       "src/components/molecules/TaskCard.test.tsx",
       "src/components/organisms/OrgSwitcher.tsx",

@@ -10,11 +10,11 @@
 
 | 指标 | 数值 |
 |------|------|
-| 使用 useTranslations 的文件 | 7 |
-| 包含硬编码英文的文件 | 42 |
-| 总硬编码文本命中数 | 204 |
-| 现有 en.json 翻译键 | 191 |
-| 现有 zh-CN.json 翻译键 | 191 |
+| 使用 useTranslations 的文件 | 25 个 ✅ |
+| 包含硬编码英文的文件 | 67 个 ⏳ |
+| 总硬编码文本命中数 | 304 处 ⏳ |
+| 现有 en.json 翻译键 | 398 个 ✅ |
+| 现有 zh-CN.json 翻译键 | 459 个 ✅ |
 
 ---
 
@@ -24,7 +24,7 @@
 
 | 文件路径 | 硬编码数 | 主要内容 |
 |---------|---------|---------|
-| `src/app/[locale]/boards/[boardId]/page.tsx` | 35 | Board 详情页（任务编辑、菜单、按钮等） |
+| `src/app/[locale]/boards/[boardId]/page.tsx` | 35 | Board 详情页 ✅ **已完成** |
 | `src/app/[locale]/boards/[boardId]/edit/page.tsx` | 21 | Board 编辑页（表单、选择器等） |
 | `src/app/[locale]/organization/page.tsx` | 11 | 组织管理页（邀请成员、角色选择等） |
 

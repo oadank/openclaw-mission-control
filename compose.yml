@@ -3,6 +3,7 @@ name: openclaw-mission-control
 services:
   db:
     image: postgres:16-alpine
+    container_name: openclaw-mission-control-db
     environment:
       POSTGRES_DB: ${POSTGRES_DB:-mission_control}
       POSTGRES_USER: ${POSTGRES_USER:-postgres}
@@ -19,6 +20,7 @@ services:
 
   redis:
     image: redis:7-alpine
+    container_name: openclaw-mission-control-redis
     ports:
       - "127.0.0.1:${REDIS_PORT:-6379}:6379"
     healthcheck:
@@ -28,6 +30,7 @@ services:
       retries: 5
 
   backend:
+    container_name: openclaw-mission-control-backend
     build:
       # Build from repo root so the backend image can include repo-level assets
       # like `backend/templates/`.
@@ -43,7 +46,7 @@ services:
       DB_AUTO_MIGRATE: ${DB_AUTO_MIGRATE:-true}
       AUTH_MODE: ${AUTH_MODE}
       LOCAL_AUTH_TOKEN: ${LOCAL_AUTH_TOKEN}
-      BASE_URL: ${BASE_URL:-http://localhost:8000}
+      BASE_URL: ${BASE_URL:-http://backend:8000}
       RQ_REDIS_URL: redis://redis:6379/0
     depends_on:
       db:
@@ -54,6 +57,7 @@ services:
       - "${BACKEND_PORT:-8000}:8000"
 
   frontend:
+    container_name: openclaw-mission-control-frontend
     build:
       context: ./frontend
       args:
@@ -91,6 +95,7 @@ services:
           path: ./frontend/tsconfig.json
 
   webhook-worker:
+    container_name: openclaw-mission-control-webhook-worker
     build:
       context: .
       dockerfile: backend/Dockerfile
@@ -107,12 +112,17 @@ services:
       DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-postgres}:${POSTGRES_PASSWORD:-postgres}@db:5432/${POSTGRES_DB:-mission_control}
       AUTH_MODE: ${AUTH_MODE}
       LOCAL_AUTH_TOKEN: ${LOCAL_AUTH_TOKEN}
-      BASE_URL: ${BASE_URL:-http://localhost:8000}
+      BASE_URL: ${BASE_URL:-http://backend:8000}
       RQ_REDIS_URL: redis://redis:6379/0
       RQ_QUEUE_NAME: ${RQ_QUEUE_NAME:-default}
       RQ_DISPATCH_THROTTLE_SECONDS: ${RQ_DISPATCH_THROTTLE_SECONDS:-2.0}
       RQ_DISPATCH_MAX_RETRIES: ${RQ_DISPATCH_MAX_RETRIES:-3}
-    restart: unless-stopped
+    restart: always
 
 volumes:
   postgres_data:
+
+networks:
+  default:
+    name: searxng_manual
+    external: true

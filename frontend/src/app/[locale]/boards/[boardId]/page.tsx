@@ -3,6 +3,7 @@
 export const dynamic = "force-dynamic";
 
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   useParams,
   usePathname,
@@ -24,6 +25,8 @@ import {
   ShieldCheck,
   X,
 } from "lucide-react";
+
+import { useTranslations } from "next-intl";
 
 import { Markdown } from "@/components/atoms/Markdown";
 import { StatusDot } from "@/components/atoms/StatusDot";
@@ -280,7 +283,7 @@ const toLiveFeedFromBoardChat = (memory: BoardChatMessage): LiveFeedItem => {
     agent_id: null,
     actor_name: actorName,
     task_id: null,
-    title: isCommand ? "Board command" : "Board chat",
+    title: isCommand ? t('board.boardCommand') : t('board.boardChat'),
     event_type: isCommand ? "board.command" : "board.chat",
   };
 };
@@ -426,7 +429,7 @@ const toLiveFeedFromApproval = (
 const liveFeedEventLabel = (eventType: LiveFeedEventType): string => {
   if (eventType === "task.comment") return "Comment";
   if (eventType === "task.created") return "Created";
-  if (eventType === "task.status_changed") return "Status";
+  if (eventType === "task.status_changed") return t('common.status');
   if (eventType === "board.chat") return "Chat";
   if (eventType === "board.command") return "Command";
   if (eventType === "agent.created") return "Agent";
@@ -549,7 +552,7 @@ type ToastMessage = {
 const formatActionError = (err: unknown, fallback: string) => {
   if (err instanceof ApiError) {
     if (err.status === 403) {
-      return "Read-only access. You do not have permission to make changes.";
+      return t('common.readOnlyNoPermissionChanges');
     }
     return err.message || fallback;
   }
@@ -2039,7 +2042,7 @@ export default function BoardDetailPage() {
   const postBoardChatMessage = useCallback(
     async (content: string): Promise<{ ok: boolean; error: string | null }> => {
       if (!isSignedIn || !boardId) {
-        return { ok: false, error: "Sign in to send messages." };
+        return { ok: false, error: t('board.signInToSendMessages') };
       }
       const trimmed = content.trim();
       if (!trimmed) return { ok: false, error: null };
@@ -3034,7 +3037,7 @@ export default function BoardDetailPage() {
         value: assignedAgentId ?? "Unassigned",
       });
     }
-    if (title) rows.push({ label: "Title", value: title });
+    if (title) rows.push({ label: t('common.title'), value: title });
     if (role) rows.push({ label: "Role", value: role });
     return rows;
   };
@@ -3047,7 +3050,7 @@ export default function BoardDetailPage() {
       if (!isSignedIn || !boardId) return;
       if (!canWrite) {
         pushToast(
-          "Read-only access. You do not have permission to update approvals.",
+          t('common.readOnlyNoPermissionApprovals'),
         );
         return;
       }
@@ -3145,8 +3148,8 @@ export default function BoardDetailPage() {
                   <Button
                     onClick={() => setIsDialogOpen(true)}
                     className="h-9 w-9 p-0"
-                    aria-label="New task"
-                    title={canWrite ? "New task" : "Read-only access"}
+                    aria-label={t('board.newTask')}
+                    title={canWrite ? t('board.newTask') : t('common.readOnlyAccess')}
                     disabled={!canWrite}
                   >
                     <Plus className="h-4 w-4" />
@@ -3155,8 +3158,7 @@ export default function BoardDetailPage() {
                     variant="outline"
                     onClick={() => router.push(`/boards/${boardId}/approvals`)}
                     className="relative h-9 w-9 p-0"
-                    aria-label="Approvals"
-                    title="Approvals"
+                    aria-label={t('board.approvals')} title={t('board.approvals')}
                   >
                     <ShieldCheck className="h-4 w-4" />
                     {pendingApprovals.length > 0 ? (
@@ -3193,7 +3195,7 @@ export default function BoardDetailPage() {
                           ? isAgentsPaused
                             ? "Resume agents"
                             : "Pause agents"
-                          : "Read-only access"
+                          : t('common.readOnlyAccess')
                       }
                     >
                       {isAgentsPaused ? (
@@ -3207,8 +3209,7 @@ export default function BoardDetailPage() {
                     variant="outline"
                     onClick={openBoardChat}
                     className="h-9 w-9 p-0"
-                    aria-label="Board chat"
-                    title="Board chat"
+                    aria-label={t('board.boardChat')} title={t('board.boardChat')}
                   >
                     <MessageSquare className="h-4 w-4" />
                   </Button>
@@ -3216,8 +3217,7 @@ export default function BoardDetailPage() {
                     variant="outline"
                     onClick={openLiveFeed}
                     className="h-9 w-9 p-0"
-                    aria-label="Live feed"
-                    title="Live feed"
+                    aria-label={t('board.liveFeed')} title={t('board.liveFeed')}
                   >
                     <Activity className="h-4 w-4" />
                   </Button>
@@ -3226,8 +3226,7 @@ export default function BoardDetailPage() {
                       type="button"
                       onClick={() => router.push(`/boards/${boardId}/edit`)}
                       className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-200 text-slate-600 transition hover:border-slate-300 hover:bg-slate-50"
-                      aria-label="Board settings"
-                      title="Board settings"
+                      aria-label={t('board.boardSettings')} title={t('board.boardSettings')}
                     >
                       <Settings className="h-4 w-4" />
                     </button>
@@ -3310,7 +3309,7 @@ export default function BoardDetailPage() {
 
               {isLoading ? (
                 <div className="flex min-h-[50vh] items-center justify-center text-sm text-slate-500">
-                  Loading {titleLabel}…
+                  {t('board.loadingTitle', { title: titleLabel })}
                 </div>
               ) : (
                 <>
@@ -3560,7 +3559,7 @@ export default function BoardDetailPage() {
                             size="sm"
                             onClick={() => setIsDialogOpen(true)}
                             disabled={isCreating || !canWrite}
-                            title={canWrite ? "New task" : "Read-only access"}
+                            title={canWrite ? t('board.newTask') : t('common.readOnlyAccess')}
                           >
                             New task
                           </Button>
@@ -3700,7 +3699,7 @@ export default function BoardDetailPage() {
                 onClick={() => setIsEditDialogOpen(true)}
                 className="rounded-lg border border-slate-200 p-2 text-slate-500 transition hover:bg-slate-50"
                 disabled={!selectedTask || !canWrite}
-                title={canWrite ? "Edit task" : "Read-only access"}
+                title={canWrite ? t('board.editTask') : t('common.readOnlyAccess')}
               >
                 <Pencil className="h-4 w-4" />
               </button>
@@ -3912,7 +3911,7 @@ export default function BoardDetailPage() {
                             disabled={
                               approvalsUpdatingId === approval.id || !canWrite
                             }
-                            title={canWrite ? "Approve" : "Read-only access"}
+                            title={canWrite ? t('board.approve') : t('common.readOnlyAccess')}
                           >
                             Approve
                           </Button>
@@ -3925,7 +3924,7 @@ export default function BoardDetailPage() {
                             disabled={
                               approvalsUpdatingId === approval.id || !canWrite
                             }
-                            title={canWrite ? "Reject" : "Read-only access"}
+                            title={canWrite ? t('board.reject') : t('common.readOnlyAccess')}
                             className="border-slate-300 text-slate-700"
                           >
                             Reject
@@ -3946,7 +3945,7 @@ export default function BoardDetailPage() {
                   placeholder={
                     canWrite
                       ? "Write a message for the assigned agent. Tag @lead or @name."
-                      : "Read-only access. Comments are disabled."
+                      : t('common.readOnlyCommentsDisabled')
                   }
                   isSending={isPostingComment}
                   onSend={handlePostComment}
@@ -4011,7 +4010,7 @@ export default function BoardDetailPage() {
               type="button"
               onClick={closeBoardChat}
               className="rounded-lg border border-slate-200 p-2 text-slate-500 transition hover:bg-slate-50"
-              aria-label="Close board chat"
+              aria-label={t('board.closeBoardChat')}
             >
               <X className="h-4 w-4" />
             </button>
@@ -4046,7 +4045,7 @@ export default function BoardDetailPage() {
               placeholder={
                 canWrite
                   ? "Message the board lead. Tag agents with @name."
-                  : "Read-only access. Chat is disabled."
+                  : t('common.readOnlyChatDisabled')
               }
             />
           </div>
@@ -4073,7 +4072,7 @@ export default function BoardDetailPage() {
               type="button"
               onClick={closeLiveFeed}
               className="rounded-lg border border-slate-200 p-2 text-slate-500 transition hover:bg-slate-50"
-              aria-label="Close live feed"
+              aria-label={t('board.closeLiveFeed')}
             >
               <X className="h-4 w-4" />
             </button>
@@ -4137,7 +4136,7 @@ export default function BoardDetailPage() {
       </aside>
 
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent aria-label="Edit task">
+        <DialogContent aria-label={t('board.editTask')}>
           <DialogHeader>
             <DialogTitle>Edit task</DialogTitle>
             <DialogDescription>
@@ -4152,7 +4151,7 @@ export default function BoardDetailPage() {
               <Input
                 value={editTitle}
                 onChange={(event) => setEditTitle(event.target.value)}
-                placeholder="Task title"
+                placeholder={t('board.taskTitle')}
                 disabled={!selectedTask || isSavingTask || !canWrite}
               />
             </div>
@@ -4163,7 +4162,7 @@ export default function BoardDetailPage() {
               <Textarea
                 value={editDescription}
                 onChange={(event) => setEditDescription(event.target.value)}
-                placeholder="Task details"
+                placeholder={t('board.taskDetails')}
                 className="min-h-[140px]"
                 disabled={!selectedTask || isSavingTask || !canWrite}
               />
@@ -4191,7 +4190,7 @@ export default function BoardDetailPage() {
                   disabled={!selectedTask || isSavingTask || !canWrite}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select status" />
+                    <SelectValue placeholder={t('board.selectStatus')} />
                   </SelectTrigger>
                   <SelectContent>
                     {statusOptions.map((option) => (
@@ -4212,7 +4211,7 @@ export default function BoardDetailPage() {
                   disabled={!selectedTask || isSavingTask || !canWrite}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select priority" />
+                    <SelectValue placeholder={t('board.selectPriority')} />
                   </SelectTrigger>
                   <SelectContent>
                     {priorities.map((option) => (
@@ -4278,8 +4277,8 @@ export default function BoardDetailPage() {
                 </button>
               </div>
               <DropdownSelect
-                ariaLabel="Add tag"
-                placeholder="Add tag"
+                ariaLabel=t('board.addTag')
+                placeholder={t('board.addTag')}
                 options={editTagOptions}
                 onValueChange={addEditTag}
                 disabled={!selectedTask || isSavingTask || !canWrite}
@@ -4312,7 +4311,7 @@ export default function BoardDetailPage() {
                               ? "hover:bg-white hover:text-slate-700"
                               : "opacity-50 cursor-not-allowed",
                           )}
-                          aria-label="Remove tag"
+                          aria-label={t('board.removeTag')}
                           disabled={!canWrite}
                         >
                           <X className="h-3 w-3" />
@@ -4331,8 +4330,8 @@ export default function BoardDetailPage() {
                 Tasks stay blocked until every dependency is marked done.
               </p>
               <DropdownSelect
-                ariaLabel="Add dependency"
-                placeholder="Add dependency"
+                ariaLabel=t('board.addDependency')
+                placeholder={t('board.addDependency')}
                 options={dependencyOptions}
                 onValueChange={addTaskDependency}
                 disabled={
@@ -4385,7 +4384,7 @@ export default function BoardDetailPage() {
                                 ? "hover:bg-white hover:text-slate-700"
                                 : "opacity-50 cursor-not-allowed",
                             )}
-                            aria-label="Remove dependency"
+                            aria-label={t('board.removeDependency')}
                             disabled={!canWrite}
                           >
                             <X className="h-3 w-3" />
@@ -4409,7 +4408,7 @@ export default function BoardDetailPage() {
               onClick={() => setIsDeleteDialogOpen(true)}
               disabled={!selectedTask || isSavingTask || !canWrite}
               className="border-rose-200 text-rose-600 hover:border-rose-300 hover:text-rose-700"
-              title={canWrite ? "Delete task" : "Read-only access"}
+              title={canWrite ? t('board.deleteTask') : t('common.readOnlyAccess')}
             >
               Delete task
             </Button>
@@ -4435,7 +4434,7 @@ export default function BoardDetailPage() {
       </Dialog>
 
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent aria-label="Delete task">
+        <DialogContent aria-label={t('board.deleteTask')}>
           <DialogHeader>
             <DialogTitle>Delete task</DialogTitle>
             <DialogDescription>
@@ -4460,7 +4459,7 @@ export default function BoardDetailPage() {
               disabled={isDeletingTask || !canWrite}
               className="bg-rose-600 text-white hover:bg-rose-700"
             >
-              {isDeletingTask ? "Deleting…" : "Delete task"}
+              {isDeletingTask ? "Deleting…" : t('board.deleteTask')}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -4526,7 +4525,7 @@ export default function BoardDetailPage() {
                 disabled={!canWrite || isCreating}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Select priority" />
+                  <SelectValue placeholder={t('board.selectPriority')} />
                 </SelectTrigger>
                 <SelectContent>
                   {priorities.map((item) => (
@@ -4560,8 +4559,8 @@ export default function BoardDetailPage() {
                 </button>
               </div>
               <DropdownSelect
-                ariaLabel="Add tag"
-                placeholder="Add tag"
+                ariaLabel=t('board.addTag')
+                placeholder={t('board.addTag')}
                 options={createTagOptions}
                 onValueChange={addCreateTag}
                 disabled={!canWrite || isCreating}
@@ -4586,7 +4585,7 @@ export default function BoardDetailPage() {
                           type="button"
                           onClick={() => removeCreateTag(tagId)}
                           className="rounded-full p-0.5 text-slate-500 transition hover:bg-white hover:text-slate-700"
-                          aria-label="Remove tag"
+                          aria-label={t('board.removeTag')}
                           disabled={!canWrite || isCreating}
                         >
                           <X className="h-3 w-3" />
