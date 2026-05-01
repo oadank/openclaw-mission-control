@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 import { useAuth } from "@/auth/clerk";
 import { useQueryClient } from "@tanstack/react-query";
+import { useTranslations } from "next-intl";
 
 import { AgentsTable } from "@/components/agents/AgentsTable";
 import { DashboardPageLayout } from "@/components/templates/DashboardPageLayout";
@@ -40,6 +41,7 @@ const AGENT_SORTABLE_COLUMNS = [
 ];
 
 export default function AgentsPage() {
+  const t = useTranslations("agentsPage");
   const { isSignedIn } = useAuth();
   const queryClient = useQueryClient();
   const router = useRouter();
@@ -125,21 +127,21 @@ export default function AgentsPage() {
     <>
       <DashboardPageLayout
         signedOut={{
-          message: "Sign in to view agents.",
+          message: t('signedOut'),
           forceRedirectUrl: "/agents",
           signUpForceRedirectUrl: "/agents",
         }}
-        title="Agents"
-        description={`${agents.length} agent${agents.length === 1 ? "" : "s"} total.`}
+        title={t('title')}
+        description={`${agents.length} ${t('agentCount', { count: agents.length })}`}
         headerActions={
           agents.length > 0 ? (
             <Button onClick={() => router.push("/agents/new")}>
-              New agent
+              {t('agentsPage.newAgent')}
             </Button>
           ) : null
         }
         isAdmin={isAdmin}
-        adminOnlyMessage="Only organization owners and admins can access agents."
+        adminOnlyMessage={t('adminOnlyMessage')}
         stickyHeader
       >
         <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
@@ -153,11 +155,10 @@ export default function AgentsPage() {
             stickyHeader
             onDelete={setDeleteTarget}
             emptyState={{
-              title: "No agents yet",
-              description:
-                "Create your first agent to start executing tasks on this board.",
+              title: t('noAgentsYet'),
+              description: t('createFirstAgent'),
               actionHref: "/agents/new",
-              actionLabel: "Create your first agent",
+              actionLabel: t('createFirstAgent'),
             }}
           />
         </div>
@@ -176,11 +177,11 @@ export default function AgentsPage() {
             setDeleteTarget(null);
           }
         }}
-        ariaLabel="Delete agent"
-        title="Delete agent"
+        ariaLabel={t('deleteAgent')}
+        title={t('deleteAgent')}
         description={
           <>
-            This will remove {deleteTarget?.name}. This action cannot be undone.
+            {t('deleteDescription', { name: deleteTarget?.name ?? '' })}
           </>
         }
         errorMessage={deleteMutation.error?.message}

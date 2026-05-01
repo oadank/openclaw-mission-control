@@ -26,8 +26,6 @@ import {
   X,
 } from "lucide-react";
 
-import { useTranslations } from "next-intl";
-
 import { Markdown } from "@/components/atoms/Markdown";
 import { StatusDot } from "@/components/atoms/StatusDot";
 import { DashboardSidebar } from "@/components/organisms/DashboardSidebar";
@@ -283,7 +281,7 @@ const toLiveFeedFromBoardChat = (memory: BoardChatMessage): LiveFeedItem => {
     agent_id: null,
     actor_name: actorName,
     task_id: null,
-    title: isCommand ? t('board.boardCommand') : t('board.boardChat'),
+    title: isCommand ? "看板命令" : "看板聊天",
     event_type: isCommand ? "board.command" : "board.chat",
   };
 };
@@ -427,14 +425,14 @@ const toLiveFeedFromApproval = (
 };
 
 const liveFeedEventLabel = (eventType: LiveFeedEventType): string => {
-  if (eventType === "task.comment") return "Comment";
-  if (eventType === "task.created") return "Created";
-  if (eventType === "task.status_changed") return t('common.status');
-  if (eventType === "board.chat") return "Chat";
-  if (eventType === "board.command") return "Command";
-  if (eventType === "agent.created") return "Agent";
-  if (eventType === "agent.online") return "Online";
-  if (eventType === "agent.offline") return "Offline";
+  if (eventType === "task.comment") return "评论";
+  if (eventType === "task.created") return "创建";
+  if (eventType === "task.status_changed") return "状态";
+  if (eventType === "board.chat") return "聊天";
+  if (eventType === "board.command") return "命令";
+  if (eventType === "agent.created") return "智能体";
+  if (eventType === "agent.online") return "在线";
+  if (eventType === "agent.offline") return "离线";
   if (eventType === "agent.updated") return "Agent update";
   if (eventType === "approval.created") return "Approval";
   if (eventType === "approval.updated") return "Approval update";
@@ -515,13 +513,6 @@ const priorities = [
   { value: "medium", label: "Medium" },
   { value: "high", label: "High" },
 ];
-const statusOptions = [
-  { value: "inbox", label: "Inbox" },
-  { value: "in_progress", label: "In progress" },
-  { value: "review", label: "Review" },
-  { value: "done", label: "Done" },
-];
-
 const SSE_RECONNECT_BACKOFF = {
   baseMs: 1_000,
   factor: 2,
@@ -552,7 +543,7 @@ type ToastMessage = {
 const formatActionError = (err: unknown, fallback: string) => {
   if (err instanceof ApiError) {
     if (err.status === 403) {
-      return t('common.readOnlyNoPermissionChanges');
+      return "只读模式不允许更改";
     }
     return err.message || fallback;
   }
@@ -741,10 +732,19 @@ const LiveFeedCard = memo(function LiveFeedCard({
 LiveFeedCard.displayName = "LiveFeedCard";
 
 export default function BoardDetailPage() {
+  const t = useTranslations('board');
   const router = useRouter();
   const params = useParams();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+
+  const statusOptions = [
+    { value: "inbox", label: t('statusInbox') },
+    { value: "in_progress", label: t('statusInProgress') },
+    { value: "review", label: t('statusReview') },
+    { value: "done", label: t('statusDone') },
+  ];
+
   const boardIdParam = params?.boardId;
   const boardId = Array.isArray(boardIdParam) ? boardIdParam[0] : boardIdParam;
   const { isSignedIn } = useAuth();
@@ -3085,13 +3085,13 @@ export default function BoardDetailPage() {
     <DashboardShell>
       <SignedOut>
         <div className="flex h-full flex-col items-center justify-center gap-4 rounded-2xl surface-panel p-10 text-center">
-          <p className="text-sm text-muted">Sign in to view boards.</p>
+          <p className="text-sm text-muted">{t('board.signInToViewBoards')}</p>
           <SignInButton
             mode="modal"
             forceRedirectUrl="/boards"
             signUpForceRedirectUrl="/boards"
           >
-            <Button>Sign in</Button>
+            <Button>登录</Button>
           </SignInButton>
         </div>
       </SignedOut>
@@ -3111,7 +3111,7 @@ export default function BoardDetailPage() {
                     {board?.name ?? "Board"}
                   </h1>
                   <p className="mt-1 text-sm text-slate-500">
-                    Keep tasks moving through your workflow.
+                    {t('gatewayDetail.description')}
                   </p>
                   {isBoardLeadProvisioning ? (
                     <div className="mt-3 inline-flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-3 py-1.5 text-xs font-medium text-amber-800">
@@ -3454,7 +3454,7 @@ export default function BoardDetailPage() {
                                             <p className="mt-2 truncate text-xs text-slate-600">
                                               Assignee:{" "}
                                               <span className="font-medium text-slate-900">
-                                                {task.assignee ?? "Unassigned"}
+                                                {task.assignee ?? t('board.unassigned')}
                                               </span>
                                             </p>
                                             {task.tags?.length ? (
@@ -3505,11 +3505,10 @@ export default function BoardDetailPage() {
                       ) : groupSnapshot ? (
                         <div className="rounded-xl border border-slate-200 bg-white p-4 text-sm text-slate-600 shadow-sm">
                           <p className="font-semibold text-slate-900">
-                            No board group configured
+                            {t('gatewayDetail.noBoardGroup')}
                           </p>
                           <p className="mt-1 text-sm text-slate-600">
-                            Assign this board to a group to give agents
-                            visibility into related work.
+                            {t('gatewayDetail.noBoardGroupDesc')}
                           </p>
                           <div className="mt-3 flex flex-wrap gap-2">
                             <Button
@@ -3548,10 +3547,10 @@ export default function BoardDetailPage() {
                         <div className="flex items-center justify-between">
                           <div>
                             <p className="text-sm font-semibold text-slate-900">
-                              All tasks
+                              {t('gatewayDetail.allTasks')}
                             </p>
                             <p className="text-xs text-slate-500">
-                              {tasks.length} tasks in this board
+                              {t('gatewayDetail.tasksCount', { count: tasks.length })}
                             </p>
                           </div>
                           <Button
@@ -3568,7 +3567,7 @@ export default function BoardDetailPage() {
                       <div className="divide-y divide-slate-100">
                         {tasks.length === 0 ? (
                           <div className="px-5 py-8 text-sm text-slate-500">
-                            No tasks yet. Create your first task to get started.
+                            {t('gatewayDetail.noTasks')}
                           </div>
                         ) : (
                           tasks.map((task) => (
@@ -3642,7 +3641,7 @@ export default function BoardDetailPage() {
                                     </div>
                                   ) : null}
                                   <span className="text-xs text-slate-500">
-                                    {task.assignee ?? "Unassigned"}
+                                    {task.assignee ?? t('board.unassigned')}
                                   </span>
                                   <span className="text-xs text-slate-500">
                                     {formatTaskTimestamp(
@@ -3735,7 +3734,7 @@ export default function BoardDetailPage() {
                 Custom fields
               </p>
               {customFieldDefinitionsQuery.isLoading ? (
-                <p className="text-sm text-slate-500">Loading custom fields…</p>
+                <p className="text-sm text-slate-500">{t('board.loadingCustomFields')}</p>
               ) : boardCustomFieldDefinitions.length > 0 ? (
                 <div className="rounded-lg border border-slate-200 bg-slate-50 p-3">
                   <dl className="space-y-2">
@@ -3765,7 +3764,7 @@ export default function BoardDetailPage() {
                   </dl>
                 </div>
               ) : (
-                <p className="text-sm text-slate-500">No custom fields.</p>
+                <p className="text-sm text-slate-500">{t('board.noCustomFields')}</p>
               )}
             </div>
             <div className="space-y-2">
@@ -3790,7 +3789,7 @@ export default function BoardDetailPage() {
                   ))}
                 </div>
               ) : (
-                <p className="text-sm text-slate-500">No tags assigned.</p>
+                <p className="text-sm text-slate-500">{t('board.noTagsAssigned')}</p>
               )}
             </div>
             <div className="space-y-2">
@@ -3853,7 +3852,7 @@ export default function BoardDetailPage() {
                   {approvalsError}
                 </div>
               ) : isApprovalsLoading ? (
-                <p className="text-sm text-slate-500">Loading approvals…</p>
+                <p className="text-sm text-slate-500">{t('board.loadingApprovals')}</p>
               ) : taskApprovals.length === 0 ? (
                 <p className="text-sm text-slate-500">
                   No approvals tied to this task.{" "}
@@ -3962,13 +3961,13 @@ export default function BoardDetailPage() {
                 ) : null}
               </div>
               {isCommentsLoading ? (
-                <p className="text-sm text-slate-500">Loading comments…</p>
+                <p className="text-sm text-slate-500">{t('board.loadingComments')}</p>
               ) : commentsError ? (
                 <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-500">
                   {commentsError}
                 </div>
               ) : comments.length === 0 ? (
-                <p className="text-sm text-slate-500">No comments yet.</p>
+                <p className="text-sm text-slate-500">{t('board.noCommentsYet')}</p>
               ) : (
                 <div className="space-y-3">
                   {comments.map((comment) => (
@@ -4000,10 +3999,10 @@ export default function BoardDetailPage() {
           <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 md:px-6 md:py-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Board chat
+                {t('boardChat.title')}
               </p>
               <p className="mt-1 text-sm font-medium text-slate-900">
-                Talk to the lead agent. Tag others with @name.
+                {t('boardChat.description')}
               </p>
             </div>
             <button
@@ -4062,10 +4061,10 @@ export default function BoardDetailPage() {
           <div className="flex items-center justify-between border-b border-slate-200 px-4 py-3 md:px-6 md:py-4">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                Live feed
+                {t('liveFeed.title')}
               </p>
               <p className="mt-1 text-sm font-medium text-slate-900">
-                Realtime task, approval, agent, and board-chat activity.
+                {t('liveFeed.description')}
               </p>
             </div>
             <button
@@ -4079,7 +4078,7 @@ export default function BoardDetailPage() {
           </div>
           <div className="flex-1 overflow-y-auto px-6 py-4">
             {isLiveFeedHistoryLoading && orderedLiveFeed.length === 0 ? (
-              <p className="text-sm text-slate-500">Loading feed…</p>
+              <p className="text-sm text-slate-500">{t('board.loadingFeed')}</p>
             ) : liveFeedHistoryError ? (
               <div className="rounded-lg border border-slate-200 bg-white p-4 text-sm text-slate-700 shadow-sm">
                 {liveFeedHistoryError}
@@ -4138,7 +4137,7 @@ export default function BoardDetailPage() {
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
         <DialogContent aria-label={t('board.editTask')}>
           <DialogHeader>
-            <DialogTitle>Edit task</DialogTitle>
+            <DialogTitle>编辑任务</DialogTitle>
             <DialogDescription>
               Update task details, priority, status, or assignment.
             </DialogDescription>
@@ -4246,10 +4245,10 @@ export default function BoardDetailPage() {
                 disabled={!selectedTask || isSavingTask || !canWrite}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Unassigned" />
+                  <SelectValue placeholder="未分配" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="unassigned">Unassigned</SelectItem>
+                  <SelectItem value="unassigned">未分配</SelectItem>
                   {assignableAgents.map((agent) => (
                     <SelectItem key={agent.id} value={agent.id}>
                       {agent.name}
@@ -4277,7 +4276,7 @@ export default function BoardDetailPage() {
                 </button>
               </div>
               <DropdownSelect
-                ariaLabel=t('board.addTag')
+                ariaLabel={t('board.addTag')}
                 placeholder={t('board.addTag')}
                 options={editTagOptions}
                 onValueChange={addEditTag}
@@ -4285,7 +4284,7 @@ export default function BoardDetailPage() {
                 emptyMessage="No tags configured."
               />
               {editTagIds.length === 0 ? (
-                <p className="text-xs text-slate-500">No tags assigned.</p>
+                <p className="text-xs text-slate-500">{t('board.noTagsAssigned')}</p>
               ) : (
                 <div className="flex flex-wrap gap-2">
                   {editTagIds.map((tagId) => {
@@ -4330,7 +4329,7 @@ export default function BoardDetailPage() {
                 Tasks stay blocked until every dependency is marked done.
               </p>
               <DropdownSelect
-                ariaLabel=t('board.addDependency')
+                ariaLabel={t('board.addDependency')}
                 placeholder={t('board.addDependency')}
                 options={dependencyOptions}
                 onValueChange={addTaskDependency}
@@ -4436,7 +4435,7 @@ export default function BoardDetailPage() {
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
         <DialogContent aria-label={t('board.deleteTask')}>
           <DialogHeader>
-            <DialogTitle>Delete task</DialogTitle>
+            <DialogTitle>删除任务</DialogTitle>
             <DialogDescription>
               This removes the task permanently. This action cannot be undone.
             </DialogDescription>
@@ -4476,14 +4475,14 @@ export default function BoardDetailPage() {
       >
         <DialogContent aria-label={titleLabel}>
           <DialogHeader>
-            <DialogTitle>New task</DialogTitle>
+            <DialogTitle>新任务</DialogTitle>
             <DialogDescription>
               Add a task to the inbox and triage it when you are ready.
             </DialogDescription>
           </DialogHeader>
           <div className="space-y-4">
             <div className="space-y-2">
-              <label className="text-sm font-medium text-strong">Title</label>
+              <label className="text-sm font-medium text-strong">标题</label>
               <Input
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
@@ -4498,7 +4497,7 @@ export default function BoardDetailPage() {
               <Textarea
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
-                placeholder="Optional details"
+                placeholder="可选详情"
                 className="min-h-[120px]"
                 disabled={!canWrite || isCreating}
               />
@@ -4549,7 +4548,7 @@ export default function BoardDetailPage() {
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between gap-2">
-                <label className="text-sm font-medium text-strong">Tags</label>
+                <label className="text-sm font-medium text-strong">标签</label>
                 <button
                   type="button"
                   onClick={() => router.push("/tags")}
@@ -4559,7 +4558,7 @@ export default function BoardDetailPage() {
                 </button>
               </div>
               <DropdownSelect
-                ariaLabel=t('board.addTag')
+                ariaLabel={t('board.addTag')}
                 placeholder={t('board.addTag')}
                 options={createTagOptions}
                 onValueChange={addCreateTag}
@@ -4595,7 +4594,7 @@ export default function BoardDetailPage() {
                   })}
                 </div>
               ) : (
-                <p className="text-xs text-slate-500">No tags assigned.</p>
+                <p className="text-xs text-slate-500">{t('board.noTagsAssigned')}</p>
               )}
             </div>
             {createError ? (
@@ -4606,13 +4605,13 @@ export default function BoardDetailPage() {
           </div>
           <DialogFooter>
             <Button variant="outline" onClick={() => setIsDialogOpen(false)}>
-              Cancel
+              {t('cancel')}
             </Button>
             <Button
               onClick={handleCreateTask}
               disabled={!canWrite || isCreating}
             >
-              {isCreating ? "Creating…" : "Create task"}
+              {isCreating ? t('creating') : t('createTask')}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -4628,7 +4627,7 @@ export default function BoardDetailPage() {
             }
           }}
         >
-          <DialogContent aria-label="Agent controls">
+          <DialogContent aria-label={t('board.agent_controls')}>
             <DialogHeader>
               <DialogTitle>
                 {agentsControlAction === "pause"
@@ -4649,7 +4648,7 @@ export default function BoardDetailPage() {
             ) : null}
 
             <div className="rounded-lg border border-slate-200 bg-slate-50 p-3 text-sm text-slate-700">
-              <p className="font-semibold text-slate-900">What happens</p>
+              <p className="font-semibold text-slate-900">{t('board.what_happens')}</p>
               <ul className="mt-2 list-disc space-y-1 pl-5">
                 <li>
                   This posts{" "}

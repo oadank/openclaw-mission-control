@@ -3,6 +3,7 @@
 export const dynamic = "force-dynamic";
 
 import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   useParams,
   usePathname,
@@ -738,6 +739,7 @@ const LiveFeedCard = memo(function LiveFeedCard({
 LiveFeedCard.displayName = "LiveFeedCard";
 
 export default function BoardDetailPage() {
+  const t = useTranslations("boardsPage");
   const router = useRouter();
   const params = useParams();
   const pathname = usePathname();
@@ -897,6 +899,8 @@ export default function BoardDetailPage() {
   const [chatError, setChatError] = useState<string | null>(null);
   const chatMessagesRef = useRef<BoardChatMessage[]>([]);
   const chatEndRef = useRef<HTMLDivElement | null>(null);
+  /** Tracks IDs of locally-optimistically-added messages to suppress SSE duplicates. */
+  const pendingChatIdsRef = useRef<Set<string>>(new Set());
   const [isAgentsControlDialogOpen, setIsAgentsControlDialogOpen] =
     useState(false);
   const [agentsControlAction, setAgentsControlAction] = useState<
@@ -1438,19 +1442,25 @@ export default function BoardDetailPage() {
                 };
                 if (payload.memory?.tags?.includes("chat")) {
                   pushLiveFeed(toLiveFeedFromBoardChat(payload.memory));
-                  setChatMessages((prev) => {
-                    const exists = prev.some(
-                      (item) => item.id === payload.memory?.id,
-                    );
-                    if (exists) return prev;
-                    const next = [...prev, payload.memory as BoardChatMessage];
-                    next.sort((a, b) => {
-                      const aTime = apiDatetimeToMs(a.created_at) ?? 0;
-                      const bTime = apiDatetimeToMs(b.created_at) ?? 0;
-                      return aTime - bTime;
+                  // Skip SSE duplicates of locally-optimistically-added messages.
+                  const msgId = payload.memory.id;
+                  if (msgId && pendingChatIdsRef.current.has(msgId)) {
+                    pendingChatIdsRef.current.delete(msgId);
+                  } else {
+                    setChatMessages((prev) => {
+                      const exists = prev.some(
+                        (item) => item.id === payload.memory?.id,
+                      );
+                      if (exists) return prev;
+                      const next = [...prev, payload.memory as BoardChatMessage];
+                      next.sort((a, b) => {
+                        const aTime = apiDatetimeToMs(a.created_at) ?? 0;
+                        const bTime = apiDatetimeToMs(b.created_at) ?? 0;
+                        return aTime - bTime;
+                      });
+                      return next;
                     });
-                    return next;
-                  });
+                  }
                 }
               } catch {
                 // ignore malformed
@@ -2059,6 +2069,10 @@ export default function BoardDetailPage() {
         const created = result.data;
         if (created.tags?.includes("chat")) {
           pushLiveFeed(toLiveFeedFromBoardChat(created));
+          // Mark as pending so SSE handler suppresses the duplicate.
+          if (created.id) {
+            pendingChatIdsRef.current.add(created.id);
+          }
           setChatMessages((prev) => {
             const exists = prev.some((item) => item.id === created.id);
             if (exists) return prev;
@@ -3031,7 +3045,7 @@ export default function BoardDetailPage() {
     if (isAssign) {
       rows.push({
         label: "Assignee",
-        value: assignedAgentId ?? "Unassigned",
+        value: assignedAgentId ?? t("unassigned"),
       });
     }
     if (title) rows.push({ label: "Title", value: title });
@@ -3082,13 +3096,13 @@ export default function BoardDetailPage() {
     <DashboardShell>
       <SignedOut>
         <div className="flex h-full flex-col items-center justify-center gap-4 rounded-2xl surface-panel p-10 text-center">
-          <p className="text-sm text-muted">Sign in to view boards.</p>
+          <p className="text-sm text-muted">{t('signedOut')}</p>
           <SignInButton
             mode="modal"
             forceRedirectUrl="/boards"
             signUpForceRedirectUrl="/boards"
           >
-            <Button>Sign in</Button>
+            <Button>{t('signIn')}</Button>
           </SignInButton>
         </div>
       </SignedOut>
@@ -3145,8 +3159,8 @@ export default function BoardDetailPage() {
                   <Button
                     onClick={() => setIsDialogOpen(true)}
                     className="h-9 w-9 p-0"
-                    aria-label="New task"
-                    title={canWrite ? "New task" : "Read-only access"}
+                    aria-label={t("newTask")}
+                    title={canWrite ? t("newTask") : t("readOnlyAccess")}
                     disabled={!canWrite}
                   >
                     <Plus className="h-4 w-4" />
@@ -3193,7 +3207,7 @@ export default function BoardDetailPage() {
                           ? isAgentsPaused
                             ? "Resume agents"
                             : "Pause agents"
-                          : "Read-only access"
+                          : t("readOnlyAccess")
                       }
                     >
                       {isAgentsPaused ? (
@@ -3455,7 +3469,7 @@ export default function BoardDetailPage() {
                                             <p className="mt-2 truncate text-xs text-slate-600">
                                               Assignee:{" "}
                                               <span className="font-medium text-slate-900">
-                                                {task.assignee ?? "Unassigned"}
+                                                {task.assignee ?? t("unassigned")}
                                               </span>
                                             </p>
                                             {task.tags?.length ? (
@@ -3560,7 +3574,7 @@ export default function BoardDetailPage() {
                             size="sm"
                             onClick={() => setIsDialogOpen(true)}
                             disabled={isCreating || !canWrite}
-                            title={canWrite ? "New task" : "Read-only access"}
+                            title={canWrite ? t("newTask") : t("readOnlyAccess")}
                           >
                             New task
                           </Button>
@@ -3643,7 +3657,7 @@ export default function BoardDetailPage() {
                                     </div>
                                   ) : null}
                                   <span className="text-xs text-slate-500">
-                                    {task.assignee ?? "Unassigned"}
+                                    {task.assignee ?? t("unassigned")}
                                   </span>
                                   <span className="text-xs text-slate-500">
                                     {formatTaskTimestamp(
@@ -3700,7 +3714,7 @@ export default function BoardDetailPage() {
                 onClick={() => setIsEditDialogOpen(true)}
                 className="rounded-lg border border-slate-200 p-2 text-slate-500 transition hover:bg-slate-50"
                 disabled={!selectedTask || !canWrite}
-                title={canWrite ? "Edit task" : "Read-only access"}
+                title={canWrite ? t("editTask") : t("readOnlyAccess")}
               >
                 <Pencil className="h-4 w-4" />
               </button>
@@ -3912,7 +3926,7 @@ export default function BoardDetailPage() {
                             disabled={
                               approvalsUpdatingId === approval.id || !canWrite
                             }
-                            title={canWrite ? "Approve" : "Read-only access"}
+                            title={canWrite ? "Approve" : t("readOnlyAccess")}
                           >
                             Approve
                           </Button>
@@ -3925,7 +3939,7 @@ export default function BoardDetailPage() {
                             disabled={
                               approvalsUpdatingId === approval.id || !canWrite
                             }
-                            title={canWrite ? "Reject" : "Read-only access"}
+                            title={canWrite ? "Reject" : t("readOnlyAccess")}
                             className="border-slate-300 text-slate-700"
                           >
                             Reject
@@ -4137,7 +4151,7 @@ export default function BoardDetailPage() {
       </aside>
 
       <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent aria-label="Edit task">
+        <DialogContent aria-label={t("editTask")}>
           <DialogHeader>
             <DialogTitle>Edit task</DialogTitle>
             <DialogDescription>
@@ -4247,7 +4261,7 @@ export default function BoardDetailPage() {
                 disabled={!selectedTask || isSavingTask || !canWrite}
               >
                 <SelectTrigger>
-                  <SelectValue placeholder="Unassigned" />
+                  <SelectValue placeholder=t("unassigned") />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="unassigned">Unassigned</SelectItem>
@@ -4409,7 +4423,7 @@ export default function BoardDetailPage() {
               onClick={() => setIsDeleteDialogOpen(true)}
               disabled={!selectedTask || isSavingTask || !canWrite}
               className="border-rose-200 text-rose-600 hover:border-rose-300 hover:text-rose-700"
-              title={canWrite ? "Delete task" : "Read-only access"}
+              title={canWrite ? t("deleteTask") : t("readOnlyAccess")}
             >
               Delete task
             </Button>
@@ -4428,14 +4442,14 @@ export default function BoardDetailPage() {
                 !selectedTask || isSavingTask || !hasTaskChanges || !canWrite
               }
             >
-              {isSavingTask ? "Saving…" : "Save changes"}
+              {isSavingTask ? t('settingsPage.saving') + "…" : t('settingsPage.saveChanges')}
             </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
       <Dialog open={isDeleteDialogOpen} onOpenChange={setIsDeleteDialogOpen}>
-        <DialogContent aria-label="Delete task">
+        <DialogContent aria-label=t("deleteTask")>
           <DialogHeader>
             <DialogTitle>Delete task</DialogTitle>
             <DialogDescription>
@@ -4460,7 +4474,7 @@ export default function BoardDetailPage() {
               disabled={isDeletingTask || !canWrite}
               className="bg-rose-600 text-white hover:bg-rose-700"
             >
-              {isDeletingTask ? "Deleting…" : "Delete task"}
+              {isDeletingTask ? "Deleting…" : t("deleteTask")}
             </Button>
           </DialogFooter>
         </DialogContent>

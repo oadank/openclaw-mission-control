@@ -3,6 +3,7 @@
 export const dynamic = "force-dynamic";
 
 import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
 
 import { useAuth } from "@/auth/clerk";
@@ -31,6 +32,7 @@ import { ConfirmActionDialog } from "@/components/ui/confirm-action-dialog";
 const BOARD_SORTABLE_COLUMNS = ["name", "group", "updated_at"];
 
 export default function BoardsPage() {
+  const t = useTranslations("boardsPage");
   const { isSignedIn } = useAuth();
   const queryClient = useQueryClient();
   const { sorting, onSortingChange } = useUrlSorting({
@@ -113,7 +115,7 @@ export default function BoardsPage() {
     <>
       <DashboardPageLayout
         signedOut={{
-          message: "Sign in to view boards.",
+          message: t("signedOut"),
           forceRedirectUrl: "/boards",
           signUpForceRedirectUrl: "/boards",
         }}
@@ -145,7 +147,7 @@ export default function BoardsPage() {
             stickyHeader
             onDelete={setDeleteTarget}
             emptyState={{
-              title: "No boards yet",
+              title: t("noBoardsYet"),
               description:
                 "Create your first board to start routing tasks and monitoring work across agents.",
               actionHref: "/boards/new",

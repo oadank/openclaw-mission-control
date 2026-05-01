@@ -51,8 +51,8 @@ export function LandingHero() {
   ];
 
   const signals = [
-    { text: t("signals.agentDelta"), time: "Now" },
-    { text: t("signals.growthOps"), time: "5m" },
+    { text: t("signals.agentDelta"), time: t("signals.now") },
+    { text: t("signals.growthOps"), time: t("signals.5m") },
     { text: t("signals.releasePipeline"), time: "12m" },
   ];
 

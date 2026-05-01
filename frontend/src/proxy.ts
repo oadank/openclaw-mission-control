@@ -1,14 +1,25 @@
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
+import createIntlMiddleware from 'next-intl/middleware';
 
 import { isLikelyValidClerkPublishableKey } from "@/auth/clerkKey";
 import { AuthMode } from "@/auth/mode";
+import { defaultLocale, locales, isLocale } from '@/i18n';
 
 const isClerkEnabled = () =>
   process.env.NEXT_PUBLIC_AUTH_MODE !== AuthMode.Local &&
   isLikelyValidClerkPublishableKey(
     process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
   );
+
+// Internationalization middleware for locale detection
+const intlMiddleware = createIntlMiddleware({
+  locales,
+  defaultLocale,
+  localeDetection: true,
+});
+
+
 
 // Public routes include home and sign-in paths to avoid redirect loops.
 const isPublicRoute = createRouteMatcher(["/", "/sign-in(.*)", "/sign-up(.*)"]);
@@ -34,10 +45,19 @@ function returnBackUrlFor(req: Request): string {
 
 export default isClerkEnabled()
   ? clerkMiddleware(async (auth, req) => {
-      if (isClerkInternalPath(new URL(req.url).pathname)) {
+      const pathname = new URL(req.url).pathname;
+      
+      if (isClerkInternalPath(pathname)) {
         return NextResponse.next();
       }
-      if (isPublicRoute(req)) return NextResponse.next();
+      
+      // Handle i18n locale detection
+      const intlResponse = intlMiddleware(req);
+      if (intlResponse.status !== 200 || intlResponse.headers.get('location')) {
+        return intlResponse;
+      }
+      
+      if (isPublicRoute(req)) return intlResponse;
 
       // In middleware, `auth()` resolves to a session/auth context (Promise in current typings).
       // Use redirectToSignIn() (instead of protect()) for unauthenticated requests.
@@ -46,9 +66,12 @@ export default isClerkEnabled()
         return redirectToSignIn({ returnBackUrl: returnBackUrlFor(req) });
       }
 
-      return NextResponse.next();
+      return intlResponse;
     })
-  : () => NextResponse.next();
+  : (req: NextRequest) => {
+      // Handle i18n even when clerk is disabled
+      return intlMiddleware(req);
+    };
 
 export const config = {
   matcher: [

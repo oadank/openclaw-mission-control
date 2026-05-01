@@ -905,15 +905,15 @@ export default function OrganizationPage() {
       <Dialog open={accessDialogOpen} onOpenChange={handleAccessDialogChange}>
         <DialogContent>
           <DialogHeader>
-            <DialogTitle>Manage member access</DialogTitle>
+            <DialogTitle>{t('manageMemberAccess')}</DialogTitle>
             <DialogDescription>
-              Adjust board permissions and role for this teammate.
+              {t('adjustBoardPermissions')}
             </DialogDescription>
           </DialogHeader>
 
           {memberDetailsQuery.isLoading ? (
             <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500">
-              Loading member access...
+              {t('loadingMemberAccess')}
             </div>
           ) : memberDetailsQuery.data?.status === 200 ? (
             <div className="space-y-6">
@@ -932,19 +932,19 @@ export default function OrganizationPage() {
 
               <div className="space-y-3">
                 <label className="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                  Role
+                  {t('role')}
                 </label>
                 <Select
                   value={resolvedAccessRole}
                   onValueChange={setAccessRole}
                 >
                   <SelectTrigger>
-                    <SelectValue placeholder="Select role" />
+                    <SelectValue placeholder={t('selectRole')} />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="owner">Owner</SelectItem>
-                    <SelectItem value="member">Member</SelectItem>
-                    <SelectItem value="admin">Admin</SelectItem>
+                    <SelectItem value="owner">{t('owner')}</SelectItem>
+                    <SelectItem value="member">{t('member')}</SelectItem>
+                    <SelectItem value="admin">{t('admin')}</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -960,7 +960,7 @@ export default function OrganizationPage() {
                 access={resolvedAccessMap}
                 onAccessChange={setAccessMap}
                 emptyMessage={
-                  boardsQuery.isLoading ? "Loading boards..." : undefined
+                  boardsQuery.isLoading ? t('loadingBoards') : undefined
                 }
               />
 
@@ -970,7 +970,7 @@ export default function OrganizationPage() {
             </div>
           ) : (
             <div className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-500">
-              Unable to load member access.
+              {t('unableToLoadMemberAccess')}
             </div>
           )}
 
@@ -985,7 +985,7 @@ export default function OrganizationPage() {
                   setRemoveMemberOpen(true);
                 }}
               >
-                Remove member
+                {t('removeMember')}
               </Button>
             ) : null}
             <Button
@@ -993,7 +993,7 @@ export default function OrganizationPage() {
               variant="outline"
               onClick={() => setAccessDialogOpen(false)}
             >
-              Cancel
+              {t('cancel')}
             </Button>
             <Button
               type="button"
@@ -1006,8 +1006,8 @@ export default function OrganizationPage() {
             >
               {updateMemberAccessMutation.isPending ||
               updateMemberRoleMutation.isPending
-                ? "Saving..."
-                : "Save changes"}
+                ? t('saving')
+                : t('saveChanges')}
             </Button>
           </DialogFooter>
         </DialogContent>
@@ -1043,25 +1043,25 @@ export default function OrganizationPage() {
             removeMemberMutation.reset();
           }
         }}
-        ariaLabel="Remove organization member"
-        title="Remove member"
+        ariaLabel={t('removeMember')}
+        title={t('removeMember')}
         description={
           <>
-            Remove{" "}
+            {t('removeMemberDescPrefix')}{" "}
             <strong>
               {memberDetails?.user?.name ||
                 memberDetails?.user?.preferred_name ||
                 memberDetails?.user?.email ||
                 "this member"}
             </strong>{" "}
-            from <strong>{orgName}</strong>? They will lose access immediately.
+            {t('removeMemberDescSuffix')} <strong>{orgName}</strong>{t('removeMemberDescSuffix2')}
           </>
         }
         errorMessage={removeMemberMutation.error?.message}
         onConfirm={handleRemoveMember}
         isConfirming={removeMemberMutation.isPending}
-        confirmLabel="Remove member"
-        confirmingLabel="Removing…"
+        confirmLabel={t('removeMember')}
+        confirmingLabel={t('removing')}
       />
     </DashboardShell>
   );

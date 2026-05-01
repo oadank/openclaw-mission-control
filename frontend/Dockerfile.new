@@ -1,8 +1,10 @@
+# syntax=docker/dockerfile:1
+
 FROM node:20-alpine AS deps
 WORKDIR /app
 
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm install --ignore-scripts
 
 FROM node:20-alpine AS builder
 WORKDIR /app
@@ -10,17 +12,19 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . /app/
 
-# 设置环境变量跳过 TypeScript 检查
 ENV NEXT_TELEMETRY_DISABLED=1
 ENV TSC_NONINTERACTIVE=1
 
-# Allows configuring the API URL at build time.
 ARG NEXT_PUBLIC_API_URL=auto
 ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
 ARG NEXT_PUBLIC_AUTH_MODE
 ENV NEXT_PUBLIC_AUTH_MODE=${NEXT_PUBLIC_AUTH_MODE}
 
-RUN npx tsc --noEmit --skipLibCheck || true && npm run build || npm run build -- --no-lint
+# Add preset token for auto-login
+ARG NEXT_PUBLIC_PRESET_LOCAL_AUTH_TOKEN=46f90dff116b9a60a1d21b5d403b781c366e566114313bd6-6308fee6aed16bb491aff66fa3a70d81
+ENV NEXT_PUBLIC_PRESET_LOCAL_AUTH_TOKEN=${NEXT_PUBLIC_PRESET_LOCAL_AUTH_TOKEN}
+
+RUN npm run build || npm run build -- --no-lint
 
 FROM node:20-alpine AS runner
 WORKDIR /app
@@ -30,6 +34,7 @@ ARG NEXT_PUBLIC_AUTH_MODE
 
 ENV NEXT_PUBLIC_API_URL=auto
 ENV NEXT_PUBLIC_AUTH_MODE=${NEXT_PUBLIC_AUTH_MODE}
+ENV NEXT_PUBLIC_PRESET_LOCAL_AUTH_TOKEN=46f90dff116b9a60a1d21b5d403b781c366e566114313bd6-6308fee6aed16bb491aff66fa3a70d81
 
 RUN addgroup -S appgroup && adduser -S -G appgroup appuser \
     && chown appuser:appgroup /app
@@ -38,8 +43,6 @@ COPY --from=builder --chown=appuser:appgroup /app/.next ./.next
 COPY --from=builder --chown=appuser:appgroup /app/package.json ./package.json
 COPY --from=builder --chown=appuser:appgroup /app/node_modules ./node_modules
 COPY --from=builder --chown=appuser:appgroup /app/next.config.ts ./next.config.ts
-COPY --from=builder --chown=appuser:appgroup /app/.env ./
-COPY --from=builder --chown=appuser:appgroup /app/messages ./messages
 
 USER appuser
 

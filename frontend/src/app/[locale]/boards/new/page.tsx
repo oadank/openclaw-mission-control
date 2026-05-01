@@ -5,6 +5,7 @@ export const dynamic = "force-dynamic";
 import { useMemo, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 import { useAuth } from "@/auth/clerk";
 
@@ -36,8 +37,8 @@ const slugify = (value: string) =>
 export default function NewBoardPage() {
   const router = useRouter();
   const { isSignedIn } = useAuth();
-
   const { isAdmin } = useOrganizationMembership(isSignedIn);
+  const t = useTranslations('createBoard');
 
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -76,7 +77,7 @@ export default function NewBoardPage() {
         }
       },
       onError: (err) => {
-        setError(err.message || "Something went wrong.");
+        setError(err.message || t('errorSomethingWrong'));
       },
     },
   });
@@ -109,10 +110,10 @@ export default function NewBoardPage() {
 
   const groupOptions = useMemo(
     () => [
-      { value: "none", label: "No group" },
+      { value: "none", label: t('noGroup') },
       ...groups.map((group) => ({ value: group.id, label: group.name })),
     ],
-    [groups],
+    [groups, t],
   );
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -121,16 +122,16 @@ export default function NewBoardPage() {
     const trimmedName = name.trim();
     const resolvedGatewayId = displayGatewayId;
     if (!trimmedName) {
-      setError("Board name is required.");
+      setError(t('errorNameRequired'));
       return;
     }
     if (!resolvedGatewayId) {
-      setError("Select a gateway before creating a board.");
+      setError(t('errorSelectGateway'));
       return;
     }
     const trimmedDescription = description.trim();
     if (!trimmedDescription) {
-      setError("Board description is required.");
+      setError(t('errorDescriptionRequired'));
       return;
     }
 
@@ -150,14 +151,14 @@ export default function NewBoardPage() {
   return (
     <DashboardPageLayout
       signedOut={{
-        message: "Sign in to create a board.",
+        message: t('signInToCreate'),
         forceRedirectUrl: "/boards/new",
         signUpForceRedirectUrl: "/boards/new",
       }}
-      title="Create board"
-      description="Boards organize tasks and agents by mission context."
+      title={t('title')}
+      description={t('description')}
       isAdmin={isAdmin}
-      adminOnlyMessage="Only organization owners and admins can create boards."
+      adminOnlyMessage={t('adminOnlyMessage')}
     >
       <form
         onSubmit={handleSubmit}
@@ -167,27 +168,27 @@ export default function NewBoardPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
               <label className="text-sm font-medium text-slate-900">
-                Board name <span className="text-red-500">*</span>
+                {t('boardName')} <span className="text-red-500">*</span>
               </label>
               <Input
                 value={name}
                 onChange={(event) => setName(event.target.value)}
-                placeholder="e.g. Release operations"
+                placeholder={t('boardNamePlaceholder')}
                 disabled={isLoading}
               />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium text-slate-900">
-                Gateway <span className="text-red-500">*</span>
+                {t('gateway')} <span className="text-red-500">*</span>
               </label>
               <SearchableSelect
-                ariaLabel="Select gateway"
+                ariaLabel={t('selectGateway')}
                 value={displayGatewayId}
                 onValueChange={setGatewayId}
                 options={gatewayOptions}
-                placeholder="Select gateway"
-                searchPlaceholder="Search gateways..."
-                emptyMessage="No gateways found."
+                placeholder={t('selectGateway')}
+                searchPlaceholder={t('searchGateways')}
+                emptyMessage={t('noGateways')}
                 triggerClassName="w-full h-11 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-900 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                 contentClassName="rounded-xl border border-slate-200 shadow-lg"
                 itemClassName="px-4 py-3 text-sm text-slate-700 data-[selected=true]:bg-slate-50 data-[selected=true]:text-slate-900"
@@ -198,35 +199,35 @@ export default function NewBoardPage() {
           <div className="grid gap-6 md:grid-cols-2">
             <div className="space-y-2">
               <label className="text-sm font-medium text-slate-900">
-                Board group
+                {t('boardGroup')}
               </label>
               <SearchableSelect
-                ariaLabel="Select board group"
+                ariaLabel={t('selectBoardGroup')}
                 value={boardGroupId}
                 onValueChange={setBoardGroupId}
                 options={groupOptions}
-                placeholder="No group"
-                searchPlaceholder="Search groups..."
-                emptyMessage="No groups found."
+                placeholder={t('noGroup')}
+                searchPlaceholder={t('searchGroups')}
+                emptyMessage={t('noGroups')}
                 triggerClassName="w-full h-11 rounded-xl border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-900 shadow-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
                 contentClassName="rounded-xl border border-slate-200 shadow-lg"
                 itemClassName="px-4 py-3 text-sm text-slate-700 data-[selected=true]:bg-slate-50 data-[selected=true]:text-slate-900"
                 disabled={isLoading}
               />
               <p className="text-xs text-slate-500">
-                Optional. Groups increase cross-board visibility.
+                {t('boardGroupDesc')}
               </p>
             </div>
           </div>
 
           <div className="space-y-2">
             <label className="text-sm font-medium text-slate-900">
-              Description <span className="text-red-500">*</span>
+              {t('description')} <span className="text-red-500">*</span>
             </label>
             <Textarea
               value={description}
               onChange={(event) => setDescription(event.target.value)}
-              placeholder="What context should the lead agent know before onboarding?"
+              placeholder={t('descriptionPlaceholder')}
               className="min-h-[120px]"
               disabled={isLoading}
             />
@@ -236,14 +237,14 @@ export default function NewBoardPage() {
         {gateways.length === 0 ? (
           <div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600">
             <p>
-              No gateways available. Create one in{" "}
+              {t('noGatewaysAvailablePrefix')}{" "}
               <Link
                 href="/gateways"
                 className="font-medium text-blue-600 hover:text-blue-700"
               >
-                Gateways
+                {t('gateways')}
               </Link>{" "}
-              to continue.
+              {t('noGatewaysAvailableSuffix')}
             </p>
           </div>
         ) : null}
@@ -259,10 +260,10 @@ export default function NewBoardPage() {
             onClick={() => router.push("/boards")}
             disabled={isLoading}
           >
-            Cancel
+            {t('cancel')}
           </Button>
           <Button type="submit" disabled={isLoading || !isFormReady}>
-            {isLoading ? "Creating…" : "Create board"}
+            {isLoading ? t('creating') : t('create')}
           </Button>
         </div>
       </form>

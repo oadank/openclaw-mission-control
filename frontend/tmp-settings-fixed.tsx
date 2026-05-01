@@ -1,5 +1,5 @@
 "use client";
-// import LanguageSwitcher from '@/components/LanguageSwitcher';
+import LanguageSwitcher from '@/components/LanguageSwitcher';
 
 export const dynamic = "force-dynamic";
 
@@ -122,7 +122,7 @@ export default function SettingsPage() {
   return (
     <>
       <div className="mb-6">
-        null
+        <LanguageSwitcher />
       </div>
       <DashboardPageLayout
         signedOut={{ message: t("signInMessage"), forceRedirectUrl: "/settings", signUpForceRedirectUrl: "/settings" }}

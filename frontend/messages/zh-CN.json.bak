@@ -1,0 +1,17 @@
+{
+  "common": {
+    "appName": "OpenClaw Mission Control",
+    "appDescription": "面向每项任务的冷静指挥中枢。"
+  },
+  "boardsPage": {
+    "signedOut": "登录后查看看板。",
+    "signIn": "登录",
+    "createBoard": "创建看板",
+    "noBoardsYet": "暂无看板",
+    "newTask": "新建任务",
+    "editTask": "编辑任务",
+    "deleteTask": "删除任务",
+    "unassigned": "未指派",
+    "readOnlyAccess": "只读访问"
+  }
+}

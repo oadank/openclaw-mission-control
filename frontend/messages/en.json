@@ -64,7 +64,9 @@
     "signals": {
       "agentDelta": "Agent Delta moved task to review",
       "growthOps": "Growth Ops hit WIP limit",
-      "releasePipeline": "Release pipeline stabilized"
+      "releasePipeline": "Release pipeline stabilized",
+      "now": "Now",
+      "5m": "5m"
     },
     "featureCards": {
       "boardsTitle": "Boards as ops maps",
